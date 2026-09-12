@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import {
-  CheckCircle2,
   ExternalLink,
   BookOpen,
   FileQuestion,
@@ -10,7 +9,6 @@ import {
   Zap,
 } from 'lucide-react';
 import type { Resource, ResourceKind } from '../types';
-import { useLearningStore } from '../store/useStore';
 import { Badge, Card, cx, YouTubeThumb } from './ui';
 import type { BadgeTone } from './ui';
 import { ytSearch } from '../data/yt';
@@ -44,10 +42,6 @@ export interface VideoCardProps {
 }
 
 export default function VideoCard({ resource }: VideoCardProps) {
-  const watchedIds = useLearningStore((s) => s.watched);
-  const toggleWatched = useLearningStore((s) => s.toggleWatched);
-
-  const isWatched = watchedIds.includes(resource.id);
   const meta = KIND_META[resource.kind];
   const hasFrame = Boolean(resource.videoId || resource.playlistId);
   const href = resource.playlistId
@@ -57,12 +51,7 @@ export default function VideoCard({ resource }: VideoCardProps) {
       : ytSearch(resource.query);
 
   return (
-    <Card
-      className={cx(
-        'group overflow-hidden transition hover:shadow-cardHover',
-        isWatched && 'opacity-70',
-      )}
-    >
+    <Card className="group overflow-hidden transition hover:shadow-cardHover">
       {hasFrame ? (
         <YouTubeThumb
           videoId={resource.videoId}
@@ -109,7 +98,7 @@ export default function VideoCard({ resource }: VideoCardProps) {
           </p>
         ) : null}
 
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div className="mt-3">
           <a
             href={href}
             target="_blank"
@@ -119,19 +108,6 @@ export default function VideoCard({ resource }: VideoCardProps) {
             Watch on YouTube
             <ExternalLink className="h-3 w-3" />
           </a>
-          <button
-            type="button"
-            onClick={() => toggleWatched(resource.id)}
-            className={cx(
-              'inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-semibold transition',
-              isWatched
-                ? 'border-mint-500/40 bg-mint-500/10 text-mint-600 dark:text-mint-400'
-                : 'border-ink-200 text-ink-500 hover:border-accent hover:text-accent dark:border-ink-700 dark:text-ink-400',
-            )}
-          >
-            <CheckCircle2 className="h-3.5 w-3.5" />
-            {isWatched ? 'Watched' : 'Mark watched'}
-          </button>
         </div>
       </div>
     </Card>

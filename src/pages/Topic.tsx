@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import type { ReactNode } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
-  Bookmark,
-  BookmarkCheck,
-  CheckCircle2,
-  Circle,
+  ExternalLink,
+  FileText,
+  Globe,
   Lightbulb,
   NotebookPen,
-  Play,
   Sparkles,
+  Youtube,
 } from 'lucide-react';
 import { FLAT_TOPICS, getSubject } from '../data/curriculum';
-import type { Language, ResourceKind } from '../types';
-import { useLearningStore } from '../store/useStore';
-import { Badge, Card, EmptyState, PageHeader, ProgressBar, SourceNote, cx } from '../components/ui';
+import type { Language, ResourceKind, StudyNote } from '../types';
+import { Badge, Card, EmptyState, PageHeader, SourceNote, cx } from '../components/ui';
 import VideoCard from '../components/VideoCard';
 import PracticeCard from '../components/PracticeCard';
 
@@ -43,32 +42,19 @@ const langOptions: Array<{ value: Language | 'all'; label: string }> = [
   { value: 'english', label: 'EN' },
 ];
 
+const NOTE_META: Record<StudyNote['format'], { label: string; icon: ReactNode }> = {
+  notes: { label: 'Notes', icon: <NotebookPen className="h-4 w-4" /> },
+  pdf: { label: 'PDF', icon: <FileText className="h-4 w-4" /> },
+  website: { label: 'Website', icon: <Globe className="h-4 w-4" /> },
+  youtube: { label: 'Video', icon: <Youtube className="h-4 w-4" /> },
+};
+
 export default function Topic() {
   const { topicId } = useParams();
   const [lang, setLang] = useState<Language | 'all'>('all');
-  const [hideWatched, setHideWatched] = useState(false);
 
   const flat = FLAT_TOPICS.find((t) => t.id === topicId);
   const subject = flat ? getSubject(flat.subjectId) : undefined;
-
-  const completed = useLearningStore((s) => s.completed);
-  const watched = useLearningStore((s) => s.watched);
-  const bookmarks = useLearningStore((s) => s.bookmarks);
-  const toggleComplete = useLearningStore((s) => s.toggleComplete);
-  const toggleBookmark = useLearningStore((s) => s.toggleBookmark);
-  const setLast = useLearningStore((s) => s.setLast);
-  const savedNote = useLearningStore((s) => (flat ? s.notes[flat.id] ?? '' : ''));
-  const setNote = useLearningStore((s) => s.setNote);
-  const [noteDraft, setNoteDraft] = useState('');
-  const [noteSaved, setNoteSaved] = useState(false);
-
-  useEffect(() => {
-    setNoteDraft(savedNote);
-  }, [savedNote]);
-
-  useEffect(() => {
-    if (flat && subject) setLast({ subjectId: flat.subjectId, topicId: flat.id });
-  }, [flat, subject, setLast]);
 
   if (!flat || !subject) {
     return (
@@ -89,23 +75,14 @@ export default function Topic() {
     );
   }
 
-  const isDone = completed.includes(flat.id);
-  const isSaved = bookmarks.includes(flat.id);
-
   const subjectTopics = FLAT_TOPICS.filter((t) => t.subjectId === flat.subjectId);
   const idx = subjectTopics.findIndex((t) => t.id === flat.id);
   const prev = idx > 0 ? subjectTopics[idx - 1] : undefined;
   const next = idx < subjectTopics.length - 1 ? subjectTopics[idx + 1] : undefined;
-  const doneInSubject = subjectTopics.filter((t) => completed.includes(t.id)).length;
 
   const groups = ORDER.map((kind) => ({
     kind,
-    items: flat.resources.filter(
-      (r) =>
-        r.kind === kind &&
-        (lang === 'all' || r.language === lang) &&
-        (!hideWatched || !watched.includes(r.id)),
-    ),
+    items: flat.resources.filter((r) => r.kind === kind && (lang === 'all' || r.language === lang)),
   })).filter((g) => g.items.length > 0);
 
   return (
@@ -114,34 +91,13 @@ export default function Topic() {
         eyebrow={`Semester ${subject.semester} · ${subject.shortName}`}
         title={flat.title}
       >
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => toggleBookmark(flat.id)}
-            className={cx(
-              'inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-sm font-medium transition',
-              isSaved
-                ? 'border-accent bg-accent/10 text-accent dark:text-accent-300'
-                : 'border-ink-200 bg-white text-ink-600 hover:border-accent hover:text-accent dark:border-ink-700 dark:bg-ink-800 dark:text-ink-300',
-            )}
-          >
-            {isSaved ? <BookmarkCheck className="h-4 w-4" /> : <Bookmark className="h-4 w-4" />}
-            {isSaved ? 'Saved' : 'Save'}
-          </button>
-          <button
-            type="button"
-            onClick={() => toggleComplete(flat.id)}
-            className={cx(
-              'inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition',
-              isDone
-                ? 'bg-mint-500 text-white'
-                : 'bg-accent text-white hover:bg-accent-600',
-            )}
-          >
-            {isDone ? <CheckCircle2 className="h-4 w-4" /> : <Circle className="h-4 w-4" />}
-            {isDone ? 'Completed' : 'Mark complete'}
-          </button>
-        </div>
+        <Link
+          to={`/subject/${subject.id}`}
+          className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-3 py-2 text-sm font-medium text-ink-600 transition hover:border-accent hover:text-accent dark:border-ink-700 dark:bg-ink-800 dark:text-ink-300"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to subject
+        </Link>
       </PageHeader>
       <SourceNote />
 
@@ -167,82 +123,64 @@ export default function Topic() {
             <Badge tone="ink">{flat.marks} marks</Badge>
             <Badge tone="ink">{flat.periods} periods</Badge>
           </div>
-          <div className="mt-4">
-            <p className="mb-1.5 text-xs font-medium text-ink-400">Subject progress</p>
-            <ProgressBar value={doneInSubject} max={subjectTopics.length} />
+          <div className="mt-4 space-y-2">
+            <a
+              href="#video-resources"
+              className="flex items-center justify-between rounded-xl border border-ink-100 bg-ink-50/60 px-3.5 py-2.5 text-sm font-medium text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-800/30 dark:text-ink-200"
+            >
+              Video resources
+              <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+            {flat.notes && flat.notes.length > 0 ? (
+              <a
+                href="#chapter-notes"
+                className="flex items-center justify-between rounded-xl border border-ink-100 bg-ink-50/60 px-3.5 py-2.5 text-sm font-medium text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-800/30 dark:text-ink-200"
+              >
+                Chapter notes
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            ) : null}
+            <Link
+              to={`/subject/${subject.id}`}
+              className="flex items-center justify-between rounded-xl border border-ink-100 bg-ink-50/60 px-3.5 py-2.5 text-sm font-medium text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-800/30 dark:text-ink-200"
+            >
+              All {subject.shortName} topics
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
-          <Link
-            to={`/subject/${subject.id}`}
-            className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-600 dark:text-accent-300"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Back to {subject.shortName}
-          </Link>
         </Card>
       </div>
 
-      <Card className="flex flex-wrap items-center justify-between gap-3 p-5">
-        <div className="flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent/10 text-accent dark:bg-accent/15 dark:text-accent-300">
-            <Play className="h-4 w-4" />
-          </div>
-          <div>
-            <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
-              Deep Learning Mode
-            </p>
-            <p className="text-xs text-ink-400">Watch deep lectures first, then practice.</p>
-          </div>
-        </div>
-        <Link
-          to={`/deep-learning?subject=${subject.id}&topic=${flat.id}`}
-          className="inline-flex items-center gap-1.5 rounded-xl border border-accent px-3.5 py-2 text-sm font-semibold text-accent transition hover:bg-accent hover:text-white dark:text-accent-300"
-        >
-          Enter focus mode
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-      </Card>
-
-      <div>
+      <div id="video-resources">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
             <Sparkles className="h-5 w-5 text-accent" />
             Video resources
           </h2>
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="flex rounded-xl border border-ink-200 bg-white p-0.5 dark:border-ink-700 dark:bg-ink-800">
-              {langOptions.map((o) => (
-                <button
-                  key={o.value}
-                  type="button"
-                  onClick={() => setLang(o.value)}
-                  className={cx(
-                    'rounded-[10px] px-2.5 py-1 text-xs font-medium transition',
-                    lang === o.value
-                      ? 'bg-accent text-white'
-                      : 'text-ink-500 hover:text-accent dark:text-ink-400',
-                  )}
-                >
-                  {o.label}
-                </button>
-              ))}
-            </div>
-            <label className="flex cursor-pointer items-center gap-2 text-xs font-medium text-ink-500 dark:text-ink-400">
-              <input
-                type="checkbox"
-                checked={hideWatched}
-                onChange={(e) => setHideWatched(e.target.checked)}
-                className="h-3.5 w-3.5 accent-accent"
-              />
-              Hide watched
-            </label>
+          <div className="flex rounded-xl border border-ink-200 bg-white p-0.5 dark:border-ink-700 dark:bg-ink-800">
+            {langOptions.map((o) => (
+              <button
+                key={o.value}
+                type="button"
+                onClick={() => setLang(o.value)}
+                className={cx(
+                  'rounded-[10px] px-2.5 py-1 text-xs font-medium transition',
+                  lang === o.value
+                    ? 'bg-accent text-white'
+                    : 'text-ink-500 hover:text-accent dark:text-ink-400',
+                )}
+              >
+                {o.label}
+              </button>
+            ))}
           </div>
         </div>
 
         {groups.length === 0 ? (
           <EmptyState
             icon={<Sparkles className="h-6 w-6" />}
-            title="No videos match these filters"
-            body="Try switching language or un-hiding watched videos."
+            title="No videos in this language"
+            body="Try switching the language filter to see more resources."
           />
         ) : null}
 
@@ -267,6 +205,51 @@ export default function Topic() {
         </div>
       </div>
 
+      {flat.notes && flat.notes.length > 0 ? (
+        <div id="chapter-notes">
+          <h2 className="mb-1 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
+            <NotebookPen className="h-5 w-5 text-mint-500" />
+            Chapter notes
+          </h2>
+          <p className="mb-3 text-xs text-ink-400">
+            Reviewed study material — official PDFs and trusted supplementary sources.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {flat.notes.map((note) => {
+              const meta = NOTE_META[note.format];
+              return (
+                <a
+                  key={note.id}
+                  href={note.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex flex-col rounded-2xl border border-ink-100 bg-white p-4 transition hover:border-accent hover:shadow-cardHover dark:border-ink-800 dark:bg-ink-900"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent/10 text-accent dark:bg-accent/15 dark:text-accent-300">
+                      {meta.icon}
+                    </span>
+                    <Badge tone={note.source === 'official' ? 'accent' : 'ink'}>
+                      {note.source === 'official' ? 'Official' : 'Supplementary'}
+                    </Badge>
+                  </div>
+                  <p className="mt-3 font-display text-sm font-bold leading-snug text-ink-900 dark:text-ink-100">
+                    {note.title}
+                  </p>
+                  <p className="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                    {note.description}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent dark:text-accent-300">
+                    {meta.label}
+                    <ExternalLink className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+
       {flat.practice.length > 0 ? (
         <div>
           <h2 className="mb-3 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
@@ -280,39 +263,6 @@ export default function Topic() {
           </div>
         </div>
       ) : null}
-
-      <Card className="p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h2 className="flex items-center gap-2 font-display text-lg font-bold text-ink-950 dark:text-white">
-            <NotebookPen className="h-5 w-5 text-accent" />
-            My notes
-          </h2>
-          {noteSaved ? (
-            <span className="text-xs font-semibold text-mint-500">Saved</span>
-          ) : (
-            <span className="text-xs text-ink-300">Autosaves after you press Save</span>
-          )}
-        </div>
-        <textarea
-          value={noteDraft}
-          onChange={(e) => setNoteDraft(e.target.value)}
-          onFocus={() => setNoteSaved(false)}
-          rows={5}
-          placeholder="Jot down formulas, definitions, doubts or exam pointers for this topic…"
-          className="mt-3 w-full resize-y rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm leading-relaxed text-ink-800 outline-none transition placeholder:text-ink-300 focus:border-accent dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 dark:placeholder:text-ink-600"
-        />
-        <button
-          type="button"
-          onClick={() => {
-            if (flat) setNote(flat.id, noteDraft);
-            setNoteSaved(true);
-          }}
-          className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent/90"
-        >
-          <NotebookPen className="h-4 w-4" />
-          Save note
-        </button>
-      </Card>
 
       {flat.related && flat.related.length > 0 ? (
         <div>

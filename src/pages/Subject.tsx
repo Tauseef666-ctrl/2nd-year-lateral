@@ -4,14 +4,15 @@ import {
   ArrowRight,
   BookOpen,
   CheckCircle2,
+  ExternalLink,
   FlaskConical,
   ListChecks,
+  ListVideo,
   Target,
 } from 'lucide-react';
 import { getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject as SubjectT } from '../types';
-import { useLearningStore } from '../store/useStore';
-import { Badge, Card, EmptyState, PageHeader, ProgressBar, SourceNote, cx } from '../components/ui';
+import { Badge, Card, EmptyState, PageHeader, SourceNote } from '../components/ui';
 
 const categoryLabels: Record<SubjectT['category'], string> = {
   theory: 'Theory',
@@ -28,17 +29,9 @@ const difficultyLabels: Record<SubjectT['difficulty'], string> = {
   advanced: 'Advanced',
 };
 
-const examTone: Record<SubjectT['examImportance'], 'accent' | 'mint' | 'ink'> = {
-  critical: 'accent',
-  high: 'accent',
-  medium: 'ink',
-  low: 'mint',
-};
-
 export default function Subject() {
   const { subjectId } = useParams();
   const subject = getSubject(subjectId);
-  const completed = useLearningStore((s) => s.completed);
 
   if (!subject) {
     return (
@@ -60,7 +53,6 @@ export default function Subject() {
   }
 
   const topics = getSubjectTopics(subject.id);
-  const done = topics.filter((t) => completed.includes(t.id)).length;
   const labs = subject.labs ?? [];
   const labExercises = labs.reduce((n, l) => n + l.exercises.length, 0);
 
@@ -80,9 +72,6 @@ export default function Subject() {
       <div className="flex flex-wrap items-center gap-2">
         <Badge tone="accent">{categoryLabels[subject.category]}</Badge>
         <Badge tone="ink">{difficultyLabels[subject.difficulty]}</Badge>
-        <Badge tone={examTone[subject.examImportance]}>
-          Exam: {subject.examImportance.toUpperCase()}
-        </Badge>
         <Badge tone="ink">{subject.code}</Badge>
         <Badge tone="ink">{subject.periods}</Badge>
         <Badge tone="ink">{subject.credits} cr</Badge>
@@ -92,14 +81,63 @@ export default function Subject() {
         <p className="max-w-3xl text-[15px] leading-relaxed text-ink-600 dark:text-ink-300">
           {subject.description}
         </p>
-        <div className="mt-5">
-          <ProgressBar value={done} max={topics.length} />
-          <div className="mt-1.5 flex justify-between text-xs text-ink-400">
-            <span>{topics.length} topics · {done} completed</span>
-            <span>{topics.length === 0 ? 0 : Math.round((done / topics.length) * 100)}%</span>
-          </div>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {topics.map((t) => (
+            <Link
+              key={t.id}
+              to={`/topic/${t.id}`}
+              className="rounded-lg bg-ink-100 px-2.5 py-1 text-xs font-medium text-ink-600 transition hover:bg-accent hover:text-white dark:bg-ink-800 dark:text-ink-300"
+            >
+              {t.title.length > 32 ? `${t.title.slice(0, 32)}…` : t.title}
+            </Link>
+          ))}
         </div>
       </Card>
+
+      {subject.playlists && subject.playlists.length > 0 ? (
+        <div>
+          <h2 className="mb-3 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
+            <ListVideo className="h-5 w-5 text-accent" />
+            Stocked playlists
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {subject.playlists.map((pl) => (
+              <div
+                key={pl.id}
+                className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-4 transition hover:border-accent hover:shadow-cardHover dark:border-ink-800 dark:bg-ink-900"
+              >
+                <Badge tone="ink" className="self-start">{pl.kind === 'playlist' ? 'Playlist' : 'Video'}</Badge>
+                <p className="mt-2.5 font-display text-sm font-bold leading-snug text-ink-900 dark:text-ink-100">
+                  {pl.title}
+                </p>
+                {pl.channel ? (
+                  <p className="mt-1 text-xs font-medium text-ink-400">{pl.channel}</p>
+                ) : null}
+                {pl.why ? (
+                  <p className="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                    {pl.why}
+                  </p>
+                ) : null}
+                {pl.playlistId || pl.videoId ? (
+                  <a
+                    href={
+                      pl.playlistId
+                        ? `https://www.youtube.com/playlist?list=${pl.playlistId}`
+                        : `https://www.youtube.com/watch?v=${pl.videoId}`
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent transition group-hover:gap-2 dark:text-accent-300"
+                  >
+                    Watch on YouTube
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="p-6">
@@ -151,46 +189,25 @@ export default function Subject() {
                 </div>
               </div>
               <ul className="divide-y divide-ink-100 dark:divide-ink-800">
-                {module.topics.map((t, ti) => {
-                  const isDone = completed.includes(t.id);
-                  return (
-                    <li key={t.id}>
-                      <Link
-                        to={`/topic/${t.id}`}
-                        className="flex items-center gap-3 px-5 py-3 transition hover:bg-accent/5"
-                      >
-                        <span
-                          className={cx(
-                            'grid h-6 w-6 shrink-0 place-items-center rounded-md text-[11px] font-bold',
-                            isDone
-                              ? 'bg-mint-500/15 text-mint-600 dark:text-mint-400'
-                              : 'bg-ink-100 text-ink-500 dark:bg-ink-800 dark:text-ink-400',
-                          )}
-                        >
-                          {ti + 1}
-                        </span>
-                        <span
-                          className={cx(
-                            'flex-1 text-sm leading-snug',
-                            isDone
-                              ? 'text-ink-400 line-through dark:text-ink-500'
-                              : 'text-ink-800 dark:text-ink-100',
-                          )}
-                        >
-                          {t.title}
-                        </span>
-                        <span className="hidden shrink-0 text-xs text-ink-400 sm:block">
-                          {t.marks} marks · {t.periods}p
-                        </span>
-                        {isDone ? (
-                          <CheckCircle2 className="h-4 w-4 shrink-0 text-mint-500" />
-                        ) : (
-                          <ArrowRight className="h-4 w-4 shrink-0 text-ink-300" />
-                        )}
-                      </Link>
-                    </li>
-                  );
-                })}
+                {module.topics.map((t, ti) => (
+                  <li key={t.id}>
+                    <Link
+                      to={`/topic/${t.id}`}
+                      className="flex items-center gap-3 px-5 py-3 transition hover:bg-accent/5"
+                    >
+                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md bg-ink-100 text-[11px] font-bold text-ink-500 dark:bg-ink-800 dark:text-ink-400">
+                        {ti + 1}
+                      </span>
+                      <span className="flex-1 text-sm leading-snug text-ink-800 dark:text-ink-100">
+                        {t.title}
+                      </span>
+                      <span className="hidden shrink-0 text-xs text-ink-400 sm:block">
+                        {t.marks} marks · {t.periods}p
+                      </span>
+                      <ArrowRight className="h-4 w-4 shrink-0 text-ink-300" />
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </Card>
           ))}

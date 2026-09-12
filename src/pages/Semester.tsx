@@ -10,8 +10,7 @@ import {
 } from 'lucide-react';
 import { SEMESTERS, getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject } from '../types';
-import { useLearningStore } from '../store/useStore';
-import { Badge, Card, EmptyState, PageHeader, ProgressBar } from '../components/ui';
+import { Badge, Card, EmptyState, PageHeader } from '../components/ui';
 
 const categoryLabels: Record<Subject['category'], string> = {
   theory: 'Theory',
@@ -23,9 +22,7 @@ const categoryLabels: Record<Subject['category'], string> = {
 };
 
 function SubjectCard({ subject }: { subject: Subject }) {
-  const completed = useLearningStore((s) => s.completed);
   const topics = getSubjectTopics(subject.id);
-  const done = topics.filter((t) => completed.includes(t.id)).length;
 
   return (
     <Link to={`/subject/${subject.id}`} className="group block">
@@ -47,16 +44,11 @@ function SubjectCard({ subject }: { subject: Subject }) {
         <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
           {subject.description}
         </p>
-        <div className="mt-4">
-          <ProgressBar value={done} max={topics.length} />
-          <div className="mt-1.5 flex items-center justify-between text-xs text-ink-400">
-            <span>
-              {done}/{topics.length} topics
-            </span>
-            <span className="font-medium text-accent opacity-0 transition group-hover:opacity-100">
-              Open →
-            </span>
-          </div>
+        <div className="mt-4 flex items-center justify-between text-xs text-ink-400">
+          <span>{topics.length} topics</span>
+          <span className="font-medium text-accent opacity-0 transition group-hover:opacity-100">
+            Open →
+          </span>
         </div>
       </Card>
     </Link>
@@ -137,21 +129,16 @@ export default function Semester() {
                   and community sessions.
                 </p>
               </Card>
-              <Link to="/minor-project" className="group block">
-                <Card className="flex h-full flex-col gap-2 border-accent/30 p-5 transition hover:shadow-cardHover">
-                  <Hammer className="h-5 w-5 text-accent" />
-                  <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
-                    Minor Project
-                  </p>
-                  <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
-                    Official Semester 3 requirement with presentation. Plan it in the workspace.
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-accent">
-                    Open workspace
-                    <ArrowRight className="h-3 w-3" />
-                  </span>
-                </Card>
-              </Link>
+              <Card className="flex flex-col gap-2 p-5">
+                <Hammer className="h-5 w-5 text-accent" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Minor Project
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Official Semester 3 requirement with presentation. Plan and document it alongside
+                  your subject modules.
+                </p>
+              </Card>
               <Card className="flex flex-col gap-2 p-5">
                 <BookOpen className="h-5 w-5 text-mint-500" />
                 <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
@@ -174,22 +161,16 @@ export default function Semester() {
                   Continued weekly activities — Industry 4.0 exposure, hackathons and soft skills.
                 </p>
               </Card>
-              <Link to="/certification" className="group block">
-                <Card className="flex h-full flex-col gap-2 p-5 transition hover:shadow-cardHover">
-                  <BadgeCheck className="h-5 w-5 text-mint-500" />
-                  <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
-                    Advanced Skill Development
-                  </p>
-                  <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
-                    Min. 20 hours of recognised certification (Open Elective-1). Track your
-                    certificates here.
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-mint-600 dark:text-mint-400">
-                    Open tracker
-                    <ArrowRight className="h-3 w-3" />
-                  </span>
-                </Card>
-              </Link>
+              <Card className="flex flex-col gap-2 p-5">
+                <BadgeCheck className="h-5 w-5 text-mint-500" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Advanced Skill Development
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Min. 20 hours of recognised certification (Open Elective-1) — pick a track and
+                  keep your certificates safe.
+                </p>
+              </Card>
               <Card className="flex flex-col gap-2 p-5">
                 <Layers className="h-5 w-5 text-ink-400" />
                 <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
