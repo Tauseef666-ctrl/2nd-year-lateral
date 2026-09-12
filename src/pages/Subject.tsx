@@ -13,6 +13,8 @@ import {
 import { getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject as SubjectT } from '../types';
 import { Badge, Card, EmptyState, PageHeader, SourceNote } from '../components/ui';
+import { ChapterNotes } from '../components/ChapterNotes';
+import { CHAPTER_NOTES } from '../data/chapterNotes';
 
 const categoryLabels: Record<SubjectT['category'], string> = {
   theory: 'Theory',
@@ -209,6 +211,11 @@ export default function Subject() {
                   </li>
                 ))}
               </ul>
+              {CHAPTER_NOTES[subject.id]?.some((n) => n.moduleId === module.id) ? (
+                <div className="border-t border-ink-100 bg-white px-5 py-4 dark:border-ink-800 dark:bg-ink-900">
+                  <ChapterNotes subjectId={subject.id} moduleId={module.id} />
+                </div>
+              ) : null}
             </Card>
           ))}
         </div>

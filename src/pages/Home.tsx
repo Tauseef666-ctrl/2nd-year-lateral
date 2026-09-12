@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BookOpen,
   Clapperboard,
+  FileText,
   FlaskConical,
   GraduationCap,
   ListChecks,
@@ -21,6 +22,7 @@ import {
   TOTAL_TOPICS,
   getSubject,
 } from '../data/curriculum';
+import { TOTAL_CHAPTER_NOTES } from '../data/chapterNotes';
 import type { Semester } from '../types';
 import { Badge, Card, cx } from '../components/ui';
 
@@ -120,11 +122,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         <Stat label="Subjects" value={String(ALL_SUBJECTS.length)} icon={<BookOpen className="h-4 w-4" />} />
         <Stat label="Topics" value={String(TOTAL_TOPICS)} icon={<ListChecks className="h-4 w-4" />} />
         <Stat label="Labs" value={String(TOTAL_LABS)} icon={<FlaskConical className="h-4 w-4" />} />
-        <Stat label="Chapters with notes" value={String(notesCount)} icon={<NotebookPen className="h-4 w-4" />} />
+        <Stat label="Chapter notes" value={String(TOTAL_CHAPTER_NOTES)} icon={<NotebookPen className="h-4 w-4" />} />
+        <Stat label="Topics with study notes" value={String(notesCount)} icon={<FileText className="h-4 w-4" />} />
       </div>
 
       <Card className="overflow-hidden border-accent/25">

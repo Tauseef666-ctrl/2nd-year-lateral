@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Badge, Card, EmptyState, PageHeader, SourceNote, cx } from '../components/ui';
 import { FLAT_TOPICS, getSubject } from '../data/curriculum';
+import { CHAPTER_NOTES, TOTAL_CHAPTER_NOTES } from '../data/chapterNotes';
 import type { StudyNote } from '../types';
 
 const NOTE_META: Record<StudyNote['format'], { label: string; icon: ReactNode }> = {
@@ -34,6 +35,10 @@ export default function Notes() {
   );
 
   const subjectIds = [...new Set(rows.map((r) => r.topic.subjectId))];
+  const chapterSubjects = Object.entries(CHAPTER_NOTES).map(([sid, notes]) => ({
+    subjectId: sid,
+    notes,
+  }));
   const filtered = rows.filter(
     (r) =>
       (!subjectId || r.topic.subjectId === subjectId) &&
@@ -49,9 +54,15 @@ export default function Notes() {
         title="Notes Library"
         subtitle="Reviewed official PDFs and supplementary notes for every chapter — curated, not scraped."
       >
-        <div className="inline-flex items-center gap-1.5 self-end rounded-xl bg-mint-500/10 px-3 py-1.5 text-xs font-bold text-mint-600 dark:text-mint-400">
-          <NotebookPen className="h-3.5 w-3.5" />
-          {totalNotes} notes
+        <div className="flex items-center gap-2 self-end">
+          <div className="inline-flex items-center gap-1.5 rounded-xl bg-accent/10 px-3 py-1.5 text-xs font-bold text-accent dark:bg-accent/15 dark:text-accent-300">
+            <NotebookPen className="h-3.5 w-3.5" />
+            {TOTAL_CHAPTER_NOTES} chapter notes
+          </div>
+          <div className="inline-flex items-center gap-1.5 rounded-xl bg-mint-500/10 px-3 py-1.5 text-xs font-bold text-mint-600 dark:text-mint-400">
+            <FileText className="h-3.5 w-3.5" />
+            {totalNotes} study notes
+          </div>
         </div>
       </PageHeader>
       <SourceNote />
@@ -107,6 +118,42 @@ export default function Notes() {
             {f === 'all' ? 'All' : NOTE_META[f].label}
           </button>
         ))}
+      </div>
+
+      <div>
+        <h2 className="mb-1 flex items-center gap-2 font-display text-lg font-bold text-ink-950 dark:text-white">
+          <NotebookPen className="h-4 w-4 text-accent" />
+          Chapter notes
+        </h2>
+        <p className="mb-3 text-xs text-ink-400">
+          Full in-app notes for every BTEUP module — expand any chapter on a topic or subject page.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {chapterSubjects.map(({ subjectId, notes }) => {
+            const s = getSubject(subjectId);
+            const sections = notes.reduce((n, x) => n + x.sections.length, 0);
+            return (
+              <Link
+                key={subjectId}
+                to={`/subject/${subjectId}`}
+                className="group flex items-center gap-3 rounded-2xl border border-ink-100 bg-white p-4 transition hover:border-accent hover:shadow-cardHover dark:border-ink-800 dark:bg-ink-900"
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-mint-500/10 text-mint-600 dark:text-mint-400">
+                  <NotebookPen className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate font-display text-sm font-bold text-ink-900 dark:text-ink-100">
+                    {s ? s.name : subjectId}
+                  </span>
+                  <span className="block text-xs text-ink-400">
+                    {notes.length} chapters · {sections} sections
+                  </span>
+                </span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-ink-300 transition group-hover:text-accent" />
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
       {filtered.length === 0 ? (

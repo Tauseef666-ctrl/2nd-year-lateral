@@ -13,10 +13,12 @@ import {
   Youtube,
 } from 'lucide-react';
 import { FLAT_TOPICS, getSubject } from '../data/curriculum';
+import { getChapterNote } from '../data/chapterNotes';
 import type { Language, ResourceKind, StudyNote } from '../types';
 import { Badge, Card, EmptyState, PageHeader, SourceNote, cx } from '../components/ui';
 import VideoCard from '../components/VideoCard';
 import PracticeCard from '../components/PracticeCard';
+import { ChapterNotes } from '../components/ChapterNotes';
 
 const DIFF_LABELS: Record<string, string> = {
   beginner: 'Foundation',
@@ -80,6 +82,9 @@ export default function Topic() {
   const prev = idx > 0 ? subjectTopics[idx - 1] : undefined;
   const next = idx < subjectTopics.length - 1 ? subjectTopics[idx + 1] : undefined;
 
+  const chapterNote = getChapterNote(flat.subjectId, flat.moduleId);
+  const hasStudyNotes = !!flat.notes && flat.notes.length > 0;
+
   const groups = ORDER.map((kind) => ({
     kind,
     items: flat.resources.filter((r) => r.kind === kind && (lang === 'all' || r.language === lang)),
@@ -131,12 +136,12 @@ export default function Topic() {
               Video resources
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
-            {flat.notes && flat.notes.length > 0 ? (
+            {chapterNote || hasStudyNotes ? (
               <a
-                href="#chapter-notes"
+                href={chapterNote ? '#chapter-notes' : '#study-notes'}
                 className="flex items-center justify-between rounded-xl border border-ink-100 bg-ink-50/60 px-3.5 py-2.5 text-sm font-medium text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-800/30 dark:text-ink-200"
               >
-                Chapter notes
+                {chapterNote ? 'Chapter notes' : 'Study notes'}
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
             ) : null}
@@ -205,11 +210,21 @@ export default function Topic() {
         </div>
       </div>
 
-      {flat.notes && flat.notes.length > 0 ? (
-        <div id="chapter-notes">
-          <h2 className="mb-1 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
+      {chapterNote ? (
+        <div>
+          <h2 className="mb-3 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
             <NotebookPen className="h-5 w-5 text-mint-500" />
             Chapter notes
+          </h2>
+          <ChapterNotes subjectId={flat.subjectId} moduleId={flat.moduleId} defaultOpen />
+        </div>
+      ) : null}
+
+      {hasStudyNotes ? (
+        <div id="study-notes">
+          <h2 className="mb-1 flex items-center gap-2 font-display text-xl font-bold text-ink-950 dark:text-white">
+            <NotebookPen className="h-5 w-5 text-mint-500" />
+            External study notes
           </h2>
           <p className="mb-3 text-xs text-ink-400">
             Reviewed study material — official PDFs and trusted supplementary sources.
