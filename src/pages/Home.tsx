@@ -2,15 +2,19 @@ import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import {
   ArrowRight,
+  BadgeCheck,
   BookOpen,
   CheckCircle2,
   FlaskConical,
   GraduationCap,
+  Hammer,
   ListChecks,
+  ListVideo,
   Map,
   Play,
   Search,
   Sparkles,
+  Zap,
 } from 'lucide-react';
 import {
   ALL_SUBJECTS,
@@ -253,6 +257,35 @@ export default function Home() {
           </div>
         </Card>
       )}
+
+      <div>
+        <h2 className="mb-4 font-display text-xl font-bold text-ink-950 dark:text-white">
+          Quick access
+        </h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            { to: '/one-shots', label: 'One-Shots', icon: <Zap className="h-4 w-4" /> },
+            { to: '/playlists', label: 'Playlists', icon: <ListVideo className="h-4 w-4" /> },
+            { to: '/quiz', label: 'Quiz Bank', icon: <ListChecks className="h-4 w-4" /> },
+            { to: '/practicals', label: 'Practicals', icon: <FlaskConical className="h-4 w-4" /> },
+            { to: '/exam', label: 'Exam Mode', icon: <GraduationCap className="h-4 w-4" /> },
+            { to: '/minor-project', label: 'Minor Project', icon: <Hammer className="h-4 w-4" /> },
+            { to: '/certification', label: 'Skill Dev', icon: <BadgeCheck className="h-4 w-4" /> },
+            { to: '/roadmap', label: 'Roadmap', icon: <Map className="h-4 w-4" /> },
+          ].map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="group flex items-center gap-2.5 rounded-xl border border-ink-100 bg-white px-3.5 py-3 text-sm font-semibold text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-900 dark:text-ink-200"
+            >
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white dark:bg-accent/15">
+                {item.icon}
+              </span>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
 
       <div>
         <div className="mb-4 flex items-center justify-between">

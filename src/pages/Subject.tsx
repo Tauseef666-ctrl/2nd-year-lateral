@@ -11,7 +11,7 @@ import {
 import { getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject as SubjectT } from '../types';
 import { useLearningStore } from '../store/useStore';
-import { Badge, Card, EmptyState, PageHeader, ProgressBar, cx } from '../components/ui';
+import { Badge, Card, EmptyState, PageHeader, ProgressBar, SourceNote, cx } from '../components/ui';
 
 const categoryLabels: Record<SubjectT['category'], string> = {
   theory: 'Theory',
@@ -75,6 +75,7 @@ export default function Subject() {
           {`Semester ${subject.semester}`}
         </Link>
       </PageHeader>
+      <SourceNote />
 
       <div className="flex flex-wrap items-center gap-2">
         <Badge tone="accent">{categoryLabels[subject.category]}</Badge>

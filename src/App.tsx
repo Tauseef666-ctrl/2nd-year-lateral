@@ -15,6 +15,8 @@ import DeepLearning from './pages/DeepLearning';
 import MinorProject from './pages/MinorProject';
 import Certification from './pages/Certification';
 import QuizBank from './pages/QuizBank';
+import OneShots from './pages/OneShots';
+import Playlists from './pages/Playlists';
 import NotFound from './pages/NotFound';
 import { useLearningStore } from './store/useStore';
 
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="minor-project" element={<MinorProject />} />
           <Route path="certification" element={<Certification />} />
           <Route path="quiz" element={<QuizBank />} />
+          <Route path="one-shots" element={<OneShots />} />
+          <Route path="playlists" element={<Playlists />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

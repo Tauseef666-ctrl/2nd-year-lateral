@@ -126,3 +126,13 @@ export function EmptyState({ icon, title, body, action }: EmptyStateProps) {
     </div>
   );
 }
+
+export function SourceNote() {
+  return (
+    <div className="flex flex-wrap items-center gap-2 rounded-xl border border-ink-100 bg-white px-4 py-3 text-xs leading-relaxed text-ink-500 dark:border-ink-800 dark:bg-ink-900 dark:text-ink-400">
+      <Badge tone="accent">Official BTEUP syllabus</Badge>
+      <Badge tone="mint">Curated YouTube links</Badge>
+      <span>Video links are search-based resources for each official topic — they are not official BTEUP study material.</span>
+    </div>
+  );
+}

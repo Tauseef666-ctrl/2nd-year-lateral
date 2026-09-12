@@ -15,7 +15,7 @@ import {
 import { FLAT_TOPICS, getSubject } from '../data/curriculum';
 import type { Language, ResourceKind } from '../types';
 import { useLearningStore } from '../store/useStore';
-import { Badge, Card, EmptyState, ProgressBar, PageHeader, cx } from '../components/ui';
+import { Badge, Card, EmptyState, PageHeader, ProgressBar, SourceNote, cx } from '../components/ui';
 import VideoCard from '../components/VideoCard';
 import PracticeCard from '../components/PracticeCard';
 
@@ -143,6 +143,7 @@ export default function Topic() {
           </button>
         </div>
       </PageHeader>
+      <SourceNote />
 
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="p-5 lg:col-span-2">
