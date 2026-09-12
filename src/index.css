@@ -16,6 +16,18 @@ html {
 
 body {
   @apply bg-ink-50 font-sans text-ink-900 antialiased dark:bg-ink-950 dark:text-ink-100;
+  background-image:
+    radial-gradient(1100px 620px at 115% -12%, rgba(124, 58, 237, 0.12), transparent 62%),
+    radial-gradient(900px 520px at -12% 18%, rgba(34, 211, 238, 0.12), transparent 62%),
+    radial-gradient(1000px 640px at 50% 118%, rgba(124, 58, 237, 0.1), transparent 62%);
+  background-attachment: fixed;
+}
+
+html.dark body {
+  background-image:
+    radial-gradient(1100px 620px at 115% -12%, rgba(124, 58, 237, 0.22), transparent 62%),
+    radial-gradient(900px 520px at -12% 18%, rgba(34, 211, 238, 0.14), transparent 62%),
+    radial-gradient(1000px 640px at 50% 118%, rgba(76, 29, 149, 0.28), transparent 62%);
 }
 
 ::selection {

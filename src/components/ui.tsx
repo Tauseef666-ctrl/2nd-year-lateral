@@ -13,7 +13,7 @@ export function Card({ children, className }: CardProps) {
   return (
     <div
       className={cx(
-        'rounded-2xl border border-ink-100 bg-white shadow-card dark:border-ink-800 dark:bg-ink-900',
+        'rounded-2xl border border-ink-100/80 bg-white/70 shadow-card backdrop-blur-xl dark:border-ink-800/80 dark:bg-ink-900/50',
         className,
       )}
     >
@@ -117,7 +117,7 @@ export interface EmptyStateProps {
 
 export function EmptyState({ icon, title, body, action }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-ink-200 bg-white/60 px-6 py-14 text-center dark:border-ink-700 dark:bg-ink-900/40">
+    <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-ink-200/80 bg-white/50 px-6 py-14 text-center backdrop-blur-sm dark:border-ink-700/80 dark:bg-ink-900/30">
       <div className="grid h-12 w-12 place-items-center rounded-2xl bg-accent/10 text-accent dark:bg-accent/15">
         {icon}
       </div>
@@ -130,7 +130,7 @@ export function EmptyState({ icon, title, body, action }: EmptyStateProps) {
 
 export function SourceNote() {
   return (
-    <div className="flex flex-wrap items-center gap-2 rounded-xl border border-ink-100 bg-white px-4 py-3 text-xs leading-relaxed text-ink-500 dark:border-ink-800 dark:bg-ink-900 dark:text-ink-400">
+    <div className="flex flex-wrap items-center gap-2 rounded-xl border border-ink-100/80 bg-white/60 px-4 py-3 text-xs leading-relaxed text-ink-500 backdrop-blur-xl dark:border-ink-800/80 dark:bg-ink-900/50 dark:text-ink-400">
       <Badge tone="accent">Official BTEUP syllabus</Badge>
       <Badge tone="mint">Curated YouTube picks</Badge>
       <span>Every video opens on YouTube. Resources are curated for the official topics — they are not official BTEUP study material.</span>

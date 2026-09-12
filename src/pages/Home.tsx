@@ -86,7 +86,7 @@ export default function Home() {
 
   return (
     <section className="space-y-8">
-      <div className="relative overflow-hidden rounded-3xl border border-ink-100 bg-white px-6 py-8 dark:border-ink-800 dark:bg-ink-900 sm:px-8">
+      <div className="relative overflow-hidden rounded-3xl border border-ink-100/80 bg-white/60 px-6 py-8 backdrop-blur-2xl dark:border-ink-800/80 dark:bg-ink-900/50 sm:px-8">
         <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 left-1/3 h-48 w-48 rounded-full bg-mint-400/10 blur-3xl" />
         <div className="relative animate-fade-up">

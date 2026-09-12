@@ -90,7 +90,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-svh">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-ink-100 bg-white/70 backdrop-blur-xl dark:border-ink-800 dark:bg-ink-900/70 lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-ink-100/70 bg-white/60 backdrop-blur-2xl dark:border-ink-800/70 dark:bg-ink-900/60 lg:flex">
         <div className="px-5 py-6">
           <NavLink to="/">
             <Brand />
@@ -165,7 +165,7 @@ export default function Layout() {
         </div>
       </aside>
 
-      <header className="sticky top-0 z-40 flex items-center justify-between border-b border-ink-100 bg-white/80 px-4 py-3 backdrop-blur-xl dark:border-ink-800 dark:bg-ink-950/80 lg:hidden">
+      <header className="sticky top-0 z-40 flex items-center justify-between border-b border-ink-100/70 bg-white/60 px-4 py-3 backdrop-blur-2xl dark:border-ink-800/70 dark:bg-ink-950/70 lg:hidden">
         <NavLink to="/">
           <Brand />
         </NavLink>
@@ -187,7 +187,7 @@ export default function Layout() {
         </main>
       </div>
 
-      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-100 bg-white/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl dark:border-ink-800 dark:bg-ink-950/90 lg:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-100/70 bg-white/70 pb-[env(safe-area-inset-bottom)] backdrop-blur-2xl dark:border-ink-800/70 dark:bg-ink-950/70 lg:hidden">
         <div className="grid grid-cols-5">
           {mobileItems.map((item) => {
             const Icon = item.icon;
