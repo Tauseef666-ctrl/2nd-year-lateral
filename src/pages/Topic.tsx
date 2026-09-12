@@ -16,6 +16,7 @@ import type { Language, ResourceKind } from '../types';
 import { useLearningStore } from '../store/useStore';
 import { Badge, Card, EmptyState, ProgressBar, PageHeader, cx } from '../components/ui';
 import VideoCard from '../components/VideoCard';
+import PracticeCard from '../components/PracticeCard';
 
 const DIFF_LABELS: Record<string, string> = {
   beginner: 'Foundation',
@@ -264,7 +265,7 @@ export default function Topic() {
           </h2>
           <div className="space-y-3">
             {flat.practice.map((q, qi) => (
-              <PracticeItem key={qi} question={q.question} hint={q.hint} n={qi + 1} />
+              <PracticeCard key={qi} question={q.question} hint={q.hint} n={qi + 1} />
             ))}
           </div>
         </div>
@@ -332,38 +333,5 @@ export default function Topic() {
         </div>
       ) : null}
     </section>
-  );
-}
-
-function PracticeItem({ question, hint, n }: { question: string; hint?: string; n: number }) {
-  const [show, setShow] = useState(false);
-  return (
-    <Card className="p-5">
-      <div className="flex items-start gap-3">
-        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-accent/10 font-mono text-xs font-bold text-accent dark:bg-accent/15 dark:text-accent-300">
-          {String(n).padStart(2, '0')}
-        </span>
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium leading-relaxed text-ink-900 dark:text-ink-100">
-            {question}
-          </p>
-          {hint ? (
-            <button
-              type="button"
-              onClick={() => setShow((v) => !v)}
-              className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-600 dark:text-accent-300"
-            >
-              <Lightbulb className="h-3.5 w-3.5" />
-              {show ? 'Hide hint' : 'Show hint'}
-            </button>
-          ) : null}
-          {hint && show ? (
-            <p className="mt-2 rounded-xl bg-ink-50 px-3 py-2 text-xs leading-relaxed text-ink-500 dark:bg-ink-800 dark:text-ink-300">
-              {hint}
-            </p>
-          ) : null}
-        </div>
-      </div>
-    </Card>
   );
 }
