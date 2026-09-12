@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Play, ExternalLink, ListVideo } from 'lucide-react';
 
 export const cx = (...parts: Array<string | false | null | undefined>) =>
   parts.filter(Boolean).join(' ');
@@ -131,8 +132,67 @@ export function SourceNote() {
   return (
     <div className="flex flex-wrap items-center gap-2 rounded-xl border border-ink-100 bg-white px-4 py-3 text-xs leading-relaxed text-ink-500 dark:border-ink-800 dark:bg-ink-900 dark:text-ink-400">
       <Badge tone="accent">Official BTEUP syllabus</Badge>
-      <Badge tone="mint">Curated YouTube links</Badge>
-      <span>Video links are search-based resources for each official topic — they are not official BTEUP study material.</span>
+      <Badge tone="mint">Curated YouTube picks</Badge>
+      <span>Every video opens on YouTube. Resources are curated for the official topics — they are not official BTEUP study material.</span>
     </div>
+  );
+}
+
+/** 16:9 video frame with thumbnail — clicking opens & plays the video on YouTube (new tab). */
+export function YouTubeThumb({
+  videoId,
+  playlistId,
+  title,
+  className,
+}: {
+  videoId?: string;
+  playlistId?: string;
+  title: string;
+  className?: string;
+}) {
+  const watchUrl = playlistId
+    ? `https://www.youtube.com/playlist?list=${playlistId}`
+    : `https://www.youtube.com/watch?v=${videoId}`;
+  return (
+    <a
+      href={watchUrl}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Watch "${title}" on YouTube`}
+      className={cx(
+        'group/frame relative block aspect-video w-full overflow-hidden bg-ink-100 dark:bg-ink-800',
+        className,
+      )}
+    >
+      {videoId ? (
+        <>
+          <img
+            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+            alt={title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover/frame:scale-105"
+          />
+          <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <span className="absolute inset-0 grid place-items-center">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-lg transition-transform group-hover/frame:scale-110">
+              {playlistId ? (
+                <ListVideo className="h-5 w-5 text-accent" />
+              ) : (
+                <Play className="h-6 w-6 translate-x-0.5 text-red-600" />
+              )}
+            </span>
+          </span>
+          <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white">
+            {playlistId ? 'Playlist' : 'Watch'}
+            <ExternalLink className="h-3 w-3" />
+          </span>
+        </>
+      ) : (
+        <span className="grid h-full place-items-center gap-1 text-xs text-ink-400">
+          <Play className="h-5 w-5" />
+          Watch on YouTube
+        </span>
+      )}
+    </a>
   );
 }

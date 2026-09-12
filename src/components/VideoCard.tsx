@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import type { Resource, ResourceKind } from '../types';
 import { useLearningStore } from '../store/useStore';
-import { Badge, Card, cx } from './ui';
+import { Badge, Card, cx, YouTubeThumb } from './ui';
 import type { BadgeTone } from './ui';
 import { ytSearch } from '../data/yt';
 
@@ -49,7 +49,12 @@ export default function VideoCard({ resource }: VideoCardProps) {
 
   const isWatched = watchedIds.includes(resource.id);
   const meta = KIND_META[resource.kind];
-  const href = ytSearch(resource.query);
+  const hasFrame = Boolean(resource.videoId || resource.playlistId);
+  const href = resource.playlistId
+    ? `https://www.youtube.com/playlist?list=${resource.playlistId}`
+    : resource.videoId
+      ? `https://www.youtube.com/watch?v=${resource.videoId}`
+      : ytSearch(resource.query);
 
   return (
     <Card
@@ -58,18 +63,26 @@ export default function VideoCard({ resource }: VideoCardProps) {
         isWatched && 'opacity-70',
       )}
     >
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center justify-between gap-3 border-b border-ink-100 px-4 py-3 dark:border-ink-800"
-      >
-        <span className="flex items-center gap-2 font-medium text-ink-700 dark:text-ink-200">
-          <span className="text-accent">{KIND_ICONS[resource.kind]}</span>
-          <span className="truncate">{resource.title}</span>
-        </span>
-        <ExternalLink className="h-3.5 w-3.5 shrink-0 text-ink-300 transition group-hover:text-accent" />
-      </a>
+      {hasFrame ? (
+        <YouTubeThumb
+          videoId={resource.videoId}
+          playlistId={resource.playlistId}
+          title={resource.title}
+        />
+      ) : (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between gap-3 border-b border-ink-100 px-4 py-3 dark:border-ink-800"
+        >
+          <span className="flex items-center gap-2 font-medium text-ink-700 dark:text-ink-200">
+            <span className="text-accent">{KIND_ICONS[resource.kind]}</span>
+            <span className="truncate">{resource.title}</span>
+          </span>
+          <ExternalLink className="h-3.5 w-3.5 shrink-0 text-ink-300 transition group-hover:text-accent" />
+        </a>
+      )}
 
       <div className="p-4">
         <div className="flex flex-wrap items-center gap-1.5">

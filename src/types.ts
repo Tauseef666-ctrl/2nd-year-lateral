@@ -18,6 +18,7 @@ export interface Resource {
   channel?: string;
   query: string;
   videoId?: string;
+  playlistId?: string;
   duration?: string;
   language: Language;
   rec: Recommendation;
@@ -28,6 +29,15 @@ export interface Resource {
 export interface PracticeQuestion {
   question: string;
   hint?: string;
+}
+
+export interface StudyNote {
+  id: string;
+  title: string;
+  source: 'official' | 'supplementary';
+  format: 'notes' | 'pdf' | 'website' | 'youtube';
+  description: string;
+  href: string;
 }
 
 export interface TopicLink {
@@ -44,6 +54,7 @@ export interface Topic {
   marks: number;
   resources: Resource[];
   practice: PracticeQuestion[];
+  notes?: StudyNote[];
   related?: TopicLink[];
   difficulty: 'beginner' | 'intermediate' | 'advanced';
 }
@@ -92,6 +103,7 @@ export interface Subject {
   totalPeriods: number;
   modules: Module[];
   references: string[];
+  playlists?: Resource[];
   labs?: PracticalLab[];
   skillCertification?: boolean;
   officialSearch?: string;

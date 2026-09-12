@@ -1,8 +1,16 @@
 import type { PracticalLab, Semester, Subject, Topic } from '../types';
+import { FOUNDATION_SUBJECTS } from './foundation';
 import { SEMESTER_3_SUBJECTS } from './semester3';
 import { SEMESTER_4_SUBJECTS } from './semester4';
 
 export const SEMESTERS: Semester[] = [
+  {
+    id: 1,
+    title: 'Foundation · Year 1',
+    tagline:
+      'First-year common foundation — Mathematics-I, Applied Physics-I, Applied Chemistry and Communication Skills in English.',
+    subjectIds: FOUNDATION_SUBJECTS.map((s) => s.id),
+  },
   {
     id: 3,
     title: 'Semester 3',
@@ -19,7 +27,11 @@ export const SEMESTERS: Semester[] = [
   },
 ];
 
-export const ALL_SUBJECTS: Subject[] = [...SEMESTER_3_SUBJECTS, ...SEMESTER_4_SUBJECTS];
+export const ALL_SUBJECTS: Subject[] = [
+  ...FOUNDATION_SUBJECTS,
+  ...SEMESTER_3_SUBJECTS,
+  ...SEMESTER_4_SUBJECTS,
+];
 
 export const getSubjectsBySemester = (semester: number): Subject[] =>
   ALL_SUBJECTS.filter((s) => s.semester === semester);
@@ -98,7 +110,7 @@ export const searchResourceText = (q: string): FlatTopic[] => {
   return FLAT_TOPICS.filter((t) =>
     `${t.subjectName} ${t.title} ${t.description} ${t.subtopics.join(' ')} ${t.resources
       .map((r) => `${r.title} ${r.query} ${r.fallback}`)
-      .join(' ')}`
+      .join(' ')} ${(t.notes ?? []).map((note) => `${note.title} ${note.description}`).join(' ')}`
       .toLowerCase()
       .includes(needle),
   );

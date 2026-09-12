@@ -21,6 +21,7 @@ interface RArgs {
   rec?: 1 | 2 | 3;
   why?: string;
   videoId?: string;
+  playlistId?: string;
 }
 
 let resCounter = 0;
@@ -40,5 +41,6 @@ export function r(args: RArgs): Resource {
     rec: args.rec ?? 2,
     why: args.why,
     videoId: args.videoId,
+    playlistId: args.playlistId,
   };
 }
