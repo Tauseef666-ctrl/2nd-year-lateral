@@ -16,14 +16,14 @@ export interface Resource {
   kind: ResourceKind;
   title: string;
   channel?: string;
-  query: string;
+  query?: string;
   videoId?: string;
   playlistId?: string;
   duration?: string;
   language: Language;
   rec: Recommendation;
   why?: string;
-  fallback: string;
+  fallback?: string;
 }
 
 export interface PracticeQuestion {

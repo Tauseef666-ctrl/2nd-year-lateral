@@ -14,8 +14,8 @@ interface RArgs {
   kind: ResourceKind;
   title: string;
   channel?: string;
-  query: string;
-  fallback: string;
+  query?: string;
+  fallback?: string;
   duration?: string;
   language?: Language;
   rec?: 1 | 2 | 3;
