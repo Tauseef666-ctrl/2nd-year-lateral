@@ -1,0 +1,3429 @@
+import type { Subject } from '../types';
+import { r } from './yt';
+
+export const SEMESTER_4_SUBJECTS: Subject[] = [
+  {
+    id: 'ds',
+    code: '4.1',
+    name: 'Data Structures Using C',
+    shortName: 'Data Structures',
+    semester: 4,
+    category: 'theory',
+    credits: 3,
+    periods: '3L',
+    description:
+      'Data structures are the art of organising data so programs can use it fast and efficiently. Stacks, queues, linked lists, sorting, trees and graphs — all implemented in C.',
+    whyMatters:
+      'This is the course that separates programmers from engineers. Almost every technical interview question is a data-structures problem, and it carries critical exam weight.',
+    difficulty: 'intermediate',
+    examImportance: 'critical',
+    learningOrder: [
+      'Module 1 — Introduction & Terminology',
+      'Module 2 — Stacks & Queues',
+      'Module 3 — Linked Lists',
+      'Module 4 — Sorting & Searching',
+      'Module 5 — Trees & Graphs (heaviest)',
+    ],
+    totalPeriods: 42,
+    objectives: [
+      'Provide a strong foundation for implementing data structures and analysing solutions to problems.',
+      'Formulate, analyse and develop solutions to data-structure problems in C.',
+    ],
+    outcomes: [
+      'Understand the fundamental data structures.',
+      'Apply the operations of stack and queue.',
+      'Understand the concepts of linked lists.',
+      'Implement various sorting and searching techniques.',
+      'Illustrate tree and graph traversal techniques.',
+    ],
+    modules: [
+      {
+        id: 'ds-m1',
+        title: 'Module 1 · Introduction to Data Structures',
+        topics: [
+          {
+            id: 'ds-1-1',
+            title: 'Data Structure Basics & Classification',
+            description:
+              'What data structures are, how they are classified (linear/non-linear, static/dynamic) and the operations performed on them.',
+            subtopics: [
+              'Basic terminology: data, data item, structure',
+              'Classification: linear & non-linear',
+              'Operations: create, insert, delete, search, traverse, sort',
+            ],
+            periods: 6,
+            marks: 15,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Introduction to data structures',
+                channel: 'CodeWithHarry',
+                query: 'introduction to data structures in c hindi CodeWithHarry',
+                fallback: 'data structures introduction classification',
+                duration: '15-25 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — clear intro to the whole subject.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'Complete data structures course (foundation)',
+                channel: 'Apna College',
+                query: 'apna college data structures algorithms full course hindi',
+                fallback: 'dsa full course for beginners',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'Classify arrays, stacks, trees and graphs as linear or non-linear.', hint: 'Stacks/queues are linear; trees/graphs are not.' },
+            ],
+            related: [{ id: 'ds-2-1', title: 'Stacks' }],
+          },
+        ],
+      },
+      {
+        id: 'ds-m2',
+        title: 'Module 2 · Linear Data Structures — Stacks & Queues',
+        topics: [
+          {
+            id: 'ds-2-1',
+            title: 'Stacks: Representation & Operations',
+            description:
+              'LIFO storage: push and pop. Represent a stack with an array and implement its operations.',
+            subtopics: [
+              'Stack concept & LIFO principle',
+              'Array representation',
+              'push, pop, peek, isEmpty, isFull',
+            ],
+            periods: 2,
+            marks: 4,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Stack operations implementation in C',
+                channel: 'CodeWithHarry',
+                query: 'stack in c implementation push pop CodeWithHarry',
+                fallback: 'stack data structure c implementation',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — full C implementation of stack operations.',
+              }),
+            ],
+            practice: [
+              { question: 'Implement push/pop and show stack underflow on empty pop.', hint: 'Check top == -1.' },
+            ],
+            related: [{ id: 'ds-2-2', title: 'Stack Applications' }],
+          },
+          {
+            id: 'ds-2-2',
+            title: 'Stack Applications: Infix↔Postfix & Evaluation',
+            description:
+              'Convert infix expressions to postfix using operator precedence, then evaluate postfix with a stack.',
+            subtopics: [
+              'Infix-to-postfix conversion',
+              'Evaluating postfix expressions',
+              'Precedence & associativity rules',
+            ],
+            periods: 3,
+            marks: 6,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Infix to Postfix conversion explained',
+                channel: 'Gate Smashers',
+                query: 'infix to postfix conversion data structure gate smashers hindi',
+                fallback: 'infix to postfix conversion algorithm',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — conversion + evaluation in one series.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'Infix/postfix previous exam problems',
+                channel: 'Knowledge Gate',
+                query: 'infix postfix prefix practice problems solved',
+                fallback: 'infix to postfix numericals practice',
+              }),
+            ],
+            practice: [
+              { question: 'Convert A+B*(C-D) to postfix.', hint: 'Result: ABCD-*+.' },
+              { question: 'Evaluate postfix "23*5+" using a stack.', hint: '2*3=6, 6+5=11.' },
+            ],
+            related: [{ id: 'ds-2-3', title: 'Queues' }],
+          },
+          {
+            id: 'ds-2-3',
+            title: 'Queues: Operations, Circular & Deque',
+            description:
+              'FIFO storage: enqueue and dequeue. Handle the circular queue problem and learn the double-ended queue.',
+            subtopics: [
+              'Queue concept & FIFO principle',
+              'Array representation: front & rear',
+              'Circular queue',
+              'Deque & priority queue basics',
+            ],
+            periods: 3,
+            marks: 6,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Queue operations and circular queue in C',
+                channel: 'CodeWithHarry',
+                query: 'queue data structure circular queue in c tutorial hindi',
+                fallback: 'queue circular queue implementation c',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — implementation plus circular overflow fix.',
+              }),
+              r({
+                kind: 'revision',
+                title: 'Types of queues quick revision',
+                channel: 'Gate Smashers',
+                query: 'types of queues simple circular deque priority explained',
+                fallback: 'queue types revision data structure',
+              }),
+            ],
+            practice: [
+              { question: 'Why do linear queues waste space and how do circular queues fix it?', hint: 'Front moves; circular wraps around.' },
+              { question: 'Implement a circular queue with proper full/empty checks.', hint: 'Use (rear+1)%size.' },
+            ],
+            related: [{ id: 'ds-3-1', title: 'Singly Linked List' }],
+          },
+        ],
+      },
+      {
+        id: 'ds-m3',
+        title: 'Module 3 · Linked Lists',
+        topics: [
+          {
+            id: 'ds-3-1',
+            title: 'Singly Linked List',
+            description:
+              'Nodes linked by pointers: dynamic memory, insertion, deletion, traversal and searching.',
+            subtopics: [
+              'Node structure & representation in memory',
+              'Creating and traversing a list',
+              'Insert at beginning/end/middle',
+              'Deletion of a node',
+            ],
+            periods: 2,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Singly linked list — full implementation',
+                channel: 'CodeWithHarry',
+                query: 'singly linked list in c full implementation tutorial hindi',
+                fallback: 'linked list data structure in c tutorial',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — complete operations coded and traced.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'Linked list one-shot revision',
+                channel: 'Apna College',
+                query: 'linked list one shot apna college hindi',
+                fallback: 'linked list complete revision',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [
+              { question: 'Write code to insert a node at the beginning of a linked list.', hint: 'Update head pointer after linking new node.' },
+              { question: 'Traverse a list and print the middle element.', hint: 'Slow/fast pointers.' },
+            ],
+            related: [{ id: 'ds-3-2', title: 'Circular & Doubly Lists' }],
+          },
+          {
+            id: 'ds-3-2',
+            title: 'Circular Linked List & Doubly Linked List',
+            description:
+              'Circular lists loop back to the head; doubly linked lists allow traversal both directions with prev/next pointers.',
+            subtopics: [
+              'Circular linked list: structure & operations',
+              'Doubly linked list: prev & next pointers',
+              'Comparing singly vs circular vs doubly',
+            ],
+            periods: 2,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Circular and doubly linked lists explained',
+                channel: 'CodeWithHarry',
+                query: 'circular linked list doubly linked list in c tutorial hindi',
+                fallback: 'doubly circular linked list data structure',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [
+              { question: 'When is a circular linked list better than a singly linked list?', hint: 'Round-robin, continuing traversals.' },
+              { question: 'Delete a node in a doubly linked list given only that node.', hint: 'Link prev to next.' },
+            ],
+            related: [{ id: 'ds-4-1', title: 'Sorting Algorithms' }],
+          },
+        ],
+      },
+      {
+        id: 'ds-m4',
+        title: 'Module 4 · Sorting & Searching',
+        topics: [
+          {
+            id: 'ds-4-1',
+            title: 'Sorting: Bubble, Insertion, Selection',
+            description:
+              'The classic O(n²) sorts where adjacent elements swap into order.',
+            subtopics: [
+              'Bubble sort',
+              'Insertion sort',
+              'Selection sort',
+              'Comparing their behaviours',
+            ],
+            periods: 2,
+            marks: 5,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Bubble, insertion and selection sort',
+                channel: 'Gate Smashers',
+                query: 'bubble sort insertion sort selection sort gate smashers hindi',
+                fallback: 'sorting algorithms bubble insertion selection',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — each algorithm traced step-by-step.',
+              }),
+            ],
+            practice: [
+              { question: 'Sort [5,1,4,2,8] using bubble sort showing each pass.', hint: 'Largest bubbles to end each pass.' },
+            ],
+            related: [{ id: 'ds-4-2', title: 'Quick & Merge Sort' }],
+          },
+          {
+            id: 'ds-4-2',
+            title: 'Divide & Conquer: Quick Sort, Merge Sort',
+            description:
+              'The fast O(n log n) sorts: quick sort uses a pivot; merge sort splits, sorts and merges halves.',
+            subtopics: [
+              'Quick sort with partition',
+              'Merge sort with divide & conquer',
+              'Time and space complexity',
+            ],
+            periods: 2,
+            marks: 5,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Quick sort and merge sort explained',
+                channel: 'Gate Smashers',
+                query: 'quick sort merge sort explained gate smashers hindi',
+                fallback: 'quick sort merge sort algorithm',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — both algorithms with recursion trees.',
+              }),
+            ],
+            practice: [
+              { question: 'Trace quick sort on [9,7,5,11,12] with first-element pivot.', hint: 'Partition around 9 then recurse.' },
+              { question: 'Why is merge sort stable and O(n log n) in all cases?', hint: 'Split then merge in order.' },
+            ],
+            related: [{ id: 'ds-4-3', title: 'Searching' }],
+          },
+          {
+            id: 'ds-4-3',
+            title: 'Searching: Linear, Binary Search & Hashing',
+            description:
+              'Find data fast: linear search, binary search on sorted data, and hash tables for O(1) lookup.',
+            subtopics: [
+              'Linear search',
+              'Binary search (iterative & recursive)',
+              'Hash tables & collisions basics',
+            ],
+            periods: 2,
+            marks: 5,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Linear search, binary search & hashing',
+                channel: 'Gate Smashers',
+                query: 'linear search binary search hashing gate smashers hindi',
+                fallback: 'linear binary search hashing explained',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+              r({
+                kind: 'exam',
+                title: 'Searching & hashing practice problems',
+                query: 'binary search hashing numerical practice questions',
+                fallback: 'searching algorithm questions practice',
+              }),
+            ],
+            practice: [
+              { question: 'Binary search the sorted array [3,7,12,19,25,31] for 19 — trace comparisons.', hint: 'Compare mid each step.' },
+              { question: 'What is a hash collision and one way to resolve it?', hint: 'Chaining / open addressing.' },
+            ],
+            related: [{ id: 'ds-5-1', title: 'Binary Trees' }],
+          },
+        ],
+      },
+      {
+        id: 'ds-m5',
+        title: 'Module 5 · Trees & Graphs',
+        topics: [
+          {
+            id: 'ds-5-1',
+            title: 'Binary Trees & Traversals',
+            description:
+              'Hierarchical data with at most two children per node. Learn representations and in-order, pre-order, post-order traversals.',
+            subtopics: [
+              'Tree terminology: root, leaf, height, depth',
+              'Array & linked-list representations',
+              'Traversals: inorder, preorder, postorder',
+              'Types of binary trees (full, complete, skewed)',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Binary trees and traversals complete',
+                channel: 'Gate Smashers',
+                query: 'binary tree traversals inorder preorder postorder gate smashers',
+                fallback: 'binary tree traversals data structure',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — representations + all traversals.',
+              }),
+            ],
+            practice: [
+              { question: 'Give the pre/in/post-order of a given tree.', hint: 'Root-first / left-root-right / left-right-root.' },
+            ],
+            related: [{ id: 'ds-5-2', title: 'BST, AVL & B-Tree' }],
+          },
+          {
+            id: 'ds-5-2',
+            title: 'Binary Search Tree, AVL & B-Tree',
+            description:
+              'BSTs keep data sorted for fast lookup; AVL trees self-balance; B-trees handle huge indexed data (databases).',
+            subtopics: [
+              'BST: insertion, deletion, search',
+              'AVL tree & balancing rotations',
+              'B-tree concepts (multi-way search tree)',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'BST and AVL trees explained',
+                channel: 'Gate Smashers',
+                query: 'binary search tree avl tree insertion deletion gate smashers',
+                fallback: 'bst avl tree data structure',
+                duration: '1-3 hours',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — BST to AVL with rotations, exam favourite.',
+              }),
+              r({
+                kind: 'revision',
+                title: 'B-tree quick revision',
+                channel: 'Neso Academy',
+                query: 'b tree data structure explained neso academy',
+                fallback: 'b tree insertion explained',
+              }),
+            ],
+            practice: [
+              { question: 'Insert 50,30,70,20,40 into a BST and show the tree.', hint: 'Right if bigger, left if smaller.' },
+              { question: 'When does a BST degenerate into a list and how does an AVL fix it?', hint: 'Sorted insertion; rotations.' },
+            ],
+            related: [{ id: 'ds-5-3', title: 'Graphs' }],
+          },
+          {
+            id: 'ds-5-3',
+            title: 'Graph Representation & Traversals (DFS, BFS)',
+            description:
+              'Graphs model networks of nodes and edges. Represent them with adjacency lists/matrices and traverse with DFS and BFS.',
+            subtopics: [
+              'Graph terminology',
+              'Adjacency matrix & adjacency list',
+              'BFS (queue based)',
+              'DFS (stack/recursion based)',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Graphs, DFS and BFS traversals',
+                channel: 'Gate Smashers',
+                query: 'graph traversals dfs bfs data structure gate smashers',
+                fallback: 'graph data structure dfs bfs traversal',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — BFS/DFS with adjacency structures.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'DFS/BFS tracing questions',
+                query: 'dfs bfs traversal practice problems trace graph',
+                fallback: 'graph traversal questions solved',
+              }),
+            ],
+            practice: [
+              { question: 'Trace BFS and DFS on a given graph stating the visit order.', hint: 'Queue for BFS, stack for DFS.' },
+              { question: 'Adjacency matrix vs adjacency list — when is each space-efficient?', hint: 'Dense vs sparse graphs.' },
+            ],
+            related: [{ id: 'ds-4-3', title: 'Searching' }],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Data Structures — R.S. Salaria, Khanna Publishing',
+      'Data Structures Using C — Reema Thareja, Oxford University Press',
+      'Classic Data Structures — Samanta Debasis, PHI',
+      'Fundamentals of Data Structures in C — Horowitz & Sahni',
+    ],
+    labs: [
+      {
+        id: 'ds-lab',
+        name: 'Data Structures Using C (Lab)',
+        source: 'official',
+        exercises: [
+          {
+            id: 'ds-lab-1',
+            name: 'Linear search using recursive and non-recursive functions',
+            concept: 'Search a list of integers for a key using iteration and recursion.',
+            algorithm: [
+              'Read n elements into an array and the search key',
+              'Iterative: for loop comparing each element',
+              'Recursive: search(i+1) if a[i] != key',
+              'Return the index or -1',
+            ],
+            expectedOutput: 'Index of the key or "not found"',
+            commonErrors: ['Base case must handle the end of the array'],
+            variation: 'Count how many times the key appears',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Linear search program in C',
+                query: 'linear search in c recursive non recursive program',
+                fallback: 'linear search c program',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-2',
+            name: 'Implement an Array and its operations',
+            concept: 'Create, traverse, insert, delete, search and update on a one-dimensional array.',
+            algorithm: [
+              'Declare an array with a fixed size',
+              'Traverse: print all elements',
+              'Insert: shift elements right from the position',
+              'Delete: shift elements left',
+              'Search & update an element',
+            ],
+            expectedOutput: 'All operations produce visible changes on the array',
+            commonErrors: ['Bounds check before shifting'],
+            variation: 'Support dynamic growth with realloc',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Array operations program in C',
+                query: 'array insertion deletion traversal c program',
+                fallback: 'array operations c program lab',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-3',
+            name: 'Implement Stack operations',
+            concept: 'push, pop, peek and display on an array-based stack with overflow/underflow checks.',
+            algorithm: [
+              'Maintain top = -1',
+              'push: if top < size-1, increment top and store',
+              'pop: if top >= 0, return and decrement',
+              'Display top to bottom',
+            ],
+            expectedOutput: 'Stack behaves LIFO across operations',
+            commonErrors: ['Overflow check missing on push'],
+            variation: 'Implement multi-stack or string reversal using stack',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Stack operations C program',
+                query: 'stack push pop program in c using array',
+                fallback: 'stack implementation c program',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-4',
+            name: 'Implement Queue operations',
+            concept: 'enqueue, dequeue, front/rear handling with an array queue.',
+            algorithm: [
+              'Maintain front and rear',
+              'enqueue: append at rear',
+              'dequeue: remove from front',
+              'Handle empty queue gracefully',
+            ],
+            expectedOutput: 'Queue behaves FIFO across operations',
+            commonErrors: ['Front pointer never updates — queue appears empty after delete'],
+            variation: 'Upgrade to a circular queue to reuse space',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Queue operations C program',
+                query: 'queue implementation enqueue dequeue c program',
+                fallback: 'queue operations using array c program',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-5',
+            name: 'Implement single linked list',
+            concept: 'Nodes with data + next pointer: create, insert at head/tail, delete, display.',
+            algorithm: [
+              'Define struct node { int data; struct node *next; }',
+              'Create node with malloc',
+              'Insert at beginning/middle/end',
+              'Delete a node by value or position',
+              'Traverse and display',
+            ],
+            expectedOutput: 'List operations update correctly',
+            commonErrors: ['Losing the list by not updating head properly'],
+            variation: 'Reverse the linked list iteratively',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Single linked list full C program',
+                query: 'singly linked list c program insert delete display',
+                fallback: 'single linked list implementation in c',
+                duration: '40-60 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-6',
+            name: 'Implement double linked list',
+            concept: 'Nodes with prev + next pointers allowing forward and backward traversal.',
+            algorithm: [
+              'struct node { int data; struct node *prev, *next; }',
+              'Insert at head with prev = NULL',
+              'Insert at tail and middle',
+              'Delete maintaining both links',
+              'Display forward and backward',
+            ],
+            expectedOutput: 'Both traversals show the correct sequence',
+            commonErrors: ['Not updating previous node’s next on delete'],
+            variation: 'Add reverse traversal using tail pointer',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Doubly linked list C program',
+                query: 'doubly linked list c program operations',
+                fallback: 'double linked list implementation c',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-7',
+            name: 'Implement circular linked list',
+            concept: 'Last node points back to head; traversals continue forever unless tracked.',
+            algorithm: [
+              'Last node’s next = head',
+              'Insert at beginning and end',
+              'Delete and fix circular links',
+              'Traverse one full cycle',
+            ],
+            expectedOutput: 'Traversal visits each node once before returning to head',
+            commonErrors: ['Infinite loop without a stopping condition'],
+            variation: 'Split a circular list into two halves',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Circular linked list C program',
+                query: 'circular linked list c program insertion deletion',
+                fallback: 'circular linked list implementation c',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-8',
+            name: 'Implement Linear and Binary Search',
+            concept: 'Linear search on unsorted data; binary search on sorted data.',
+            algorithm: [
+              'Linear: scan from index 0 to n-1',
+              'Sort the array if needed for binary',
+              'Binary: compare mid, discard half each step',
+              'Return found index',
+            ],
+            expectedOutput: 'Both searches locate the key correctly',
+            commonErrors: ['Binary search requires a sorted array'],
+            variation: 'Add a binary search on a linked list via middle access',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Linear and binary search C program',
+                query: 'linear search binary search c program',
+                fallback: 'search programs in c lab',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-9',
+            name: 'Implement different Sorting Algorithms',
+            concept: 'Bubble, selection, insertion, quick and merge sort on arrays.',
+            algorithm: [
+              'Bubble: adjacent swaps, pass n-1 times',
+              'Selection: find min each pass and swap',
+              'Insertion: insert into sorted prefix',
+              'Quick: partition around pivot, recurse',
+              'Merge: split, sort halves, merge',
+            ],
+            expectedOutput: 'Array sorted for each algorithm',
+            commonErrors: ['Backward conditions in comparison operators'],
+            variation: 'Count and print the number of swaps per algorithm',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'All sorting algorithms C program',
+                query: 'bubble quick merge sort c program implementation',
+                fallback: 'sorting algorithms c lab programs',
+                duration: '40-60 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-10',
+            name: 'Implement DFS and BFS traversal',
+            concept: 'Traverse a graph using a queue (BFS) and a stack/recursion (DFS).',
+            algorithm: [
+              'Represent graph with adjacency list',
+              'BFS: queue, mark visited, process neighbours',
+              'DFS: recursion/stack, visit deeply first',
+              'Print the traversal order',
+            ],
+            expectedOutput: 'Correct BFS and DFS visit sequences',
+            commonErrors: ['Graph may be disconnected — visit all components'],
+            variation: 'Find connected components using BFS',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'BFS DFS graph traversal C program',
+                query: 'bfs dfs graph traversal c program adjacency list',
+                fallback: 'graph traversal program in c lab',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'ds-lab-11',
+            name: 'Implement Binary Search Tree',
+            concept: 'Insert, search, delete and traverse a BST.',
+            algorithm: [
+              'Insert: recurse left/right by value',
+              'Search: recurse comparing keys',
+              'Delete: leaf, one child, two children cases',
+              'Inorder traversal prints sorted order',
+            ],
+            expectedOutput: 'Inorder traversal is always sorted',
+            commonErrors: ['Two-child deletion must find in-order successor'],
+            variation: 'Compute tree height and node count',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Binary search tree C program',
+                query: 'binary search tree insertion deletion c program',
+                fallback: 'bst program in c lab',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'se',
+    code: '4.2',
+    name: 'Software Engineering',
+    shortName: 'Software Engineering',
+    semester: 4,
+    category: 'practicum',
+    credits: 4,
+    periods: '2L + 4P',
+    description:
+      'How professional software is built: process models, requirement analysis, SRS, design (DFDs), project estimation (COCOMO) and testing strategies.',
+    whyMatters:
+      'This subject gives you the professional workflow used in the software industry and prepares you for your own minor/major project.',
+    difficulty: 'beginner',
+    examImportance: 'high',
+    learningOrder: [
+      'Module 1 — Introduction & System Concepts',
+      'Module 2 — Software Life Cycle Models',
+      'Module 3 — Planning & SRS',
+      'Module 4 — Design (DFD, Cohesion, Coupling)',
+      'Module 5 — Testing & Maintenance',
+    ],
+    totalPeriods: 42,
+    objectives: [
+      'Develop and design systems according to given requirements.',
+      'Understand the steps of analysis and design and how to prepare a project systematically.',
+    ],
+    outcomes: [
+      'Understand the basic concepts of software development.',
+      'Classify life cycle models and compare them.',
+      'Write the SRS for a given problem and use estimation techniques.',
+      'Explain various software design strategies.',
+      'Explain different testing methods and the need for testing.',
+    ],
+    modules: [
+      {
+        id: 'se-m1',
+        title: 'Module 1 · Introduction to Software Engineering',
+        topics: [
+          {
+            id: 'se-1-1',
+            title: 'System Concepts & Software Characteristics',
+            description:
+              'Understand systems (open, closed, static, dynamic), why software engineering exists, and what makes software different from generic programs.',
+            subtopics: [
+              'Types of systems',
+              'Need for software engineering',
+              'Programs vs software products',
+              'Software characteristics',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Introduction to software engineering',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers software engineering introduction hindi',
+                fallback: 'software engineering introduction explained',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'List the key differences between a program and a software product.', hint: 'Size, documentation, maintenance.' },
+            ],
+            related: [{ id: 'se-2-1', title: 'Life Cycle Models' }],
+          },
+        ],
+      },
+      {
+        id: 'se-m2',
+        title: 'Module 2 · Software Life Cycle Models',
+        topics: [
+          {
+            id: 'se-2-1',
+            title: 'Waterfall, Prototyping & Evolutionary Models',
+            description:
+              'The classic process models: Waterfall’s rigid phases, prototyping’s early feedback, and the iterative evolutionary model.',
+            subtopics: [
+              'Waterfall model & its phases',
+              'Prototyping model',
+              'Evolutionary / incremental model',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Software process models — waterfall, prototyping',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers waterfall model prototype evolutionary model hindi',
+                fallback: 'software life cycle models waterfall prototyping',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — every classical model with diagrams.',
+              }),
+            ],
+            practice: [
+              { question: 'Why is the waterfall model risky for uncertain requirements?', hint: 'Only one pass, changes are costly.' },
+            ],
+            related: [{ id: 'se-2-2', title: 'Spiral & Agile' }],
+          },
+          {
+            id: 'se-2-2',
+            title: 'Spiral Model & Agile Methodology',
+            description:
+              'Risk-driven spiral and the modern iterative Agile approach (Scrum basics).',
+            subtopics: [
+              'Spiral model & its four quadrants',
+              'Introduction to Agile methodology',
+              'Agile vs waterfall comparison',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Spiral model and agile methodology',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers spiral model agile methodology hindi',
+                fallback: 'spiral model agile software development explained',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'What does each quadrant of the spiral model address?', hint: 'Objective setting, risk analysis, develop, plan next.' },
+            ],
+            related: [{ id: 'se-3-1', title: 'Requirement Analysis' }],
+          },
+        ],
+      },
+      {
+        id: 'se-m3',
+        title: 'Module 3 · Planning & Requirement Analysis',
+        topics: [
+          {
+            id: 'se-3-1',
+            title: 'Requirement Gathering & SRS',
+            description:
+              'Collecting what the software must do and writing the Software Requirement Specification (SRS) document.',
+            subtopics: [
+              'Requirement gathering & analysis',
+              'Software Requirement Specification',
+              'Characteristics of a good SRS',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'SRS — software requirement specification',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers SRS software requirement specification hindi',
+                fallback: 'srs document explained software engineering',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'List five characteristics of a well-written SRS.', hint: 'Correct, complete, unambiguous, verifiable, consistent.' },
+            ],
+            related: [{ id: 'se-3-2', title: 'Project Estimation' }],
+          },
+          {
+            id: 'se-3-2',
+            title: 'Size Estimation (LOC, Function Point) & COCOMO',
+            description:
+              'Estimate effort and cost: Lines of Code, Function Points, and the COCOMO model with its modes.',
+            subtopics: [
+              'LOC metric',
+              'Function Point metric',
+              'COCOMO model: organic, semi-detached, embedded',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'COCOMO model & software estimation',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers cocomo model software estimation hindi',
+                fallback: 'cocomo model explained software engineering',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — COCOMO equations worked through examples.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'COCOMO numerical practice',
+                query: 'cocomo numerical practice problems solved',
+                fallback: 'function point cocomo exam questions',
+              }),
+            ],
+            practice: [
+              { question: 'Calculate effort and development time using COCOMO basic for KLOC = 50 (organic).', hint: 'E = aKLOC^b, tables given in notes.' },
+            ],
+            related: [{ id: 'se-4-1', title: 'Software Design' }],
+          },
+        ],
+      },
+      {
+        id: 'se-m4',
+        title: 'Module 4 · Software Design & Implementation',
+        topics: [
+          {
+            id: 'se-4-1',
+            title: 'Design Principles: Cohesion & Coupling',
+            description:
+              'Good design classes modules by how focused they are (cohesion) and how independent (coupling).',
+            subtopics: [
+              'Characteristics of good design',
+              'Cohesion types',
+              'Coupling types',
+            ],
+            periods: 2,
+            marks: 5,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Cohesion and coupling explained',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers cohesion coupling software engineering hindi',
+                fallback: 'cohesion coupling software design',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Which combination is most desirable — high cohesion, low coupling or the opposite?', hint: 'High cohesion + low coupling.' },
+            ],
+            related: [{ id: 'se-4-2', title: 'DFD & Design Approaches' }],
+          },
+          {
+            id: 'se-4-2',
+            title: 'Design Strategies: DFD, Data Dictionary, OO Design',
+            description:
+              'Function-oriented design with Data Flow Diagrams and a data dictionary; plus object-oriented design.',
+            subtopics: [
+              'Data flow diagrams (level 0/1)',
+              'Data dictionary',
+              'Decision trees & tables',
+              'Object-oriented design overview',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Data flow diagrams explained',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers data flow diagram level 0 1 hindi',
+                fallback: 'dfd software engineering explained',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — DFD symbols and leveled diagrams with examples.',
+              }),
+            ],
+            practice: [
+              { question: 'Draw a level-0 and level-1 DFD for a library system.', hint: 'Processes, external entities, data stores.' },
+            ],
+            related: [{ id: 'se-5-1', title: 'Testing' }],
+          },
+        ],
+      },
+      {
+        id: 'se-m5',
+        title: 'Module 5 · Software Testing & Maintenance',
+        topics: [
+          {
+            id: 'se-5-1',
+            title: 'Testing Strategies: White Box, Black Box, Levels',
+            description:
+              'Finding faults before users do: unit, integration, system; white box (internal) and black box (external) testing.',
+            subtopics: [
+              'Concept of testing',
+              'Black box & white box testing',
+              'Unit, integration, system testing',
+              'Alpha & beta testing',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Software testing complete — white box black box',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers software testing white box black box hindi',
+                fallback: 'software testing strategies explained',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — all test levels and techniques.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'Testing one-shot revision',
+                channel: 'Last moment tuitions',
+                query: 'software testing one shot revision last minute',
+                fallback: 'software testing complete revision',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [
+              { question: 'When is black box testing preferred over white box?', hint: 'When internals are unknown — system level.' },
+            ],
+            related: [{ id: 'se-5-2', title: 'V-Model & Verification' }],
+          },
+          {
+            id: 'se-5-2',
+            title: 'V-Model, Verification vs Validation & Maintenance',
+            description:
+              'The V-model maps testing to development phases. Learn verification vs validation and configuration management.',
+            subtopics: [
+              'Testing type cycle (V-Model)',
+              'Verification vs validation',
+              'Configuration management',
+              'Software maintenance types',
+            ],
+            periods: 3,
+            marks: 7,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'V model and verification vs validation',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers V model verification validation hindi',
+                fallback: 'v model software testing explained',
+                duration: '15-25 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'What is the difference between verification and validation?', hint: 'Are we building it right? vs Are we building the right thing?' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Software Engineering — Rajib Mall, PHI',
+      'Software Engineering: A Practitioner’s Approach — R.S. Pressman, McGraw-Hill',
+      'An Integrated Approach to Software Engineering — Pankaj Jalote, Narosa',
+    ],
+    labs: [
+      {
+        id: 'se-lab',
+        name: 'Software Engineering (Recommended Lab Practice)',
+        source: 'recommended',
+        exercises: [
+          {
+            id: 'se-lab-1',
+            name: 'Comparative analysis of life cycle models',
+            concept: 'Pick two models and compare them on flexibility, cost of change, and use case.',
+            algorithm: [],
+            expectedOutput: 'Comparison table in your report',
+            commonErrors: [],
+            variation: 'Recommend a model for a real scenario',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Compare SDLC models — examples',
+                query: 'compare waterfall spiral agile models examples',
+                fallback: 'sdlc model comparison project',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'se-lab-2',
+            name: 'Write an SRS for a given problem',
+            concept: 'Document functional and non-functional requirements for a chosen project.',
+            algorithm: [],
+            expectedOutput: 'A complete SRS document',
+            commonErrors: ['Mixing functional and non-functional requirements'],
+            variation: 'Write an SRS for a library management system',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'How to write an SRS document',
+                query: 'software requirement specification example project document',
+                fallback: 'srs document writing examples',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'se-lab-3',
+            name: 'Develop level-0 and level-1 DFD of the project',
+            concept: 'Draw context diagram then refine processes into a level-1 DFD.',
+            algorithm: [],
+            expectedOutput: 'Level-0 and level-1 DFD diagrams',
+            commonErrors: ['Balancing — inputs/outputs must match across levels'],
+            variation: 'Create the data dictionary too',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Draw DFD for a system project',
+                query: 'dfd level 0 level 1 example library system draw',
+                fallback: 'dfd case study example',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'se-lab-4',
+            name: 'Write test cases for a known application',
+            concept: 'Create test cases with input, expected output and status fields.',
+            algorithm: ['Choose an application (e.g., login form)',
+              'List test scenarios',
+              'For each, write input + expected result',
+              'Execute and record status'],
+            expectedOutput: 'Test case document with results',
+            commonErrors: ['Not covering edge cases (empty inputs, long inputs)'],
+            variation: 'Use JMeter to test a web form',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Writing test cases with examples',
+                query: 'how to write test cases examples software testing',
+                fallback: 'test cases document example',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'egovernance',
+    code: '4.3',
+    name: 'Introduction to E-Governance',
+    shortName: 'E-Governance',
+    semester: 4,
+    category: 'theory',
+    credits: 2,
+    periods: '2L',
+    description:
+      'How technology transforms government services: e-governance lifecycles, the NeGP plan, SMART governance, PPP models and real Indian projects like DigiLocker, UPI and Passport Seva.',
+    whyMatters:
+      'India is a global leader in digital public infrastructure. This subject makes you literate in e-governance concepts asked in exams and interviews for govt jobs.',
+    difficulty: 'beginner',
+    examImportance: 'medium',
+    learningOrder: [
+      'Module 1 — Introduction & e-Governance Lifecycle',
+      'Module 2 — Government Process & NeGP',
+      'Module 3 — Architecture & Models',
+      'Module 4 — Indian Projects & Case Studies',
+      'Module 5 — Mini Project',
+    ],
+    totalPeriods: 28,
+    objectives: [
+      'Cover concepts of e-Governance and understand how technologies and business models shape the contours of government.',
+      'Understand improving citizen services and bringing transparency.',
+    ],
+    outcomes: [
+      'Get exposure to various e-Governance lifecycles.',
+      'Learn introductory ideas and practices of e-Governance initiatives in India.',
+      'Understand the architecture and various models of e-Governance.',
+      'Learn about various e-government projects.',
+      'Analyse and evaluate various e-governance projects.',
+    ],
+    modules: [
+      {
+        id: 'ego-m1',
+        title: 'Module 1 · Introduction',
+        topics: [
+          {
+            id: 'ego-1-1',
+            title: 'ICT for Development & e-Governance Lifecycle',
+            description:
+              'How emerging ICT trends support development, and the stages of designing and implementing an e-government project.',
+            subtopics: [
+              'Emerging trends in ICT for development',
+              'Design & implementation of e-government projects',
+              'e-Governance lifecycle',
+            ],
+            periods: 4,
+            marks: 18,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'E-governance introduction & lifecycle',
+                channel: 'Gate Smashers',
+                query: 'e governance introduction india explained in hindi',
+                fallback: 'e-governance basics explained',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — clear introduction to e-governance concepts.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'E-governance unit-wise one-shot',
+                query: 'e governance complete unit 1 revision hindi',
+                fallback: 'e-governance full syllabus revision',
+                duration: '1-3 hours',
+              }),
+            ],
+            practice: [
+              { question: 'Describe the stages of an e-governance project lifecycle.', hint: 'Vision → design → build → deploy → operate → scale.' },
+            ],
+            related: [{ id: 'ego-2-1', title: 'GPR & NeGP' }],
+          },
+        ],
+      },
+      {
+        id: 'ego-m2',
+        title: 'Module 2 · Government Process',
+        topics: [
+          {
+            id: 'ego-2-1',
+            title: 'Government Process Re-engineering (GPR) & NeGP',
+            description:
+              'Simplify government workflows before digitising them. Learn India’s National e-Governance Plan (NeGP).',
+            subtopics: [
+              'Need for Government Process Re-engineering',
+              'National e-Governance Plan (NeGP)',
+              'SMART governments & thumb rules',
+            ],
+            periods: 5,
+            marks: 18,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'NeGP & GPR explained',
+                query: 'nepg national e governance plan explained hindi',
+                fallback: 'government process reengineering e governance',
+                duration: '15-25 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'What is meant by "SMART" government?', hint: 'Simple, Moral, Accountable, Responsive, Transparent.' },
+            ],
+            related: [{ id: 'ego-3-1', title: 'Architecture & Models' }],
+          },
+        ],
+      },
+      {
+        id: 'ego-m3',
+        title: 'Module 3 · Architecture & Models of e-Governance',
+        topics: [
+          {
+            id: 'ego-3-1',
+            title: 'e-Governance Architecture, PPP & Change Management',
+            description:
+              'Models like G2C, G2B, G2G; the Public-Private Partnership model; and the human factors — corruption, resistance, cyber laws.',
+            subtopics: [
+              'Architecture of e-Governance',
+              'Models: G2C, G2B, G2G, G2E',
+              'Public Private Partnership (PPP)',
+              'Innovation & change management',
+              'Critical success factors, e-security & cyber laws',
+            ],
+            periods: 7,
+            marks: 25,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'e-Governance models and architecture',
+                query: 'e governance models g2c g2b g2g explained hindi',
+                fallback: 'egovernance models architecture explained',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+              r({
+                kind: 'revision',
+                title: 'Change management in e-governance',
+                query: 'e governance change management key success factors',
+                fallback: 'egovernance implementation challenges',
+                duration: '<15 min',
+              }),
+            ],
+            practice: [
+              { question: 'Explain the four models G2C, G2B, G2G, G2E with one example each.', hint: 'Citizen/Business/Government/Employee services.' },
+              { question: 'Why is change management critical in e-governance projects?', hint: 'Resistance from employees and citizens.' },
+            ],
+            related: [{ id: 'ego-4-1', title: 'Indian Projects' }],
+          },
+        ],
+      },
+      {
+        id: 'ego-m4',
+        title: 'Module 4 · e-Governance Projects',
+        topics: [
+          {
+            id: 'ego-4-1',
+            title: 'Indian e-Governance Initiatives',
+            description:
+              'Real projects that changed Indian governance: DigiLocker, UMANG, Passport Seva, e-Seva, CSC, Digital India programs.',
+            subtopics: [
+              'Digital India & flagship programs',
+              'DigiLocker, UMANG, e-Hospital',
+              'Passport Seva, e-District, CSCs',
+              'Best practices in managing projects',
+            ],
+            periods: 7,
+            marks: 25,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Digital India & flagship e-governance projects',
+                query: 'digital india e governance projects digilocker umang explained',
+                fallback: 'indian e governance projects list explained',
+                duration: '25-40 min',
+                language: 'hinglish',
+                rec: 3,
+                why: 'Best Pick — overview of all major Indian initiatives with impact.',
+              }),
+              r({
+                kind: 'revision',
+                title: 'Case studies: Passport Seva, e-Seva',
+                query: 'passport seva case study e governance project india',
+                fallback: 'e-governance project case studies',
+              }),
+            ],
+            practice: [
+              { question: 'Pick one e-governance project and explain its lifecycle and impact on citizens.', hint: 'DigiLocker: issue → usage → benefits.' },
+              { question: 'What are Common Service Centres (CSCs) and their role?', hint: 'Last-mile delivery of e-services in villages.' },
+            ],
+            related: [{ id: 'ego-5-1', title: 'Mini Project' }],
+          },
+        ],
+      },
+      {
+        id: 'ego-m5',
+        title: 'Module 5 · Mini Project',
+        topics: [
+          {
+            id: 'ego-5-1',
+            title: 'Evaluation of e-Governance Projects',
+            description:
+              'Group mini-projects that evaluate a chosen e-governance project on reach, cost, transparency and success.',
+            subtopics: [
+              'Choosing & researching a project',
+              'Evaluation parameters',
+              'Presenting findings',
+            ],
+            periods: 5,
+            marks: 14,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'How to evaluate an e-governance project',
+                query: 'e governance project evaluation case study methodology',
+                fallback: 'e-governance project analysis project work',
+                duration: '15-25 min',
+              }),
+              r({
+                kind: 'playlist',
+                title: 'NISG case studies on e-governance',
+                query: 'nisg case studies e governance india',
+                fallback: 'e governance success stories india',
+                duration: '1-3 hours',
+              }),
+            ],
+            practice: [
+              { question: 'Choose a project and list 5 evaluation criteria with a scoring plan.', hint: 'Coverage, reliability, cost, transparency, user feedback.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'e-Government — The Science of the Possible — J. Satyanarayana, PHI',
+      'Managing Transformation: Objectives to Outcomes — J. Satyanarayana, PHI',
+      'negd.gov.in · nisg.org/case-studies-on-e-governance-in-india',
+    ],
+  },
+  {
+    id: 'python',
+    code: '4.7',
+    name: 'Scripting Languages (Python)',
+    shortName: 'Python',
+    semester: 4,
+    category: 'practicum',
+    credits: 3,
+    periods: '1L + 4P',
+    description:
+      'Python for real problem solving: data types, control flow, functions, modules, exception handling, file I/O, regex and object-oriented programming.',
+    whyMatters:
+      'Python is the most in-demand language in the job market — from automation to AI. This subject gives you a practical, project-driven foundation.',
+    difficulty: 'beginner',
+    examImportance: 'high',
+    learningOrder: [
+      'Module 1 — Intro & Data Types',
+      'Module 2 — Control Structures',
+      'Module 3 — Functions & Modules',
+      'Module 4 — File I/O & Regex',
+      'Module 5 — Classes & OOP',
+    ],
+    totalPeriods: 14,
+    objectives: [
+      'Provide basic knowledge of Python for software engineers, system analysts and support personnel.',
+      'Develop problem-solving and programming capability.',
+    ],
+    outcomes: [
+      'Understand the basic programming constructs of Python.',
+      'Develop programs using conditional statements and loops.',
+      'Use reusable functions, Python packages and modules.',
+      'Perform file handling and use regular expressions.',
+      'Apply OOP concepts to solve different problems.',
+    ],
+    modules: [
+      {
+        id: 'py-m1',
+        title: 'Module 1 · Introduction, Variables & Data Types',
+        topics: [
+          {
+            id: 'py-1-1',
+            title: 'Python Setup, Syntax & Data Types',
+            description:
+              'Install Python, understand basic syntax, variables, numeric/string types, operators and code blocks.',
+            subtopics: [
+              'History, features, installation & setup',
+              'Variables, numeric & string data types',
+              'Basic operators',
+              'Coding blocks & indentation',
+            ],
+            periods: 1,
+            marks: 7,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python full course in Hindi',
+                channel: 'CodeWithHarry',
+                query: 'CodeWithHarry python tutorial for beginners full course hindi',
+                fallback: 'python programming for beginners',
+                duration: '1-3 hours',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — the most popular beginner Python course in Hindi.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'Python complete one-shot (2024)',
+                channel: 'Apna College',
+                query: 'apna college python one shot hindi complete course',
+                fallback: 'python one shot complete revision',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'Write a script that prints your name and age from variables.', hint: 'print(f"...")' },
+            ],
+          },
+          {
+            id: 'py-1-2',
+            title: 'Lists & Other Collections',
+            description:
+              'Collections power Python: lists with slicing, tuples, dictionaries and sets.',
+            subtopics: [
+              'Defining lists & list slicing',
+              'Tuples & sets',
+              'Dictionaries (key-value)',
+              'Common methods on each',
+            ],
+            periods: 1,
+            marks: 8,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python lists, tuples, dicts, sets',
+                channel: 'CodeWithHarry',
+                query: 'python lists tuples dictionaries sets tutorial hindi',
+                fallback: 'python collections list tuple dict',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Write a script that stores 10 marks in a list and prints the average.', hint: 'sum(lst)/len(lst).' },
+              { question: 'What is the difference between a list and a tuple?', hint: 'Mutable vs immutable.' },
+            ],
+            related: [{ id: 'py-2-1', title: 'Conditionals' }],
+          },
+        ],
+      },
+      {
+        id: 'py-m2',
+        title: 'Module 2 · Control Structures',
+        topics: [
+          {
+            id: 'py-2-1',
+            title: 'if-elif-else & Loops',
+            description:
+              'Decide and repeat: conditional blocks, for and while loops, and loop control with break/continue.',
+            subtopics: [
+              'if, elif, else blocks',
+              'for loops & range()',
+              'while loops',
+              'break, continue',
+            ],
+            periods: 3,
+            marks: 15,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python conditionals and loops',
+                channel: 'CodeWithHarry',
+                query: 'python if else loops tutorial hindi CodeWithHarry',
+                fallback: 'python control flow tutorial',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Write a script that checks if a number is odd or even using if-else.', hint: 'num % 2.' },
+              { question: 'Print a multiplication table using a loop, skip 5th iteration with continue.', hint: 'if i == 5: continue.' },
+            ],
+            related: [{ id: 'py-3-1', title: 'Functions' }],
+          },
+        ],
+      },
+      {
+        id: 'py-m3',
+        title: 'Module 3 · Functions, Modules, Packages & Exceptions',
+        topics: [
+          {
+            id: 'py-3-1',
+            title: 'Functions & Modules',
+            description:
+              'Organise code into functions and projects into modules. Import your own and external modules.',
+            subtopics: [
+              'Defining & calling functions',
+              'Parameters & return values',
+              'Modules & import',
+              'Packages & pip',
+            ],
+            periods: 1,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python functions and modules',
+                channel: 'CodeWithHarry',
+                query: 'python functions modules packages tutorial hindi',
+                fallback: 'python functions modules explained',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Create a module with a function and import it into another script.', hint: 'from mymodule import func.' },
+            ],
+            related: [{ id: 'py-3-2', title: 'Exception Handling' }],
+          },
+          {
+            id: 'py-3-2',
+            title: 'Exception Handling',
+            description:
+              'Handle errors gracefully with try/except, else and finally blocks.',
+            subtopics: [
+              'try / except blocks',
+              'Catching specific exceptions',
+              'else & finally',
+              'Raising exceptions',
+            ],
+            periods: 1,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python exception handling',
+                channel: 'CodeWithHarry',
+                query: 'python exception handling try except tutorial hindi',
+                fallback: 'python try except finally explained',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Write a program that safely divides two numbers catching ZeroDivisionError.', hint: 'try: ... except ZeroDivisionError:' },
+            ],
+            related: [{ id: 'py-4-1', title: 'File I/O' }],
+          },
+        ],
+      },
+      {
+        id: 'py-m4',
+        title: 'Module 4 · File I/O & Regular Expressions',
+        topics: [
+          {
+            id: 'py-4-1',
+            title: 'Reading & Writing Files',
+            description:
+              'Persist data: open, read, write and close files with the with statement.',
+            subtopics: [
+              'open() modes: r, w, a',
+              'read, readline, readlines',
+              'write & append',
+              'with statement',
+            ],
+            periods: 1,
+            marks: 12,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python file handling complete',
+                channel: 'CodeWithHarry',
+                query: 'python file handling read write tutorial hindi',
+                fallback: 'python file operations explained',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Copy the content of one file into another line by line.', hint: 'Use with open(...) for both.' },
+            ],
+            related: [{ id: 'py-4-2', title: 'Regular Expressions' }],
+          },
+          {
+            id: 'py-4-2',
+            title: 'Regular Expressions (regex)',
+            description:
+              'Pattern matching and searching text with the re module: search, findall, match and character classes.',
+            subtopics: [
+              'Pattern matching & searching',
+              're.search, re.findall, re.match',
+              'Character classes & special sequences',
+              'Simple validation with regex',
+            ],
+            periods: 1,
+            marks: 12,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python regex tutorial',
+                channel: 'CodeWithHarry',
+                query: 'python regular expressions regex tutorial hindi',
+                fallback: 'python regex explained for beginners',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Extract all email addresses from a text using regex.', hint: 'r"[\\w.+-]+@[\\w-]+\\.[\\w.]+"' },
+              { question: 'Check if a phone number matches a 10-digit Indian format.', hint: 'r"^\\d{10}$"' },
+            ],
+            related: [{ id: 'py-5-1', title: 'Classes & OOP' }],
+          },
+        ],
+      },
+      {
+        id: 'py-m5',
+        title: 'Module 5 · Classes in Python',
+        topics: [
+          {
+            id: 'py-5-1',
+            title: 'OOP Concepts & Classes',
+            description:
+              'Object-oriented Python: principles of OOP, defining classes, instance variables, methods and constructors.',
+            subtopics: [
+              'Principles of OOP',
+              'Class variables & instance methods',
+              'Creating classes & objects',
+              '__init__ constructor',
+            ],
+            periods: 1,
+            marks: 12,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python classes and objects complete',
+                channel: 'CodeWithHarry',
+                query: 'python classes objects oop tutorial hindi',
+                fallback: 'python oop classes explained',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — OOP from class definition to objects.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'Python OOP one-shot revision',
+                channel: 'Apna College',
+                query: 'python oop one shot apna college hindi',
+                fallback: 'python object oriented complete revision',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [
+              { question: 'Define a Student class with name, roll and a method to display.', hint: 'def display(self):' },
+            ],
+            related: [{ id: 'py-5-2', title: 'Inheritance & Polymorphism' }],
+          },
+          {
+            id: 'py-5-2',
+            title: 'Inheritance & Polymorphism',
+            description:
+              'Reuse and extend classes: base/derived classes, overriding methods, and polymorphism in Python.',
+            subtopics: [
+              'Inheritance & super()',
+              'Method overriding',
+              'Polymorphism basics',
+            ],
+            periods: 1,
+            marks: 12,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Python inheritance and polymorphism',
+                channel: 'CodeWithHarry',
+                query: 'python inheritance polymorphism tutorial hindi',
+                fallback: 'python inheritance explained oop',
+                duration: '25-40 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'Create a base class Vehicle and a derived class Car that overrides a method.', hint: 'class Car(Vehicle):' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Taming Python by Programming — Jeeva Jose, Khanna Publishing',
+      'Starting Out with Python — Tony Gaddis, Pearson',
+      'Python Programming: Using Problem Solving Approach — Reema Thareja, Oxford',
+      'Core Python Programming — Wesley J. Chun, Prentice Hall',
+    ],
+    labs: [
+      {
+        id: 'py-lab',
+        name: 'Python (Recommended Lab Practice)',
+        source: 'recommended',
+        exercises: [
+          {
+            id: 'py-lab-1',
+            name: 'Scripts based on data types and collections',
+            concept: 'Experiment with ints, floats, strings, lists, tuples, dicts and sets.',
+            algorithm: [],
+            expectedOutput: 'Scripts run without errors and print expected output',
+            commonErrors: ['Trying to modify a tuple (immutable)'],
+            variation: 'Build a simple "to-do list" with a list of dicts',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python practice — data types and collections',
+                query: 'python practice programs data types lists dicts beginner',
+                fallback: 'python data structures practice exercises',
+                duration: '40-60 min',
+              }),
+            ],
+          },
+          {
+            id: 'py-lab-2',
+            name: 'Python scripts with conditionals and loops',
+            concept: 'decision-making and iteration programs.',
+            algorithm: [],
+            expectedOutput: 'All branching and loop output correct',
+            commonErrors: ['Forgetting colon after if/for blocks'],
+            variation: 'Print a number pyramid with nested loops',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python control flow practice',
+                query: 'python if else loops practice exercises for beginners',
+                fallback: 'python decision loops programs',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'py-lab-3',
+            name: 'Functions, modules and packages',
+            concept: 'write reusable functions and organise code into importable modules.',
+            algorithm: [],
+            expectedOutput: 'Module imported and functions callable from another script',
+            commonErrors: ['Module file not in same directory or PYTHONPATH'],
+            variation: 'Group several functions into a package',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python functions modules practice',
+                query: 'python functions modules practice exercises',
+                fallback: 'python module creation lab exercise',
+                duration: '25-40 min',
+              }),
+            ],
+          },
+          {
+            id: 'py-lab-4',
+            name: 'Program using exception handling',
+            concept: 'handle runtime errors without crashing.',
+            algorithm: [],
+            expectedOutput: 'Program prints a friendly error message instead of a traceback',
+            commonErrors: ['Catching a broader exception than needed'],
+            variation: 'Raise custom exceptions for invalid data',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python exception handling practice',
+                query: 'python exception handling practice programs',
+                fallback: 'try except python exercises',
+                duration: '15-25 min',
+              }),
+            ],
+          },
+          {
+            id: 'py-lab-5',
+            name: 'Regular expressions and file processing',
+            concept: 'validate, search and extract patterns; read/write files.',
+            algorithm: [],
+            expectedOutput: 'Extracted matches printed from a sample log file',
+            commonErrors: ['Raw strings r"" needed for backslash patterns'],
+            variation: 'Parse a text file and count words per line',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python regex and file programs',
+                query: 'python regex file processing practice programs',
+                fallback: 'python regex exercises file handling',
+                duration: '40-60 min',
+              }),
+            ],
+          },
+          {
+            id: 'py-lab-6',
+            name: 'Implement Class, Inheritance and Polymorphism',
+            concept: 'build a small OOP program: base class, derived class, overridden methods.',
+            algorithm: [],
+            expectedOutput: 'Objects of both classes behave polymorphically',
+            commonErrors: ['Forgetting to call super().__init__()'],
+            variation: 'Add a method that accepts objects of any subclass',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Python OOP class inheritance programs',
+                query: 'python class inheritance polymorphism practice programs',
+                fallback: 'python oop lab exercises',
+                duration: '40-60 min',
+              }),
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'eikt',
+    code: '4.8',
+    name: 'Essence of Indian Knowledge and Tradition',
+    shortName: 'EIKT',
+    semester: 4,
+    category: 'audit',
+    credits: 2,
+    periods: '2L',
+    description:
+      'A qualifying audit course exploring the Indian Knowledge System — the Vedas and their branches, ancient Indian science and technology, and the science of Yoga and holistic health.',
+    whyMatters:
+      'This course connects modern engineering knowledge with India’s scientific and philosophical heritage. Mandatory to pass (marks are qualifying only).',
+    difficulty: 'beginner',
+    examImportance: 'low',
+    learningOrder: [
+      'Module 1 — Introduction to Indian Knowledge System',
+      'Module 2 — Modern Science & IKS',
+      'Module 3 — Yoga & Holistic Healthcare',
+      'Module 4 — Case Studies / Assignment',
+    ],
+    totalPeriods: 28,
+    objectives: [
+      'Understand the fundamental aspects of the Indian Knowledge System.',
+      'Understand its integration with modern science, Yoga and holistic healthcare.',
+    ],
+    outcomes: [
+      'Explain the overview, importance and relevance of the Indian Knowledge System including Vedas, Upavedas, Vedangas and Upangas.',
+      'Describe the relevance of science and spirituality and contributions of ancient Indian science and technology.',
+      'Explain basic principles of Yoga and benefits of holistic healthcare.',
+      'Demonstrate practical applications and case studies of the Indian Knowledge System.',
+    ],
+    modules: [
+      {
+        id: 'eikt-m1',
+        title: 'Module 1 · Introduction to Indian Knowledge System',
+        topics: [
+          {
+            id: 'eikt-1-1',
+            title: 'Overview of the Indian Knowledge System',
+            description:
+              'The framework of traditional Indian knowledge: importance, relevance, and the primary texts — Vedas, Upavedas, Vedangas and Upangas.',
+            subtopics: [
+              'Overview, importance and relevance',
+              'Introduction to the Vedas',
+              'Upavedas, Vedangas & Upangas',
+            ],
+            periods: 7,
+            marks: 40,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Introduction to Indian Knowledge System',
+                query: 'indian knowledge system introduction vedas upavedas vedangas lecture',
+                fallback: 'indian knowledge system explained',
+                duration: '25-40 min',
+                language: 'hinglish',
+                rec: 3,
+                why: 'Best Pick — structured introduction matching the unit topics.',
+              }),
+              r({
+                kind: 'playlist',
+                title: 'Complete IKS course (AICTE)',
+                query: 'indian knowledge system full course aicte iiks',
+                fallback: 'indian knowledge tradition full playlist',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'What are the four Vedas and the four Upavedas?', hint: 'Rig/Yajur/Sama/Atharva; Ayurveda, Dhanurveda, Gandharvaveda, Sthapatyaveda.' },
+              { question: 'List the six Vedangas.', hint: 'Siksha, Kalpa, Vyakarana, Nirukta, Chandas, Jyotisha.' },
+            ],
+            related: [{ id: 'eikt-2-1', title: 'Science & IKS' }],
+          },
+        ],
+      },
+      {
+        id: 'eikt-m2',
+        title: 'Module 2 · Modern Science & Indian Knowledge System',
+        topics: [
+          {
+            id: 'eikt-2-1',
+            title: 'Science & Spirituality; Ancient Indian S&T',
+            description:
+              'How ancient Indian science — mathematics, astronomy, metallurgy, medicine — overlaps with modern science.',
+            subtopics: [
+              'Relevance of science & spirituality',
+              'Science and technology in ancient India',
+              'Contributions: zero, Aryabhata, Sushruta',
+            ],
+            periods: 7,
+            marks: 30,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Ancient Indian science & technology',
+                query: 'science technology ancient india aryabhata sushruta lecture',
+                fallback: 'ancient indian science contribution',
+                duration: '25-40 min',
+                language: 'hinglish',
+              }),
+            ],
+            practice: [
+              { question: 'Name three ancient Indian contributions to mathematics and their modern relevance.', hint: 'Zero, decimal system, trigonometry.' },
+            ],
+            related: [{ id: 'eikt-3-1', title: 'Yoga & Healthcare' }],
+          },
+        ],
+      },
+      {
+        id: 'eikt-m3',
+        title: 'Module 3 · Yoga & Holistic Healthcare',
+        topics: [
+          {
+            id: 'eikt-3-1',
+            title: 'Yoga, Holistic Health & Modern Integration',
+            description:
+              'The principles of Yoga as a science of well-being and how Ayurveda and yogic practice integrate with modern healthcare.',
+            subtopics: [
+              'Basic principles of Yoga',
+              'Benefits of holistic healthcare',
+              'Integration with modern healthcare',
+            ],
+            periods: 7,
+            marks: 15,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Yoga & holistic healthcare explained',
+                query: 'yoga science health benefits holistic healthcare explained',
+                fallback: 'yoga principles benefit lecture',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [
+              { question: 'How can yogic practices complement modern treatment?', hint: 'Preventive health, stress, lifestyle diseases.' },
+            ],
+            related: [{ id: 'eikt-4-1', title: 'Case Studies' }],
+          },
+        ],
+      },
+      {
+        id: 'eikt-m4',
+        title: 'Module 4 · Case Studies & Assignments',
+        topics: [
+          {
+            id: 'eikt-4-1',
+            title: 'Practical Applications of IKS Today',
+            description:
+              'Case studies showing how Indian Knowledge practices remain relevant — from water conservation to herbal medicine.',
+            subtopics: [
+              'Case studies of modern-day IKS relevance',
+              'Assignment-based study',
+            ],
+            periods: 7,
+            marks: 15,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Indian Knowledge System modern applications',
+                query: 'indian knowledge traditions modern applications case studies',
+                fallback: 'iks relevance today examples',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [
+              { question: 'Present one case study where a traditional Indian practice solves a modern problem.', hint: 'Harvesting, ayurveda, yoga in corporates.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Introduction to Indian Knowledge System — IKS, AICTE (public domain)',
+      'NCERT / IKS model curriculum resources',
+    ],
+  },
+  {
+    id: 'cso',
+    code: '4.4(a)',
+    name: 'Computer System Organization (Program Elective-1)',
+    shortName: 'Computer System Organization',
+    semester: 4,
+    category: 'elective',
+    credits: 3,
+    periods: '3L',
+    description:
+      'Computer System Organization (CSO) — choose this option of Program Elective-1 to learn how computers are actually built: number systems, logic gates, combinational circuits, microprocessor architecture and memory interfacing.',
+    whyMatters:
+      'CSO is the hardware soul of CSE. It demystifies how CPUs, memory and I/O really work — directly useful for hardware maintenance and embedded roles.',
+    difficulty: 'intermediate',
+    examImportance: 'medium',
+    learningOrder: [
+      'Module 1 — Structure of Computers & Number Systems',
+      'Module 2 — Logic Gates & Boolean Algebra',
+      'Module 3 — Combinational Circuits',
+      'Module 4 — Microprocessor Architecture',
+      'Module 5 — Memory & Digital Interfacing',
+    ],
+    totalPeriods: 42,
+    objectives: [
+      'Understand the structure, function and characteristics of computer systems.',
+      'Understand the design of functional units, instruction sets, memory hierarchy and I/O methods.',
+    ],
+    outcomes: [
+      'Understand the basic architecture of a computer and number systems.',
+      'Understand logic gates and Boolean algebra.',
+      'Be introduced to combinational circuits.',
+      'Be introduced to assembly language programming and the microprocessor.',
+      'Understand memory and digital interfacing.',
+    ],
+    modules: [
+      {
+        id: 'cso-m1',
+        title: 'Module 1 · Structure of Computers',
+        topics: [
+          {
+            id: 'cso-1-1',
+            title: 'Computer Functional Units & Von-Neumann Architecture',
+            description:
+              'The basic organisation of a computer: CPU, memory and I/O, and the stored-program (Von-Neumann) model.',
+            subtopics: [
+              'Functional units: CU, ALU, registers, memory, I/O',
+              'Von-Neumann architecture',
+              'Bus structures',
+              'Basic operational concepts',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Computer architecture — functional units & von Neumann',
+                channel: 'Gate Smashers',
+                query: 'Gate Smashers computer organization functional units von neumann hindi',
+                fallback: 'computer organization functional units explained',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — foundation of computer organisation.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: 'COA complete course',
+                query: 'computer organization architecture full course hindi',
+                fallback: 'coa complete playlist',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'Draw the Von-Neumann architecture and label all components.', hint: 'Memory ↔ CPU ↔ I/O via bus.' },
+            ],
+            related: [{ id: 'cso-1-2', title: 'Number Systems' }],
+          },
+          {
+            id: 'cso-1-2',
+            title: 'Number Systems & Conversions',
+            description:
+              'Binary, octal, hexadecimal and their conversions; binary addition/subtraction with 1’s and 2’s complement; error detecting codes.',
+            subtopics: [
+              'Decimal ↔ binary ↔ octal ↔ hex conversion',
+              'Binary arithmetic including binary points',
+              '1’s and 2’s complement arithmetic',
+              'Error detecting codes (parity)',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Number system conversions complete',
+                channel: 'Gate Smashers',
+                query: 'number system conversion binary octal hex gate smashers',
+                fallback: 'number system conversion explained in hindi',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — every conversion with worked examples.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'Complement arithmetic practice',
+                query: '1s 2s complement subtraction practice problems',
+                fallback: 'binary subtraction complement numericals',
+              }),
+            ],
+            practice: [
+              { question: 'Convert 156₁₀ to binary, octal and hexadecimal.', hint: 'Repeated division by base.' },
+              { question: 'Subtract 25 from 41 using 2’s complement.', hint: 'Add 41 + 2’s complement of 25.' },
+            ],
+            related: [{ id: 'cso-2-1', title: 'Logic Gates' }],
+          },
+        ],
+      },
+      {
+        id: 'cso-m2',
+        title: 'Module 2 · Logic Gates & Simplification',
+        topics: [
+          {
+            id: 'cso-2-1',
+            title: 'Logic Gates & Universal Gates',
+            description:
+              'NOT, AND, OR, NAND, NOR, XOR, XNOR gates with truth tables; NAND and NOR as universal gates; gate-level parameters.',
+            subtopics: [
+              'Symbols and truth tables of basic gates',
+              'NAND & NOR as universal gates',
+              'Propagation delay, noise margin, fan-in, fan-out',
+              'SSI, MSI, LSI, VLSI',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Logic gates complete — truth tables & universal gates',
+                channel: 'Gate Smashers',
+                query: 'logic gates truth table universal gates gate smashers',
+                fallback: 'logic gates explained all types',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — every gate with symbols and examples.',
+              }),
+            ],
+            practice: [
+              { question: 'Prove NAND gate is universal by building NOT, AND and OR from NANDs.', hint: 'NOT: A NAND A.' },
+            ],
+            related: [{ id: 'cso-2-2', title: 'Boolean Algebra & K-Map' }],
+          },
+          {
+            id: 'cso-2-2',
+            title: 'Boolean Algebra & Karnaugh Maps',
+            description:
+              'Simplify logic: Boolean postulates, De Morgan’s theorems, and K-maps up to 4 variables.',
+            subtopics: [
+              'Postulates of Boolean algebra',
+              'De Morgan’s theorems',
+              'Implementation of logic equations with gates',
+              'Karnaugh map (up to 4 variables)',
+            ],
+            periods: 5,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Boolean algebra and K-map simplification',
+                channel: 'Gate Smashers',
+                query: 'boolean algebra k map simplification gate smashers hindi',
+                fallback: 'karnaugh map 4 variable simplification',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — K-map grouping rules with examples.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'K-map numerical practice',
+                query: 'k map 3 4 variable practice problems solved',
+                fallback: 'k map simplification questions',
+              }),
+            ],
+            practice: [
+              { question: 'Simplify F = Σm(0,1,2,4,5,6) using a 3-variable K-map.', hint: 'Group pairs of 1s.' },
+              { question: 'State De Morgan’s theorems.', hint: '(A+B)\' = A\'B\' and (AB)\' = A\'+B\'.' },
+            ],
+            related: [{ id: 'cso-3-1', title: 'Combinational Circuits' }],
+          },
+        ],
+      },
+      {
+        id: 'cso-m3',
+        title: 'Module 3 · Combinational Circuits',
+        topics: [
+          {
+            id: 'cso-3-1',
+            title: 'Multiplexer, Decoder, Encoder & 7-Segment',
+            description:
+              'Circuits that select and convert data: MUX, De-MUX, encoder, decoder, 7-segment decoder and BCD encoder.',
+            subtopics: [
+              'Multiplexer & de-multiplexer',
+              'Encoder & decoder',
+              '7-segment decoder & BCD encoder',
+            ],
+            periods: 4,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'MUX, DEMUX, encoder, decoder explained',
+                channel: 'Gate Smashers',
+                query: 'multiplexer decoder encoder 7 segment gate smashers',
+                fallback: 'combinational circuits mux decoder explained',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'How many select lines does a 16:1 MUX need?', hint: 'log2(16) = 4.' },
+            ],
+            related: [{ id: 'cso-3-2', title: 'Adders & Subtractors' }],
+          },
+          {
+            id: 'cso-3-2',
+            title: 'Adders & Subtractors',
+            description:
+              'Build arithmetic logic: half adder, full adder, half subtractor and full subtractor with their circuits and truth tables.',
+            subtopics: [
+              'Half adder & full adder',
+              'Design & implementation',
+              'Half subtractor & full subtractor',
+            ],
+            periods: 5,
+            marks: 10,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Half adder, full adder, subtractors',
+                channel: 'Gate Smashers',
+                query: 'half adder full adder half subtractor full subtractor gate smashers',
+                fallback: 'adder subtractor combinational circuit explained',
+                duration: '25-40 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — truth tables and K-map derived circuits.',
+              }),
+            ],
+            practice: [
+              { question: 'Derive the full adder equations for Sum and Carry from its truth table.', hint: 'Sum = A⊕B⊕Cin.' },
+              { question: 'What extra gate does a subtractor need versus an adder?', hint: 'Borrow logic.' },
+            ],
+            related: [{ id: 'cso-4-1', title: 'Microprocessor Architecture' }],
+          },
+        ],
+      },
+      {
+        id: 'cso-m4',
+        title: 'Module 4 · Microprocessor Architecture',
+        topics: [
+          {
+            id: 'cso-4-1',
+            title: 'Instruction Set Architecture & Assembly Programming',
+            description:
+              'View the processor from a programmer’s perspective: instruction sets, and simple assembly programs (logical, branch, call, string manipulation).',
+            subtopics: [
+              'ISA design principles',
+              'Example microprocessor: 8085/8086 or ARM',
+              'Assembly: simple, logical, branch & call programs',
+              'Sorting, arithmetic expressions in assembly',
+            ],
+            periods: 8,
+            marks: 20,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: '8085 microprocessor architecture & programming',
+                channel: 'Gate Smashers',
+                query: '8085 microprocessor architecture programming tutorial gate smashers',
+                fallback: '8085 microprocessor full course',
+                duration: '1-3 hours',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — standard 8085 ISA and programs.',
+              }),
+              r({
+                kind: 'one-shot',
+                title: '8085 programming one-shot',
+                query: '8085 microprocessor programming one shot',
+                fallback: 'assembly language programming 8085 revision',
+                duration: '1-3 hours',
+              }),
+            ],
+            practice: [
+              { question: 'Write an 8085 program to add two 8-bit numbers.', hint: 'LDA, ADD, STA sequence.' },
+              { question: 'What is the 8085 register model?', hint: 'A, B, C, D, E, H, L + PSW.' },
+            ],
+            related: [{ id: 'cso-5-1', title: 'Memory Interfacing' }],
+          },
+        ],
+      },
+      {
+        id: 'cso-m5',
+        title: 'Module 5 · Memory & Digital Interfacing',
+        topics: [
+          {
+            id: 'cso-5-1',
+            title: 'Memory Addressing & Interfacing (RAM/ROM)',
+            description:
+              'Address decoding, interfacing RAM, ROM and EPROM to the processor, and programmable peripheral interfaces for keyboard/display.',
+            subtopics: [
+              'Addressing & address decoding',
+              'Interfacing RAM, ROM, EPROM',
+              'Programmable peripheral interface (PPI)',
+              'Interfacing keyboard & displays',
+            ],
+            periods: 8,
+            marks: 20,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Memory interfacing & 8255 PPI',
+                channel: 'Gate Smashers',
+                query: 'memory interfacing 8085 ram rom 8255 ppi explained',
+                fallback: 'memory address decoding interfacing microprocessor',
+                duration: '40-60 min',
+                language: 'hindi',
+              }),
+            ],
+            practice: [
+              { question: 'How is a memory chip selected using the higher address lines?', hint: 'Chip-select logic from address decoding.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Computer System Architecture — M. Morris Mano, Pearson',
+      'Computer Organization — Carl Hamacher et al., McGraw-Hill',
+      'Microprocessors & Interfacing — Douglas V. Hall, Tata McGraw-Hill',
+    ],
+  },
+  {
+    id: 'foss',
+    code: '4.4(b)',
+    name: 'Free and Open Source Software (Program Elective-1)',
+    shortName: 'FOSS',
+    semester: 4,
+    category: 'elective',
+    credits: 3,
+    periods: '3L',
+    description:
+      'FOSS — the other Program Elective-1 option. Learn the open-source philosophy, Linux administration, and the open-source toolchain: LibreOffice, LAMP, Git, databases and bug trackers.',
+    whyMatters:
+      'Open source powers the internet. This elective is the most practical path to becoming a Linux system administrator or an open-source contributor.',
+    difficulty: 'beginner',
+    examImportance: 'medium',
+    learningOrder: [
+      'Module 1 — FOSS Philosophy',
+      'Module 2 — Basics of Linux',
+      'Module 3 — Open Source Tools',
+      'Module 4 — Case Studies',
+    ],
+    totalPeriods: 42,
+    objectives: [
+      'Familiarise students with development using FOSS — Linux OS, service configuration, application software and development tools.',
+    ],
+    outcomes: [
+      'Understand basic introductory concepts of open-source software.',
+      'Get hands-on with the Linux operating system.',
+      'Work with different open-source software.',
+      'Understand mobile programming and project management tools.',
+    ],
+    modules: [
+      {
+        id: 'foss-m1',
+        title: 'Module 1 · Introduction',
+        topics: [
+          {
+            id: 'foss-1-1',
+            title: 'FOSS Philosophy & Licensing',
+            description:
+              'The FOSS community, why open development works, and the licensing models: GPL, MIT, Apache vs proprietary.',
+            subtopics: [
+              'FOSS community & philosophy',
+              'Benefits of community-based development',
+              'Free software vs open source software',
+              'Licensing models & FOSS examples',
+            ],
+            periods: 6,
+            marks: 20,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'What is open source & FOSS licensing',
+                query: 'open source software explained licensing gpl vs mit',
+                fallback: 'foss free open source software introduction',
+                duration: '15-25 min',
+                language: 'hinglish',
+                rec: 3,
+                why: 'Best Pick — clear intro to the FOSS philosophy.',
+              }),
+            ],
+            practice: [
+              { question: 'Explain the difference between free software and open source software.', hint: 'Ethical movement vs development methodology.' },
+              { question: 'What obligations does the GPL impose on redistributors?', hint: 'Source availability, same licence.' },
+            ],
+            related: [{ id: 'foss-2-1', title: 'Linux Basics' }],
+          },
+        ],
+      },
+      {
+        id: 'foss-m2',
+        title: 'Module 2 · Basics of Linux',
+        topics: [
+          {
+            id: 'foss-2-1',
+            title: 'Linux Installation, Boot & Administration',
+            description:
+              'Install Linux (including dual-boot), understand the boot process, kernel options, X Window configuration and system administration.',
+            subtopics: [
+              'Linux installation & hardware configuration',
+              'Boot process & kernel options',
+              'Dual-booting with other OSes',
+              'X Window System configuration',
+              'Server administration, backup & security',
+            ],
+            periods: 5,
+            marks: 20,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Linux full course for beginners',
+                channel: 'CodeWithHarry',
+                query: 'linux course for beginners in hindi ubuntu basics',
+                fallback: 'linux administration full course',
+                duration: '1-3 hours',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — install, commands and admin basics in Hindi.',
+              }),
+              r({
+                kind: 'practical',
+                title: 'Complete Linux commands list (hindi)',
+                query: 'linux commands complete list tutorial hindi',
+                fallback: 'linux commands for system administration',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [
+              { question: 'Describe the stages of a typical Linux boot process.', hint: 'BIOS/UEFI → bootloader → kernel → init/systemd.' },
+              { question: 'List five Linux commands for system administration.', hint: 'useradd, passwd, systemctl, chmod, df.' },
+            ],
+            related: [{ id: 'foss-3-1', title: 'Open Source Tools' }],
+          },
+        ],
+      },
+      {
+        id: 'foss-m3',
+        title: 'Module 3 · Programming Tools & Techniques',
+        topics: [
+          {
+            id: 'foss-3-1',
+            title: 'Open Source Software Ecosystem',
+            description:
+              'The open-source stack in practice: LibreOffice, Samba, LAMP, programming languages, MySQL/PostgreSQL, UML tools, Git and bug trackers.',
+            subtopics: [
+              'LibreOffice & Samba',
+              'LAMP stack',
+              'Java/Python/Perl on Linux',
+              'MySQL & PostgreSQL',
+              'Version control: SVN, Git',
+              'Project management & bug tracking tools',
+            ],
+            periods: 6,
+            marks: 20,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Git & GitHub complete tutorial',
+                channel: 'CodeWithHarry',
+                query: 'git and github tutorial for beginners hindi CodeWithHarry',
+                fallback: 'git version control full tutorial',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — the essential open-source dev tool.',
+              }),
+              r({
+                kind: 'playlist',
+                title: 'Complete LAMP setup tutorial',
+                query: 'lamp stack install linux apache mysql php tutorial',
+                fallback: 'open source software tools playlist',
+                duration: '1-3 hours',
+              }),
+            ],
+            practice: [
+              { question: 'What does git add/commit/push do, and why do we branch?', hint: 'Stage, snapshot, upload; isolate work.' },
+              { question: 'What components make up the LAMP stack?', hint: 'Linux, Apache, MySQL, PHP.' },
+            ],
+            related: [{ id: 'foss-4-1', title: 'FOSS Case Studies' }],
+          },
+        ],
+      },
+      {
+        id: 'foss-m4',
+        title: 'Module 4 · FOSS Case Studies',
+        topics: [
+          {
+            id: 'foss-4-1',
+            title: 'FOSS Implementation Case Studies',
+            description:
+              'Real examples of FOSS adoption: government/enterprise migrations, Linux in servers, and community projects that succeeded.',
+            subtopics: [
+              'Case studies of FOSS implementation',
+              'Success stories and lessons',
+            ],
+            periods: 4,
+            marks: 20,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'FOSS success stories & case studies',
+                query: 'foss open source case studies success stories india',
+                fallback: 'open source implementation examples',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [
+              { question: 'Describe one organisation that migrated to FOSS and the benefits it gained.', hint: 'Cost, security, customisation.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Linux in a Nutshell — Ellen Siever',
+      'GNU Philosophy — gnu.org/philosophy',
+      'Linux Administration — tldp.org',
+      'Git — git-scm.com · LibreOffice — libreoffice.org',
+    ],
+  },
+  {
+    id: 'project-mgmt',
+    code: '4.5(a)',
+    name: 'Project Management (Open Elective-1)',
+    shortName: 'Project Management',
+    semester: 4,
+    category: 'elective',
+    credits: 2,
+    periods: '2L',
+    description:
+      'Open Elective-1 option: how real projects are planned and delivered — project life cycles, capital budgeting, financial estimates, NPV/IRR decisions and CPM/PERT scheduling.',
+    whyMatters:
+      'Project management knowledge makes you valuable in any role and is essential for your minor/major project and future team work.',
+    difficulty: 'intermediate',
+    examImportance: 'medium',
+    learningOrder: [
+      'Module 1 — Concept of a Project',
+      'Module 2 — Capital Budgeting Process',
+      'Module 3 — Financial Estimates',
+      'Module 4 — Capital Budgeting Techniques',
+      'Module 5 — Project Administration (CPM/PERT)',
+    ],
+    totalPeriods: 28,
+    objectives: [
+      'Develop the idea of a project plan: defining goals, objectives and tasks.',
+      'Understand key project management skills and strategies.',
+    ],
+    outcomes: [
+      'Understand project management principles.',
+      'Prepare project plans.',
+      'Estimate the effective cost of a project.',
+      'Create risk reports and cost-benefit analyses.',
+      'Prepare project scheduling through time-cost trade-off.',
+    ],
+    modules: [
+      {
+        id: 'pm-m1',
+        title: 'Unit I · Concept of a Project',
+        topics: [
+          {
+            id: 'pm-1-1',
+            title: 'Project Life Cycle, Priorities & WBS',
+            description:
+              'Basics of project management: project classification, life cycle, the scope-cost-time priority triangle and Work Breakdown Structure.',
+            subtopics: [
+              'Classification of projects',
+              'Project life cycle',
+              'Priorities: scope, cost, time',
+              'Project priority matrix & WBS',
+            ],
+            periods: 5,
+            marks: 14,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Project management fundamentals',
+                query: 'project management fundamentals life cycle wbs explained',
+                fallback: 'project management basics tutorial',
+                duration: '25-40 min',
+                language: 'hinglish',
+              }),
+            ],
+            practice: [
+              { question: 'Create a WBS for building a college website.', hint: 'Break into phases → deliverables → tasks.' },
+            ],
+            related: [{ id: 'pm-2-1', title: 'Capital Budgeting' }],
+          },
+        ],
+      },
+      {
+        id: 'pm-m2',
+        title: 'Unit II · Capital Budgeting Process',
+        topics: [
+          {
+            id: 'pm-2-1',
+            title: 'Planning, Analysis, Selection & Demand Forecasting',
+            description:
+              'How projects are assessed before investment: idea generation, market and demand analysis, forecasting and technical analysis.',
+            subtopics: [
+              'Planning–Analysis–Selection–Financing–Implementation–Review',
+              'Market & demand analysis',
+              'Demand forecasting techniques',
+              'Technical analysis',
+            ],
+            periods: 6,
+            marks: 14,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Capital budgeting process explained',
+                query: 'capital budgeting process steps explained',
+                fallback: 'project appraisal demand forecasting lecture',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [
+              { question: 'What steps make up the capital budgeting process?', hint: 'Plan, analyse, select, finance, implement, review.' },
+            ],
+            related: [{ id: 'pm-3-1', title: 'Financial Estimates' }],
+          },
+        ],
+      },
+      {
+        id: 'pm-m3',
+        title: 'Unit III · Financial Estimates & Projections',
+        topics: [
+          {
+            id: 'pm-3-1',
+            title: 'Cost, Financing & Break-Even Analysis',
+            description:
+              'Read project numbers: cost of project, means of financing, production cost, working capital, projected cash flow and break-even analysis.',
+            subtopics: [
+              'Cost of project & sources of finance',
+              'Sales & production estimates',
+              'Cost of production & working capital',
+              'Cash flow & balance sheet projections',
+              'Break-even analysis',
+            ],
+            periods: 5,
+            marks: 24,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Break even analysis explained simply',
+                query: 'break even analysis calculation explained example',
+                fallback: 'financial projections project feasibility',
+                duration: '15-25 min',
+                language: 'hinglish',
+              }),
+            ],
+            practice: [
+              { question: 'Compute break-even quantity given fixed costs of 1,00,000, price 500, variable cost 300.', hint: 'BE = FC / (P - VC).' },
+            ],
+            related: [{ id: 'pm-4-1', title: 'Capital Budgeting Techniques' }],
+          },
+        ],
+      },
+      {
+        id: 'pm-m4',
+        title: 'Unit IV · Basic Techniques in Capital Budgeting',
+        topics: [
+          {
+            id: 'pm-4-1',
+            title: 'Payback, NPV, IRR & Risk',
+            description:
+              'Decide if a project is worth it: payback period, accounting rate of return, net present value, benefit-cost ratio, IRR and risk.',
+            subtopics: [
+              'Payback period',
+              'Accounting rate of return',
+              'Net Present Value (NPV)',
+              'Benefit-cost ratio & IRR',
+              'Project risk & social cost-benefit analysis',
+            ],
+            periods: 6,
+            marks: 24,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'NPV, IRR and payback period explained',
+                query: 'npv irr payback period explained with example',
+                fallback: 'capital budgeting techniques npv irr tutorial',
+                duration: '25-40 min',
+                language: 'hinglish',
+                rec: 3,
+                why: 'Best Pick — all decision techniques with numbers.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'NPV/IRR numerical practice',
+                query: 'npv irr payback period solved examples practice',
+                fallback: 'capital budgeting numerical problems solved',
+              }),
+            ],
+            practice: [
+              { question: 'A project costs 50,000 and yields 20,000/year for 3 years. Find payback and NPV at 10%.', hint: 'Payback 2.5 yrs; PV each year and subtract.' },
+              { question: 'Rule for accepting a project under NPV and IRR?', hint: 'NPV > 0; IRR > cost of capital.' },
+            ],
+            related: [{ id: 'pm-5-1', title: 'Project Administration' }],
+          },
+        ],
+      },
+      {
+        id: 'pm-m5',
+        title: 'Unit V · Project Administration',
+        topics: [
+          {
+            id: 'pm-5-1',
+            title: 'CPM, PERT & Time-Cost Trade-Off',
+            description:
+              'Schedule projects with Critical Path Method and PERT: networks, floats, critical path, crashing and least-cost duration.',
+            subtopics: [
+              'Project scheduling & network planning',
+              'CPM & critical path',
+              'PERT & time estimates',
+              'Time-cost trade-off / crashing',
+              'Project management software basics',
+            ],
+            periods: 6,
+            marks: 24,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'CPM and PERT explained',
+                channel: 'Gate Smashers',
+                query: 'cpm pert critical path method explained gate smashers',
+                fallback: 'cpm pert network diagram explained',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — network diagrams and critical path calculation.',
+              }),
+              r({
+                kind: 'exam',
+                title: 'CPM numerical practice',
+                query: 'cpm pert numerical practice problems critical path',
+                fallback: 'critical path calculation examples solved',
+              }),
+            ],
+            practice: [
+              { question: 'Draw a network for activities with durations and find the critical path.', hint: 'Longest path through the network.' },
+              { question: 'What does crashing a project mean?', hint: 'Adding resources on critical path to cut time.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Project Management: A Systems Approach to Planning, Scheduling & Controlling — Kerzner',
+      'Project Planning, Analysis, Selection, Implementation & Review — Prasanna Chandra',
+      'Project Management: The Managerial Process — Clifford Gray & Erik Larson',
+    ],
+  },
+  {
+    id: 'robotics',
+    code: '4.5(b)',
+    name: 'Industrial Robotics (Open Elective-1)',
+    shortName: 'Industrial Robotics',
+    semester: 4,
+    category: 'elective',
+    credits: 2,
+    periods: '2L',
+    description:
+      'Open Elective-1 option: industrial robotics for smart manufacturing — safety practices, robot anatomy, coordinate systems, teach-pendant programming, PLC/HMI integration and welding programs.',
+    whyMatters:
+      'Automation and Industry 4.0 are booming in India. Robotics knowledge opens careers in manufacturing, automation and robotics engineering.',
+    difficulty: 'advanced',
+    examImportance: 'medium',
+    learningOrder: [
+      'Module 1 — Safety & Robot Basics',
+      'Module 2 — Jogging & Coordinate Systems',
+      'Module 3 — Teach-Pendant Programming',
+      'Module 4 — PLC/HMI Integration',
+      'Module 5 — Advanced Programming',
+    ],
+    totalPeriods: 28,
+    objectives: [
+      'Equip students with foundational and advanced knowledge of industrial robotics.',
+      'Learn to design, simulate and operate robotic systems used in manufacturing.',
+    ],
+    outcomes: [
+      'Follow industry health and safety guidelines while working with robots.',
+      'Differentiate coordinate systems and define user-defined frames.',
+      'Develop simple robot programs with various movement types.',
+      'Integrate robots with automation components (PLC, HMI, conveyor).',
+      'Create innovative ideas and creative approaches to problem-solving.',
+    ],
+    modules: [
+      {
+        id: 'rob-m1',
+        title: 'Unit 1 · Industrial Safety Practices & Robotics Introduction',
+        topics: [
+          {
+            id: 'rob-1-1',
+            title: 'Robot Anatomy, Applications & Safety',
+            description:
+              'Safety fundamentals, robot anatomy, applications (pick-and-place, welding, palletising), end-of-arm tools and the robotic cell.',
+            subtopics: [
+              'Fire safety & handling tools',
+              'Robot structure & basics',
+              'Applications: pick & place, welding, palletising',
+              'End-of-arm tools: grippers, welding guns',
+              'Robotic cell & cycle time',
+            ],
+            periods: 8,
+            marks: 30,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Introduction to industrial robotics',
+                query: 'industrial robotics introduction robot applications explained',
+                fallback: 'industrial robots basics tutorial',
+                duration: '25-40 min',
+                language: 'hinglish',
+              }),
+              r({
+                kind: 'playlist',
+                title: 'Industrial robotics complete course',
+                query: 'industrial robotics full course automation',
+                fallback: 'robotics engineering lectures playlist',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'List four applications of industrial robots and the end-of-arm tool each uses.', hint: 'Pick-place, welding, assembly, palletising.' },
+            ],
+            related: [{ id: 'rob-2-1', title: 'Jogging the Robot' }],
+          },
+        ],
+      },
+      {
+        id: 'rob-m2',
+        title: 'Unit 2 · Jogging of Robot',
+        topics: [
+          {
+            id: 'rob-2-1',
+            title: 'Coordinate Systems, Teach Pendant & TCP',
+            description:
+              'Power the robot, understand the teach pendant, and jog in joint, world/rectangular, tool and user coordinate systems.',
+            subtopics: [
+              'Turn ON/OFF & cell health check',
+              'Teach pendant & key functions',
+              'Joint, rectangular, user & tool coordinate systems',
+              'TCP (tool centre point) definition',
+              'Creating work objects (box, circle, triangle)',
+            ],
+            periods: 4,
+            marks: 15,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Robot coordinate systems & teach pendant',
+                query: 'industrial robot coordinate systems teach pendant jogging tutorial',
+                fallback: 'robot programming teach pendant for beginners',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [
+              { question: 'Why must the TCP be defined before programming?', hint: 'Tool position calibration for accurate motion.' },
+            ],
+            related: [{ id: 'rob-3-1', title: 'Robot Programming' }],
+          },
+        ],
+      },
+      {
+        id: 'rob-m3',
+        title: 'Unit 3 · Programming Using Teach Pendant',
+        topics: [
+          {
+            id: 'rob-3-1',
+            title: 'Motion Types & Program Creation',
+            description:
+              'Write basic robot programs: program structure, motion types (PTP, Linear, Circular, Spline), motion parameters and path optimisation.',
+            subtopics: [
+              'Robot program structure',
+              'Move J (PTP), Move L, Move C, Move S',
+              'Motion parameters & point recording',
+              'Basic program creation',
+              'Path optimisation & cycle time',
+            ],
+            periods: 6,
+            marks: 20,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Industrial robot programming — motion types',
+                query: 'industrial robot programming movej movel movec tutorial',
+                fallback: 'robot teach pendant programming examples',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [
+              { question: 'Which motion type is fastest and which is most accurate?', hint: 'PTP fastest; linear for precision.' },
+            ],
+            related: [{ id: 'rob-4-1', title: 'PLC Integration' }],
+          },
+        ],
+      },
+      {
+        id: 'rob-m4',
+        title: 'Unit 4 · Robot Integration with PLC & HMI',
+        topics: [
+          {
+            id: 'rob-4-1',
+            title: 'PLC/HMI Communication & Cell Equipment',
+            description:
+              'Connect robots to the automation cell: PLC-robot communication, HMI, conveyor control, safety fencing and tool mounting.',
+            subtopics: [
+              'PLC ↔ robot communication & HMI',
+              'Conveyor systems & communication',
+              'Safety fencing & equipment',
+              'Tool mounting on robot flange',
+              'Gripper connections (electric, pneumatic)',
+            ],
+            periods: 6,
+            marks: 20,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'PLC and robot communication basics',
+                query: 'plc robot communication hmi conveyor automation tutorial',
+                fallback: 'plc hmi robot integration basics',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [
+              { question: 'How does a PLC tell a robot a part has arrived?', hint: 'Digital I/O handshake signals.' },
+            ],
+            related: [{ id: 'rob-5-1', title: 'Advanced Programming' }],
+          },
+        ],
+      },
+      {
+        id: 'rob-m5',
+        title: 'Unit 5 · Advanced Robot Programming',
+        topics: [
+          {
+            id: 'rob-5-1',
+            title: 'Advanced Instructions & Welding Programs',
+            description:
+              'Loop, arithmetic and shift instructions; robot I/O for end-of-arm tools; MIG welding programs and material-handling optimisation.',
+            subtopics: [
+              'Loop, arithmetic & logical instructions',
+              'Robot I/O & PLC module communication',
+              'MIG welding programs',
+              'Material handling program optimisation',
+            ],
+            periods: 4,
+            marks: 15,
+            difficulty: 'advanced',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Advanced robot programming & welding',
+                query: 'advanced robot programming welding robot tutorial',
+                fallback: 'robot welding programming basics',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [
+              { question: 'How would you optimise a pick-and-place program for cycle time?', hint: 'Reduce idle, combine motions, approach/repeat.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'Springer Handbook of Robotics — Siciliano & Khatib, Springer',
+      'Robotics for Engineers — Yoram Koren, McGraw-Hill',
+      'Robotic Engineering: An Integrated Approach — Klafter, Chmielewski, Negin',
+    ],
+  },
+  {
+    id: 'ai-ml',
+    code: 'OE-2',
+    name: 'Artificial Intelligence & Machine Learning (Open Elective-2 · TATA)',
+    shortName: 'AI & ML (TATA)',
+    semester: 4,
+    category: 'elective',
+    credits: 2,
+    periods: '2L',
+    description:
+      'One of the Open Elective-2 options (certification aligned). A beginner-friendly introduction to AI, ML and its real-world applications — offered as part of the TATA-aligned elective choices.',
+    whyMatters:
+      'AI/ML literacy is the most future-proof skill in the job market today, and the TATA-aligned track gives industry-recognised exposure.',
+    difficulty: 'beginner',
+    examImportance: 'low',
+    learningOrder: [
+      'Module 1 — Introduction to AI & ML',
+      'Module 2 — Machine Learning Basics',
+      'Module 3 — Practical Applications',
+    ],
+    totalPeriods: 28,
+    objectives: [
+      'Provide an introductory understanding of artificial intelligence and machine learning concepts.',
+      'Connect AI concepts to real industry applications.',
+    ],
+    outcomes: [
+      'Explain what AI and machine learning are.',
+      'Understand basic ML workflows: data, model, training, evaluation.',
+      'Identify real-world applications of AI/ML.',
+    ],
+    modules: [
+      {
+        id: 'aiml-m1',
+        title: 'Module 1 · Introduction to AI & ML',
+        topics: [
+          {
+            id: 'aiml-1-1',
+            title: 'What is AI & Machine Learning',
+            description:
+              'AI as mimicking human intelligence; ML as learning from data. Understand learning types and the AI hype-to-reality gap.',
+            subtopics: [
+              'AI vs ML vs Deep Learning',
+              'Types of ML: supervised, unsupervised, reinforcement',
+              'Applications overview',
+            ],
+            periods: 10,
+            marks: 40,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Machine learning basics in Hindi',
+                channel: 'CodeWithHarry',
+                query: 'machine learning tutorial basics in hindi CodeWithHarry',
+                fallback: 'ml for beginners explained',
+                duration: '40-60 min',
+                language: 'hindi',
+                rec: 3,
+                why: 'Best Pick — beginner-friendly ML foundation.',
+              }),
+              r({
+                kind: 'playlist',
+                title: 'AI/ML complete beginner playlist',
+                query: 'artificial intelligence machine learning course for beginners playlist',
+                fallback: 'ai ml full course playlist',
+                duration: '3+ hours',
+              }),
+            ],
+            practice: [
+              { question: 'Classify a spam filter as an example of which ML type?', hint: 'Supervised classification.' },
+            ],
+            related: [{ id: 'aiml-2-1', title: 'ML Workflow' }],
+          },
+        ],
+      },
+      {
+        id: 'aiml-m2',
+        title: 'Module 2 · Machine Learning Workflow',
+        topics: [
+          {
+            id: 'aiml-2-1',
+            title: 'Data, Models, Training & Evaluation',
+            description:
+              'The complete ML pipeline: collecting and preparing data, choosing a model, training and evaluating performance.',
+            subtopics: [
+              'Data collection & preprocessing',
+              'Training & test split',
+              'Common models: regression & classification',
+              'Evaluation: accuracy, error',
+            ],
+            periods: 10,
+            marks: 40,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'ML workflow & algorithms explained',
+                query: 'machine learning workflow algorithms explained tutorial',
+                fallback: 'how machine learning works explained',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [
+              { question: 'Why do we split data into training and test sets?', hint: 'Generalisation testing.' },
+            ],
+            related: [{ id: 'aiml-3-1', title: 'Real-World AI' }],
+          },
+        ],
+      },
+      {
+        id: 'aiml-m3',
+        title: 'Module 3 · Real-World Applications',
+        topics: [
+          {
+            id: 'aiml-3-1',
+            title: 'AI in Industry & Society',
+            description:
+              'Where AI is used today: chatbots, recommendation engines, computer vision, predictive analytics — and AI ethics.',
+            subtopics: [
+              'Recommendation systems',
+              'Computer vision & NLP',
+              'Ethics, bias & responsible AI',
+            ],
+            periods: 8,
+            marks: 20,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'AI applications in industry',
+                query: 'ai applications in industry real world examples explained',
+                fallback: 'artificial intelligence use cases explained',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [
+              { question: 'Describe an AI application you use daily and how it works at a high level.', hint: 'YouTube recommendations, map routing, spam filters.' },
+            ],
+          },
+        ],
+      },
+    ],
+    references: [
+      'AICTE / TATA AI-ML curriculum resources',
+      'Practical machine learning tutorials by CodeWithHarry & Jeff Heaton',
+    ],
+    skillCertification: true,
+  },
+  {
+    id: 'product-design',
+    code: 'OE-2',
+    name: 'Product Design (Open Elective-2)',
+    shortName: 'Product Design',
+    semester: 4,
+    category: 'elective',
+    credits: 2,
+    periods: '2L',
+    description:
+      'An Open Elective-2 option: how products move from idea to launch — design thinking, ideation, prototyping, materials and user-centred design.',
+    whyMatters: 'Product thinking is prized across tech and engineering careers and complements your project work.',
+    difficulty: 'beginner',
+    examImportance: 'low',
+    learningOrder: ['Module 1 — Design Thinking', 'Module 2 — Prototyping & Design Tools'],
+    totalPeriods: 28,
+    objectives: ['Introduce the product design process from problem to prototype.'],
+    outcomes: [
+      'Understand design thinking and user-centred design.',
+      'Create simple prototypes and wireframes.',
+    ],
+    modules: [
+      {
+        id: 'pd-m1',
+        title: 'Module 1 · Design Thinking & Ideation',
+        topics: [
+          {
+            id: 'pd-1-1',
+            title: 'Design Thinking Process',
+            description:
+              'Empathise, define, ideate, prototype, test — the five steps of human-centred product design.',
+            subtopics: [
+              'Design thinking stages',
+              'User needs & problem statements',
+              'Ideation techniques',
+            ],
+            periods: 14,
+            marks: 50,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Design thinking explained',
+                query: 'design thinking process explained step by step',
+                fallback: 'product design thinking tutorial',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [{ question: 'Apply design thinking to redesign a college canteen queue.', hint: 'Empathise → define → prototype.' }],
+          },
+          {
+            id: 'pd-1-2',
+            title: 'Prototyping & UI Design Tools',
+            description:
+              'Turn ideas into tangible prototypes with wireframes, mockups and tools like Figma and Canva.',
+            subtopics: ['Wireframes & mockups', 'Figma basics', 'User testing a prototype'],
+            periods: 14,
+            marks: 50,
+            difficulty: 'beginner',
+            resources: [
+              r({
+                kind: 'practical',
+                title: 'Figma design tutorial',
+                query: 'figma tutorial for beginners ui design',
+                fallback: 'figma prototyping tutorial',
+                duration: '40-60 min',
+              }),
+            ],
+            practice: [{ question: 'Create a mobile app wireframe for a food delivery app.', hint: 'Figma frames + components.' }],
+          },
+        ],
+      },
+    ],
+    references: ['The Design of Everyday Things — Don Norman'],
+  },
+  {
+    id: 'engineering-economics',
+    code: 'OE-2',
+    name: 'Engineering Economics & Accountancy (Open Elective-2)',
+    shortName: 'Engineering Economics',
+    semester: 4,
+    category: 'elective',
+    credits: 2,
+    periods: '2L',
+    description:
+      'An Open Elective-2 option: money basics that every engineer needs — cost analysis, depreciation, break-even and financial statements.',
+    whyMatters: 'Financial literacy helps engineers make sound technical and business decisions.',
+    difficulty: 'beginner',
+    examImportance: 'low',
+    learningOrder: ['Module 1 — Costs & Break-Even', 'Module 2 — Accounting Basics'],
+    totalPeriods: 28,
+    objectives: ['Introduce cost concepts and basic financial accounting for engineers.'],
+    outcomes: ['Compute costs, break-even and depreciation. Read basic financial statements.'],
+    modules: [
+      {
+        id: 'ee-m1',
+        title: 'Module 1 · Cost Concepts & Break-Even',
+        topics: [
+          {
+            id: 'ee-1-1',
+            title: 'Costing & Break-Even Analysis',
+            description:
+              'Fixed vs variable costs, total cost, profit and the break-even point in engineering projects.',
+            subtopics: ['Cost classification', 'Break-even analysis', 'Depreciation'],
+            periods: 14,
+            marks: 50,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Break even analysis & costs explained',
+                query: 'break even analysis costs depreciation explained for engineers',
+                fallback: 'engineering economics basics tutorial',
+                duration: '15-25 min',
+              }),
+            ],
+            practice: [{ question: 'At what sales volume does a product with FC=50,000, VC=200, price=300 break even?', hint: 'BE = 50000/(300-200).' }],
+          },
+          {
+            id: 'ee-1-2',
+            title: 'Financial Statements & Ratios',
+            description:
+              'Understand balance sheets, profit & loss statements and basic accounting concepts.',
+            subtopics: ['Balance sheet', 'Profit & loss statement', 'Basic ratios'],
+            periods: 14,
+            marks: 50,
+            difficulty: 'intermediate',
+            resources: [
+              r({
+                kind: 'deep',
+                title: 'Financial statements explained',
+                query: 'balance sheet profit loss statement explained beginners',
+                fallback: 'accounting basics for engineers',
+                duration: '25-40 min',
+              }),
+            ],
+            practice: [{ question: 'What is a balance sheet and what two sides must balance?', hint: 'Assets = Liabilities + Equity.' }],
+          },
+        ],
+      },
+    ],
+    references: ['Engineering Economics — R. Paneerselvam, PHI'],
+  },
+];

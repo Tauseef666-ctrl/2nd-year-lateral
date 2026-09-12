@@ -22,7 +22,7 @@ export interface Resource {
   language: Language;
   rec: Recommendation;
   why?: string;
-  searchFallback: string;
+  fallback: string;
 }
 
 export interface PracticeQuestion {
@@ -44,7 +44,7 @@ export interface Topic {
   marks: number;
   resources: Resource[];
   practice: PracticeQuestion[];
-  related: TopicLink[];
+  related?: TopicLink[];
   difficulty: 'beginner' | 'intermediate' | 'advanced';
 }
 

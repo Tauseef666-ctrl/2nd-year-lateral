@@ -7,7 +7,7 @@ export const ytPlaylistSearch = (q: string) =>
   `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgIQAw%253D%253D`;
 
 /** Official reference search per subject name. */
-export const officialSyllabusSearch = (subject: string) =>
+export const officialSyllabusSearch = () =>
   `https://bteup.ac.in/syllabus.html`;
 
 interface RArgs {
