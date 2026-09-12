@@ -18,6 +18,7 @@ interface LearningState {
   toggleComplete: (topicId: string) => void;
   toggleBookmark: (topicId: string) => void;
   toggleWatched: (resourceId: string) => void;
+  resetProgress: () => void;
 }
 
 export const useLearningStore = create<LearningState>()(
@@ -50,6 +51,8 @@ export const useLearningStore = create<LearningState>()(
             ? s.watched.filter((x) => x !== resourceId)
             : [...s.watched, resourceId],
         })),
+      resetProgress: () =>
+        set({ completed: [], bookmarks: [], watched: [], last: null }),
     }),
     { name: 'bteup-learn-storage' },
   ),

@@ -96,7 +96,9 @@ export const searchResourceText = (q: string): FlatTopic[] => {
   const needle = q.trim().toLowerCase();
   if (!needle) return [];
   return FLAT_TOPICS.filter((t) =>
-    `${t.subjectName} ${t.title} ${t.description} ${t.subtopics.join(' ')}`
+    `${t.subjectName} ${t.title} ${t.description} ${t.subtopics.join(' ')} ${t.resources
+      .map((r) => `${r.title} ${r.query} ${r.fallback}`)
+      .join(' ')}`
       .toLowerCase()
       .includes(needle),
   );
