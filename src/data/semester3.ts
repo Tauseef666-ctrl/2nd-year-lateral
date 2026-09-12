@@ -56,6 +56,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Overview of Operating System',
+              }),
+              r({
                 kind: 'deep',
                 title: 'What is an Operating System — complete explanation',
                 channel: 'Gate Smashers',
@@ -106,6 +113,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Overview of Operating System',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Services & functions of OS',
                 channel: 'Gate Smashers',
@@ -146,6 +160,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Overview of Operating System',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Linux/UNIX architecture explained',
                 channel: 'Neso Academy',
@@ -185,6 +206,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Overview of Operating System',
+              }),
               r({
                 kind: 'deep',
                 title: 'System calls explained with examples',
@@ -232,6 +260,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Process Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Process states & PCB complete lecture',
                 channel: 'Gate Smashers',
@@ -274,6 +309,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Process Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'CPU scheduling algorithms complete (FCFS, SJF, RR, Priority)',
@@ -325,6 +367,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Process Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'IPC, critical section & semaphores',
                 channel: 'Gate Smashers',
@@ -366,6 +415,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Process Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'Deadlock complete — conditions & Banker’s algorithm',
@@ -421,6 +477,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Memory Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Memory allocation strategies explained',
                 channel: 'Gate Smashers',
@@ -461,6 +524,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Memory Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'Paging and segmentation complete lecture',
@@ -504,6 +574,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Memory Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Page replacement algorithms (FIFO, LRU, Optimal)',
                 channel: 'Gate Smashers',
@@ -544,6 +621,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for Memory Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'Virtual memory & demand paging explained',
@@ -590,6 +674,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for I/O System & Disk Scheduling',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Disk structure & storage explained',
                 channel: 'Gate Smashers',
@@ -620,6 +711,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for I/O System & Disk Scheduling',
+              }),
               r({
                 kind: 'deep',
                 title: 'Disk scheduling algorithms complete (FCFS, SSTF, SCAN, C-SCAN)',
@@ -661,6 +759,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for I/O System & Disk Scheduling',
+              }),
+              r({
                 kind: 'deep',
                 title: 'RAID levels explained',
                 channel: 'Gate Smashers',
@@ -695,6 +800,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for File Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'File concept & access methods',
@@ -735,6 +847,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for File Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Directory structures explained',
                 channel: 'Gate Smashers',
@@ -766,6 +885,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for File Management',
+              }),
+              r({
                 kind: 'deep',
                 title: 'File sharing & protection',
                 channel: 'Gate Smashers',
@@ -795,6 +921,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for File Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'File allocation methods & free space management',
@@ -835,6 +968,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Operating System (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p',
+                why: 'Chapter playlist for File Management',
+              }),
               r({
                 kind: 'deep',
                 title: 'File system types compared',
@@ -1227,6 +1367,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Introduction to DBMS & architecture',
                 channel: 'Gate Smashers',
@@ -1267,6 +1414,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Three-schema architecture explained',
                 channel: 'Gate Smashers',
@@ -1305,6 +1459,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Data Models & Keys',
+              }),
               r({
                 kind: 'deep',
                 title: 'Data models compared in detail',
@@ -1346,6 +1507,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Data Models & Keys',
+              }),
+              r({
                 kind: 'deep',
                 title: 'ER model & ER diagrams complete',
                 channel: 'Gate Smashers',
@@ -1385,6 +1553,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Data Models & Keys',
+              }),
               r({
                 kind: 'deep',
                 title: 'All types of keys explained',
@@ -1432,6 +1607,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Model',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Relational model & integrity constraints',
                 channel: 'Gate Smashers',
@@ -1462,6 +1644,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Model',
+              }),
               r({
                 kind: 'deep',
                 title: 'Relational algebra complete (select, project, join)',
@@ -1503,6 +1692,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Model',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Relational calculus explained',
                 channel: 'Gate Smashers',
@@ -1538,6 +1734,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Database Design',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Functional dependency complete',
                 channel: 'Gate Smashers',
@@ -1572,6 +1775,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Database Design',
+              }),
               r({
                 kind: 'deep',
                 title: 'Normalisation 1NF 2NF 3NF BCNF complete',
@@ -1621,6 +1831,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for Relational Database Design',
+              }),
+              r({
                 kind: 'deep',
                 title: '4NF and 5NF explained',
                 channel: 'Gate Smashers',
@@ -1655,6 +1872,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for SQL / MySQL',
+              }),
               r({
                 kind: 'deep',
                 title: 'MySQL DDL commands tutorial',
@@ -1695,6 +1919,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for SQL / MySQL',
+              }),
+              r({
                 kind: 'deep',
                 title: 'MySQL DML commands tutorial',
                 channel: 'CodeWithHarry',
@@ -1726,6 +1957,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for SQL / MySQL',
+              }),
+              r({
                 kind: 'deep',
                 title: 'SELECT & WHERE complete',
                 channel: 'CodeWithHarry',
@@ -1755,6 +1993,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "DBMS (Database Management system) Complete Playlist",
+                channel: "Gate Smashers",
+                playlistId: 'PLCxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y',
+                why: 'Chapter playlist for SQL / MySQL',
+              }),
               r({
                 kind: 'deep',
                 title: 'Aggregate functions, group by & joins',
@@ -2123,6 +2368,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Introduction to computer networks',
                 channel: 'Gate Smashers',
@@ -2154,6 +2406,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Introduction',
+              }),
               r({
                 kind: 'deep',
                 title: 'OSI model complete — all 7 layers',
@@ -2195,6 +2454,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Introduction',
+              }),
               r({
                 kind: 'deep',
                 title: 'TCP/IP model explained',
@@ -2241,6 +2507,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Data Communication & Communication Methodologies',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Transmission media complete',
                 channel: 'Gate Smashers',
@@ -2282,6 +2555,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Data Communication & Communication Methodologies',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Network topologies explained',
                 channel: 'Gate Smashers',
@@ -2315,6 +2595,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Data Communication & Communication Methodologies',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Data link layer complete',
                 channel: 'Gate Smashers',
@@ -2345,6 +2632,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Data Communication & Communication Methodologies',
+              }),
               r({
                 kind: 'deep',
                 title: 'Switching techniques explained',
@@ -2382,6 +2676,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Network Layer',
+              }),
               r({
                 kind: 'deep',
                 title: 'IPv4 addressing & subnetting complete',
@@ -2423,6 +2724,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Network Layer',
+              }),
+              r({
                 kind: 'deep',
                 title: 'IPv6 explained simply',
                 channel: 'Gate Smashers',
@@ -2453,6 +2761,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Network Layer',
+              }),
               r({
                 kind: 'deep',
                 title: 'Routing algorithms complete',
@@ -2500,6 +2815,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Transport Layer in Computer Network",
+                channel: "Engineering Funda",
+                playlistId: 'PLgwJf8NK-2e5qUxCaKtewCHtsrVQg_AJG',
+                why: 'Chapter playlist for Transport Layer',
+              }),
+              r({
                 kind: 'deep',
                 title: 'TCP and UDP complete comparison',
                 channel: 'Gate Smashers',
@@ -2540,6 +2862,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Transport Layer in Computer Network",
+                channel: "Engineering Funda",
+                playlistId: 'PLgwJf8NK-2e5qUxCaKtewCHtsrVQg_AJG',
+                why: 'Chapter playlist for Transport Layer',
+              }),
               r({
                 kind: 'deep',
                 title: 'DNS explained (how the internet finds you)',
@@ -2586,6 +2915,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Network Devices',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Network devices complete',
                 channel: 'Gate Smashers',
@@ -2626,6 +2962,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 3,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Networks (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
+                why: 'Chapter playlist for Network Devices',
+              }),
               r({
                 kind: 'deep',
                 title: 'SNMP network management explained',
@@ -2782,6 +3125,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Sigma Web Development Course - Web Development Tutorials in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w',
+                why: 'Chapter playlist for Web Development Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'How the web works — full explanation',
                 channel: 'CodeWithHarry',
@@ -2818,6 +3168,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Sigma Web Development Course - Web Development Tutorials in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w',
+                why: 'Chapter playlist for HTML Basics',
+              }),
               r({
                 kind: 'deep',
                 title: 'HTML complete course for beginners',
@@ -2858,6 +3215,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Sigma Web Development Course - Web Development Tutorials in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w',
+                why: 'Chapter playlist for HTML Basics',
+              }),
+              r({
                 kind: 'deep',
                 title: 'HTML lists, links, images and tables',
                 channel: 'CodeWithHarry',
@@ -2888,6 +3252,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Sigma Web Development Course - Web Development Tutorials in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w',
+                why: 'Chapter playlist for HTML Basics',
+              }),
               r({
                 kind: 'deep',
                 title: 'HTML forms complete tutorial',
@@ -2925,6 +3296,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for Cascading Style Sheets',
+              }),
               r({
                 kind: 'deep',
                 title: 'CSS tutorial for beginners',
@@ -2964,6 +3342,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for Cascading Style Sheets',
+              }),
+              r({
                 kind: 'deep',
                 title: 'CSS box model explained',
                 channel: 'CodeWithHarry',
@@ -2992,6 +3377,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for Cascading Style Sheets',
+              }),
               r({
                 kind: 'deep',
                 title: 'Flexbox and Grid crash course',
@@ -3031,6 +3423,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for JavaScript',
+              }),
+              r({
                 kind: 'deep',
                 title: 'JavaScript full tutorial in Hindi',
                 channel: 'CodeWithHarry',
@@ -3064,6 +3463,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for JavaScript',
+              }),
+              r({
                 kind: 'deep',
                 title: 'JS control flow and functions',
                 channel: 'CodeWithHarry',
@@ -3092,6 +3498,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 9,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "&quot;Web Technology Full Course in Hindi | HTML, CSS, JavaScript, PHP&quot;",
+                channel: "CS \\u0026 IT Engineering Gyan ",
+                playlistId: 'PLJsQjWpPQDp2AZE8s9JJfdRo-F0WtLv9N',
+                why: 'Chapter playlist for JavaScript',
+              }),
               r({
                 kind: 'deep',
                 title: 'DOM manipulation & events in JS',
@@ -3133,6 +3546,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Web Development using PHP",
+                channel: "Competitive Exams TechPrep",
+                playlistId: 'PLBV6VAQlom0lBDRVOjgdPfLfizOO87Q1Z',
+                why: 'Chapter playlist for PHP & MySQL',
+              }),
+              r({
                 kind: 'deep',
                 title: 'PHP complete course in Hindi',
                 channel: 'CodeWithHarry',
@@ -3165,6 +3585,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Web Development using PHP",
+                channel: "Competitive Exams TechPrep",
+                playlistId: 'PLBV6VAQlom0lBDRVOjgdPfLfizOO87Q1Z',
+                why: 'Chapter playlist for PHP & MySQL',
+              }),
               r({
                 kind: 'deep',
                 title: 'PHP with MySQL database tutorial',
@@ -3365,6 +3792,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "C Programming Course",
+                channel: "College Wallah",
+                playlistId: 'PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt',
+                why: 'Chapter playlist for Introduction to Problem Solving',
+              }),
+              r({
                 kind: 'deep',
                 title: 'C language full course on YouTube',
                 channel: 'CodeWithHarry',
@@ -3396,6 +3830,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "C Programming Course",
+                channel: "College Wallah",
+                playlistId: 'PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt',
+                why: 'Chapter playlist for Introduction to Problem Solving',
+              }),
               r({
                 kind: 'deep',
                 title: 'C variables and data types',
@@ -3434,6 +3875,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "C Programming Course",
+                channel: "College Wallah",
+                playlistId: 'PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt',
+                why: 'Chapter playlist for Operators & Expressions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'C operators explained',
                 channel: 'CodeWithHarry',
@@ -3467,6 +3915,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "C Programming Course",
+                channel: "College Wallah",
+                playlistId: 'PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt',
+                why: 'Chapter playlist for Operators & Expressions',
+              }),
               r({
                 kind: 'deep',
                 title: 'printf scanf and type conversion in C',
@@ -3504,6 +3959,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "C Programming | 2026",
+                channel: "Learn Coding",
+                playlistId: 'PLqleLpAMfxGBn9v-K17ztBfNXHzPnX5sN',
+                why: 'Chapter playlist for Conditional & Looping Statements',
+              }),
+              r({
                 kind: 'deep',
                 title: 'C if else and switch statements',
                 channel: 'Apna College',
@@ -3533,6 +3995,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "C Programming | 2026",
+                channel: "Learn Coding",
+                playlistId: 'PLqleLpAMfxGBn9v-K17ztBfNXHzPnX5sN',
+                why: 'Chapter playlist for Conditional & Looping Statements',
+              }),
               r({
                 kind: 'deep',
                 title: 'C loops — for, while, do-while full tutorial',
@@ -3571,6 +4040,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "C Language Tutorials In Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR',
+                why: 'Chapter playlist for Arrays & Strings',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Arrays in C complete tutorial',
                 channel: 'CodeWithHarry',
@@ -3603,6 +4079,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "C Language Tutorials In Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR',
+                why: 'Chapter playlist for Arrays & Strings',
+              }),
               r({
                 kind: 'deep',
                 title: 'Strings in C with string functions',
@@ -3641,6 +4124,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "C Programming",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR',
+                why: 'Chapter playlist for Functions & Pointers',
+              }),
+              r({
                 kind: 'deep',
                 title: 'C functions complete tutorial',
                 channel: 'CodeWithHarry',
@@ -3671,6 +4161,13 @@ export const SEMESTER_3_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "C Programming",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR',
+                why: 'Chapter playlist for Functions & Pointers',
+              }),
               r({
                 kind: 'deep',
                 title: 'Pointers in C explained',

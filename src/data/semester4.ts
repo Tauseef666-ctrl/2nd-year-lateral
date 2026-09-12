@@ -56,6 +56,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Data Structures and Algorithms Course in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi',
+                why: 'Chapter playlist for Introduction to Data Structures',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Introduction to data structures',
                 channel: 'CodeWithHarry',
@@ -102,6 +109,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Stacks | Chapter 6 | Data Structures",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRgWh1emltdMOz8O2m5X3YYn',
+                why: 'Chapter playlist for Linear Data Structures — Stacks & Queues',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Stack operations implementation in C',
                 channel: 'CodeWithHarry',
@@ -133,6 +147,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Stacks | Chapter 6 | Data Structures",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRgWh1emltdMOz8O2m5X3YYn',
+                why: 'Chapter playlist for Linear Data Structures — Stacks & Queues',
+              }),
               r({
                 kind: 'deep',
                 title: 'Infix to Postfix conversion explained',
@@ -174,6 +195,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Stacks | Chapter 6 | Data Structures",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRgWh1emltdMOz8O2m5X3YYn',
+                why: 'Chapter playlist for Linear Data Structures — Stacks & Queues',
+              }),
               r({
                 kind: 'deep',
                 title: 'Queue operations and circular queue in C',
@@ -222,6 +250,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Singly Linked List | Chapter 2 | Data Structures",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRi3-lvwLGzcaquOs5OBTCww',
+                why: 'Chapter playlist for Linked Lists',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Singly linked list — full implementation',
                 channel: 'CodeWithHarry',
@@ -263,6 +298,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Singly Linked List | Chapter 2 | Data Structures",
+                channel: "Neso Academy",
+                playlistId: 'PLBlnK6fEyqRi3-lvwLGzcaquOs5OBTCww',
+                why: 'Chapter playlist for Linked Lists',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Circular and doubly linked lists explained',
                 channel: 'CodeWithHarry',
@@ -300,6 +342,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Data Structures and Algorithms Course in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi',
+                why: 'Chapter playlist for Sorting & Searching',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Bubble, insertion and selection sort',
                 channel: 'Gate Smashers',
@@ -331,6 +380,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Data Structures and Algorithms Course in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi',
+                why: 'Chapter playlist for Sorting & Searching',
+              }),
               r({
                 kind: 'deep',
                 title: 'Quick sort and merge sort explained',
@@ -364,6 +420,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 5,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Data Structures and Algorithms Course in Hindi",
+                channel: "CodeWithHarry",
+                playlistId: 'PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi',
+                why: 'Chapter playlist for Sorting & Searching',
+              }),
               r({
                 kind: 'deep',
                 title: 'Linear search, binary search & hashing',
@@ -409,6 +472,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Tree Gate Smashers",
+                channel: "Gate Smashers",
+                playlistId: 'PLkIpj7mL1E7uSElwIoJpgBnOQ8RJrYKzX',
+                why: 'Chapter playlist for Trees & Graphs',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Binary trees and traversals complete',
                 channel: 'Gate Smashers',
@@ -440,6 +510,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Tree Gate Smashers",
+                channel: "Gate Smashers",
+                playlistId: 'PLkIpj7mL1E7uSElwIoJpgBnOQ8RJrYKzX',
+                why: 'Chapter playlist for Trees & Graphs',
+              }),
               r({
                 kind: 'deep',
                 title: 'BST and AVL trees explained',
@@ -481,6 +558,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Tree Gate Smashers",
+                channel: "Gate Smashers",
+                playlistId: 'PLkIpj7mL1E7uSElwIoJpgBnOQ8RJrYKzX',
+                why: 'Chapter playlist for Trees & Graphs',
+              }),
               r({
                 kind: 'deep',
                 title: 'Graphs, DFS and BFS traversals',
@@ -857,6 +941,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Introduction to Software Engineering',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Introduction to software engineering',
                 channel: 'Gate Smashers',
@@ -893,6 +984,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Life Cycle Models',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Software process models — waterfall, prototyping',
                 channel: 'Gate Smashers',
@@ -924,6 +1022,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Life Cycle Models',
+              }),
               r({
                 kind: 'deep',
                 title: 'Spiral model and agile methodology',
@@ -961,6 +1066,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Planning & Requirement Analysis',
+              }),
+              r({
                 kind: 'deep',
                 title: 'SRS — software requirement specification',
                 channel: 'Gate Smashers',
@@ -990,6 +1102,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Planning & Requirement Analysis',
+              }),
               r({
                 kind: 'deep',
                 title: 'COCOMO model & software estimation',
@@ -1035,6 +1154,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Design & Implementation',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Cohesion and coupling explained',
                 channel: 'Gate Smashers',
@@ -1065,6 +1191,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Design & Implementation',
+              }),
               r({
                 kind: 'deep',
                 title: 'Data flow diagrams explained',
@@ -1104,6 +1237,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Testing & Maintenance',
+              }),
               r({
                 kind: 'deep',
                 title: 'Software testing complete — white box black box',
@@ -1145,6 +1285,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 7,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Software Engineering",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2',
+                why: 'Chapter playlist for Software Testing & Maintenance',
+              }),
               r({
                 kind: 'deep',
                 title: 'V model and verification vs validation',
@@ -1320,6 +1467,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "INTRODUCTION TO e-GOVERNANCE || 4TH SEMESTER || CS/IT ENGG 2026-27",
+                channel: "AS TECHNIC",
+                playlistId: 'PL8PvmC2cEsGQ-bBpqr4pZBxD57qJsnC2t',
+                why: 'Chapter playlist for Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'E-governance introduction & lifecycle',
                 channel: 'Gate Smashers',
@@ -1365,6 +1519,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "INTRODUCTION TO e-GOVERNANCE || 4TH SEMESTER || CS/IT ENGG 2026-27",
+                channel: "AS TECHNIC",
+                playlistId: 'PL8PvmC2cEsGQ-bBpqr4pZBxD57qJsnC2t',
+                why: 'Chapter playlist for Government Process',
+              }),
+              r({
                 kind: 'deep',
                 title: 'NeGP & GPR explained',
                 query: 'nepg national e governance plan explained hindi',
@@ -1401,6 +1562,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 25,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "INTRODUCTION TO e-GOVERNANCE || 4TH SEMESTER || CS/IT ENGG 2026-27",
+                channel: "AS TECHNIC",
+                playlistId: 'PL8PvmC2cEsGQ-bBpqr4pZBxD57qJsnC2t',
+                why: 'Chapter playlist for Architecture & Models of e-Governance',
+              }),
               r({
                 kind: 'deep',
                 title: 'e-Governance models and architecture',
@@ -1445,6 +1613,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 25,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "E GOVERNANCE(THEORY+CASE STUDY+PROJECT) #bsccsit #engineering #master #egovernance",
+                channel: "Easy Explanation",
+                playlistId: 'PLYwrDCC_pg4ELtD7hfmo9XtceC3IYiOxn',
+                why: 'Chapter playlist for e-Governance Projects',
+              }),
               r({
                 kind: 'deep',
                 title: 'Digital India & flagship e-governance projects',
@@ -1499,10 +1674,10 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
               }),
               r({
                 kind: 'playlist',
-                title: 'NISG case studies on e-governance',
-                query: 'nisg case studies e governance india',
-                fallback: 'e governance success stories india',
-                duration: '1-3 hours',
+                title: 'E Governance (Theory + Case Study + Project)',
+                channel: 'Easy Explanation',
+                playlistId: 'PLYwrDCC_pg4ELtD7hfmo9XtceC3IYiOxn',
+                why: 'Chapter playlist covering e-governance projects and case studies.',
               }),
             ],
             practice: [
@@ -1582,6 +1757,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Python Programming | 2026",
+                channel: "Learn Coding",
+                playlistId: 'PLqleLpAMfxGD-KFajIKzH24p6bgG5R_aN',
+                why: 'Chapter playlist for Introduction, Variables & Data Types',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Python full course in Hindi',
                 channel: 'CodeWithHarry',
@@ -1622,6 +1804,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Python Programming | 2026",
+                channel: "Learn Coding",
+                playlistId: 'PLqleLpAMfxGD-KFajIKzH24p6bgG5R_aN',
+                why: 'Chapter playlist for Introduction, Variables & Data Types',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Python lists, tuples, dicts, sets',
                 channel: 'CodeWithHarry',
@@ -1659,6 +1848,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 15,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Python Programming | 2026",
+                channel: "Learn Coding",
+                playlistId: 'PLqleLpAMfxGD-KFajIKzH24p6bgG5R_aN',
+                why: 'Chapter playlist for Control Structures',
+              }),
               r({
                 kind: 'deep',
                 title: 'Python conditionals and loops',
@@ -1698,6 +1894,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Python Full Course",
+                channel: "Jenny's Lectures CS IT",
+                playlistId: 'PLdo5W4Nhv31bZSiqiOL5ta39vSnBxpOPT',
+                why: 'Chapter playlist for Functions, Modules, Packages & Exceptions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Python functions and modules',
                 channel: 'CodeWithHarry',
@@ -1728,6 +1931,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Python Full Course",
+                channel: "Jenny's Lectures CS IT",
+                playlistId: 'PLdo5W4Nhv31bZSiqiOL5ta39vSnBxpOPT',
+                why: 'Chapter playlist for Functions, Modules, Packages & Exceptions',
+              }),
               r({
                 kind: 'deep',
                 title: 'Python exception handling',
@@ -1766,6 +1976,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "File Handling in Python | python file handling | Python File Handling Tutorial | File Handling in Python in Hindi",
+                channel: "Code-yug",
+                playlistId: 'PLI4OVrCFuY55ZrOMkfYNt7CQGEkskxJlj',
+                why: 'Chapter playlist for File I/O & Regular Expressions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Python file handling complete',
                 channel: 'CodeWithHarry',
@@ -1796,6 +2013,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 12,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "File Handling in Python | python file handling | Python File Handling Tutorial | File Handling in Python in Hindi",
+                channel: "Code-yug",
+                playlistId: 'PLI4OVrCFuY55ZrOMkfYNt7CQGEkskxJlj',
+                why: 'Chapter playlist for File I/O & Regular Expressions',
+              }),
               r({
                 kind: 'deep',
                 title: 'Python regex tutorial',
@@ -1834,6 +2058,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 12,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Python Full Course in hindi | O Level Python Programming (m3-r5) O level #m3r5",
+                channel: "New Ideas YT",
+                playlistId: 'PLFD-frM9CeFtF7IL99dHXX4UUrEZwzxn5',
+                why: 'Chapter playlist for Classes in Python',
+              }),
               r({
                 kind: 'deep',
                 title: 'Python classes and objects complete',
@@ -1874,6 +2105,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 12,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Python Full Course in hindi | O Level Python Programming (m3-r5) O level #m3r5",
+                channel: "New Ideas YT",
+                playlistId: 'PLFD-frM9CeFtF7IL99dHXX4UUrEZwzxn5',
+                why: 'Chapter playlist for Classes in Python',
+              }),
               r({
                 kind: 'deep',
                 title: 'Python inheritance and polymorphism',
@@ -2095,10 +2333,10 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
               }),
               r({
                 kind: 'playlist',
-                title: 'Complete IKS course (AICTE)',
-                query: 'indian knowledge system full course aicte iiks',
-                fallback: 'indian knowledge tradition full playlist',
-                duration: '3+ hours',
+                title: 'Indian Knowledge System - UG First Year',
+                channel: 'X-ray brain (Degree Study)',
+                playlistId: 'PLsUxyMdqwSZykj9ApuzPW6APEdu5t28HB',
+                why: 'Chapter playlist matching the IKS units.',
               }),
             ],
             practice: [
@@ -2127,6 +2365,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 30,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Indian Knowledge System - UG First Year",
+                channel: "X-ray brain (Degree Study)",
+                playlistId: 'PLsUxyMdqwSZykj9ApuzPW6APEdu5t28HB',
+                why: 'Chapter playlist for Modern Science & Indian Knowledge System',
+              }),
               r({
                 kind: 'deep',
                 title: 'Ancient Indian science & technology',
@@ -2163,6 +2408,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Indian Knowledge System - UG First Year",
+                channel: "X-ray brain (Degree Study)",
+                playlistId: 'PLsUxyMdqwSZykj9ApuzPW6APEdu5t28HB',
+                why: 'Chapter playlist for Yoga & Holistic Healthcare',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Yoga & holistic healthcare explained',
                 query: 'yoga science health benefits holistic healthcare explained',
@@ -2195,6 +2447,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 15,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Indian Knowledge System - UG First Year",
+                channel: "X-ray brain (Degree Study)",
+                playlistId: 'PLsUxyMdqwSZykj9ApuzPW6APEdu5t28HB',
+                why: 'Chapter playlist for Case Studies & Assignments',
+              }),
               r({
                 kind: 'deep',
                 title: 'Indian Knowledge System modern applications',
@@ -2280,6 +2539,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Organization and Architecture (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX',
+                why: 'Chapter playlist for Structure of Computers',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Computer architecture — functional units & von Neumann',
                 channel: 'Gate Smashers',
@@ -2319,6 +2585,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Organization and Architecture (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX',
+                why: 'Chapter playlist for Structure of Computers',
+              }),
               r({
                 kind: 'deep',
                 title: 'Number system conversions complete',
@@ -2366,6 +2639,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Digital Logic (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGmXg4NoX6R31AsC5LeCPHe',
+                why: 'Chapter playlist for Logic Gates & Simplification',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Logic gates complete — truth tables & universal gates',
                 channel: 'Gate Smashers',
@@ -2398,6 +2678,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Digital Logic (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiGmXg4NoX6R31AsC5LeCPHe',
+                why: 'Chapter playlist for Logic Gates & Simplification',
+              }),
               r({
                 kind: 'deep',
                 title: 'Boolean algebra and K-map simplification',
@@ -2444,6 +2731,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Computer Organization and Architecture (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX',
+                why: 'Chapter playlist for Combinational Circuits',
+              }),
+              r({
                 kind: 'deep',
                 title: 'MUX, DEMUX, encoder, decoder explained',
                 channel: 'Gate Smashers',
@@ -2473,6 +2767,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Organization and Architecture (Complete Playlist)",
+                channel: "Gate Smashers",
+                playlistId: 'PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX',
+                why: 'Chapter playlist for Combinational Circuits',
+              }),
               r({
                 kind: 'deep',
                 title: 'Half adder, full adder, subtractors',
@@ -2513,6 +2814,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 20,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Organization and Architecture(COA) Full Course and Lectures",
+                channel: "Easy Engineering Classes",
+                playlistId: 'PLV8vIYTIdSnar4uzz-4TIlgyFJ2m18NE3',
+                why: 'Chapter playlist for Microprocessor Architecture',
+              }),
               r({
                 kind: 'deep',
                 title: '8085 microprocessor architecture & programming',
@@ -2560,6 +2868,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 20,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Computer Organization &amp; Architecture (COA) - 3140707 - Sem-4 - GTU",
+                channel: "Ayan Memon",
+                playlistId: 'PLNiD0MJqUzyFUWvkquMNIckIrLIh4RuTf',
+                why: 'Chapter playlist for Memory & Digital Interfacing',
+              }),
               r({
                 kind: 'deep',
                 title: 'Memory interfacing & 8255 PPI',
@@ -2645,6 +2960,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Linux Zero to Hero Playlist 2024",
+                channel: "M Prashant",
+                playlistId: 'PL0tP8lerTbX3eUtBFS0Ir4_aFqKuXWjYZ',
+                why: 'Chapter playlist for Introduction',
+              }),
+              r({
                 kind: 'deep',
                 title: 'What is open source & FOSS licensing',
                 query: 'open source software explained licensing gpl vs mit',
@@ -2684,6 +3006,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 20,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Linux Zero to Hero Playlist 2024",
+                channel: "M Prashant",
+                playlistId: 'PL0tP8lerTbX3eUtBFS0Ir4_aFqKuXWjYZ',
+                why: 'Chapter playlist for Basics of Linux',
+              }),
               r({
                 kind: 'deep',
                 title: 'Linux full course for beginners',
@@ -2747,10 +3076,10 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
               }),
               r({
                 kind: 'playlist',
-                title: 'Complete LAMP setup tutorial',
-                query: 'lamp stack install linux apache mysql php tutorial',
-                fallback: 'open source software tools playlist',
-                duration: '1-3 hours',
+                title: 'Linux Zero to Hero Playlist 2024',
+                channel: 'M Prashant',
+                playlistId: 'PL0tP8lerTbX3eUtBFS0Ir4_aFqKuXWjYZ',
+                why: 'Chapter playlist covering open-source software and Linux tools.',
               }),
             ],
             practice: [
@@ -2778,6 +3107,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 20,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Linux Zero to Hero Playlist 2024",
+                channel: "M Prashant",
+                playlistId: 'PL0tP8lerTbX3eUtBFS0Ir4_aFqKuXWjYZ',
+                why: 'Chapter playlist for FOSS Case Studies',
+              }),
               r({
                 kind: 'deep',
                 title: 'FOSS success stories & case studies',
@@ -2865,6 +3201,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Project Management",
+                channel: "Management Mantra ",
+                playlistId: 'PLeUIXA68NobWh-CAopnDKlEaMKeUDSvsC',
+                why: 'Chapter playlist for Concept of a Project',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Project management fundamentals',
                 query: 'project management fundamentals life cycle wbs explained',
@@ -2900,6 +3243,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 14,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Financial Management | BCOM/BBA Semester Exam 2024",
+                channel: "CWG for BCom",
+                playlistId: 'PL9Cd7H8NFRQyiRZFJN66a0SN4TEA1ccv3',
+                why: 'Chapter playlist for Capital Budgeting Process',
+              }),
               r({
                 kind: 'deep',
                 title: 'Capital budgeting process explained',
@@ -2937,6 +3287,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Financial Management | BCOM/BBA Semester Exam 2024",
+                channel: "CWG for BCom",
+                playlistId: 'PL9Cd7H8NFRQyiRZFJN66a0SN4TEA1ccv3',
+                why: 'Chapter playlist for Financial Estimates & Projections',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Break even analysis explained simply',
                 query: 'break even analysis calculation explained example',
@@ -2973,6 +3330,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 24,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "&quot;Project Management - MBA 3rd Semester | DAVV University | MBA Education by Nikhil Sir&quot;",
+                channel: "MBA Education by Nikhil Sir",
+                playlistId: 'PLxl7lAttKeamJUoy-_yoZAQV0-aeMzJTH',
+                why: 'Chapter playlist for Basic Techniques in Capital Budgeting',
+              }),
               r({
                 kind: 'deep',
                 title: 'NPV, IRR and payback period explained',
@@ -3019,6 +3383,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 24,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Project Management",
+                channel: "Management Mantra ",
+                playlistId: 'PLeUIXA68NobWh-CAopnDKlEaMKeUDSvsC',
+                why: 'Chapter playlist for Project Administration',
+              }),
               r({
                 kind: 'deep',
                 title: 'CPM and PERT explained',
@@ -3127,10 +3498,10 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
               }),
               r({
                 kind: 'playlist',
-                title: 'Industrial robotics complete course',
-                query: 'industrial robotics full course automation',
-                fallback: 'robotics engineering lectures playlist',
-                duration: '3+ hours',
+                title: 'Industrial Automation',
+                channel: 'Learning Orbis',
+                playlistId: 'PLWF9TXck7O_xtginyRk5DMGHN0cHKAcur',
+                why: 'Chapter playlist covering industrial robotics and automation.',
               }),
             ],
             practice: [
@@ -3160,6 +3531,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 15,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Introduction to Robotics and Robots for Beginners Tutorial",
+                channel: "Paul McWhorter",
+                playlistId: 'PLGs0VKk2DiYxkoe2XNxDvVHqL5XG4dMWi',
+                why: 'Chapter playlist for Jogging of Robot',
+              }),
               r({
                 kind: 'deep',
                 title: 'Robot coordinate systems & teach pendant',
@@ -3197,6 +3575,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Introduction to Robotics and Robots for Beginners Tutorial",
+                channel: "Paul McWhorter",
+                playlistId: 'PLGs0VKk2DiYxkoe2XNxDvVHqL5XG4dMWi',
+                why: 'Chapter playlist for Programming Using Teach Pendant',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Industrial robot programming — motion types',
                 query: 'industrial robot programming movej movel movec tutorial',
@@ -3233,6 +3618,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Introduction to Robotics and Robots for Beginners Tutorial",
+                channel: "Paul McWhorter",
+                playlistId: 'PLGs0VKk2DiYxkoe2XNxDvVHqL5XG4dMWi',
+                why: 'Chapter playlist for Robot Integration with PLC & HMI',
+              }),
+              r({
                 kind: 'deep',
                 title: 'PLC and robot communication basics',
                 query: 'plc robot communication hmi conveyor automation tutorial',
@@ -3267,6 +3659,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 15,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Introduction to Robotics and Robots for Beginners Tutorial",
+                channel: "Paul McWhorter",
+                playlistId: 'PLGs0VKk2DiYxkoe2XNxDvVHqL5XG4dMWi',
+                why: 'Chapter playlist for Advanced Robot Programming',
+              }),
               r({
                 kind: 'deep',
                 title: 'Advanced robot programming & welding',
@@ -3361,10 +3760,10 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
               }),
               r({
                 kind: 'playlist',
-                title: 'AI/ML complete beginner playlist',
-                query: 'artificial intelligence machine learning course for beginners playlist',
-                fallback: 'ai ml full course playlist',
-                duration: '3+ hours',
+                title: 'Complete Machine Learning Course with Projects',
+                channel: 'Sheryians AI School',
+                playlistId: 'PLaldQ9PzZd9qT0KsKJ7yCq70iFFP3MFJ5',
+                why: 'Chapter playlist for a practical AI/ML foundation.',
               }),
             ],
             practice: [
@@ -3393,6 +3792,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 40,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Complete Machine Learning Course with Projects | Learn ML Step-by-Step",
+                channel: "Sheryians AI School",
+                playlistId: 'PLaldQ9PzZd9qT0KsKJ7yCq70iFFP3MFJ5',
+                why: 'Chapter playlist for Machine Learning Workflow',
+              }),
               r({
                 kind: 'deep',
                 title: 'ML workflow & algorithms explained',
@@ -3427,6 +3833,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 20,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Complete Machine Learning Course with Projects | Learn ML Step-by-Step",
+                channel: "Sheryians AI School",
+                playlistId: 'PLaldQ9PzZd9qT0KsKJ7yCq70iFFP3MFJ5',
+                why: 'Chapter playlist for Real-World Applications',
+              }),
               r({
                 kind: 'deep',
                 title: 'AI applications in industry',
@@ -3499,6 +3912,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Design Thinking [2026 Updated]",
+                channel: "Simplilearn",
+                playlistId: 'PLEiEAq2VkUUIz01StTtLRDtXwNVwjj-Nc',
+                why: 'Chapter playlist for Design Thinking & Ideation',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Design thinking explained',
                 query: 'design thinking process explained step by step',
@@ -3519,6 +3939,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 50,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Design Thinking [2026 Updated]",
+                channel: "Simplilearn",
+                playlistId: 'PLEiEAq2VkUUIz01StTtLRDtXwNVwjj-Nc',
+                why: 'Chapter playlist for Design Thinking & Ideation',
+              }),
               r({
                 kind: 'practical',
                 title: 'Figma design tutorial',
@@ -3578,6 +4005,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Engineering Economics",
+                channel: "Abhishek Sharma",
+                playlistId: 'PL9FuOtXibFjW3cONv7t08tt1jAoYcsvod',
+                why: 'Chapter playlist for Cost Concepts & Break-Even',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Break even analysis & costs explained',
                 query: 'break even analysis costs depreciation explained for engineers',
@@ -3598,6 +4032,13 @@ export const SEMESTER_4_SUBJECTS: Subject[] = [
             marks: 50,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Engineering Economics",
+                channel: "Abhishek Sharma",
+                playlistId: 'PL9FuOtXibFjW3cONv7t08tt1jAoYcsvod',
+                why: 'Chapter playlist for Cost Concepts & Break-Even',
+              }),
               r({
                 kind: 'deep',
                 title: 'Financial statements explained',

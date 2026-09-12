@@ -74,6 +74,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Mathematics-I | Sigma Batch | Polytechnic 1st Semester by Gaurav Sir",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn6YBuo7o7NEJX_lWsrwnnnA',
+                why: 'Chapter playlist for Trigonometry',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Trigonometric ratios & allied angles explained',
                 channel: 'Physics Wallah',
@@ -118,6 +125,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Mathematics-I | Sigma Batch | Polytechnic 1st Semester by Gaurav Sir",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn6YBuo7o7NEJX_lWsrwnnnA',
+                why: 'Chapter playlist for Trigonometry',
+              }),
               r({
                 kind: 'deep',
                 title: 'Multiple & sub-multiple angles formulae',
@@ -166,6 +180,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Mathematics I - Calculus",
+                channel: "Dr. Harish Garg",
+                playlistId: 'PLO-6jspot8AJNavGBGQRRFZ1qaqXxVyY0',
+                why: 'Chapter playlist for Differential Calculus',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Standard limits for diploma exams',
                 channel: 'Physics Wallah',
@@ -213,6 +234,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Mathematics I - Calculus",
+                channel: "Dr. Harish Garg",
+                playlistId: 'PLO-6jspot8AJNavGBGQRRFZ1qaqXxVyY0',
+                why: 'Chapter playlist for Differential Calculus',
+              }),
               r({
                 kind: 'deep',
                 title: 'Differentiation — full class for beginners',
@@ -268,6 +296,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "MATRICES ENGINEERING MATHEMATICS",
+                channel: "Pradeep Giri Academy",
+                playlistId: 'PLT3bOBUU3L9imMlPeqnVYZqKqycvSK_ms',
+                why: 'Chapter playlist for Determinants and Matrices',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Determinants & Cramer’s rule complete',
                 channel: 'Physics Wallah',
@@ -308,6 +343,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "MATRICES ENGINEERING MATHEMATICS",
+                channel: "Pradeep Giri Academy",
+                playlistId: 'PLT3bOBUU3L9imMlPeqnVYZqKqycvSK_ms',
+                why: 'Chapter playlist for Determinants and Matrices',
+              }),
               r({
                 kind: 'deep',
                 title: 'Matrices & inverse by adjoint method',
@@ -362,6 +404,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "PARTIAL FRACTION METHOD - BY TIKLE&#39;S ACADEMY",
+                channel: "TIKLE'S ACADEMY OF MATHS",
+                playlistId: 'PLNKD1qB9ppttrZnL4h6h-WdAOXXCT1VTv',
+                why: 'Chapter playlist for Partial Fractions & Binomial Theorem',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Partial fractions — all three cases',
                 channel: 'Physics Wallah',
@@ -402,6 +451,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "PARTIAL FRACTION METHOD - BY TIKLE&#39;S ACADEMY",
+                channel: "TIKLE'S ACADEMY OF MATHS",
+                playlistId: 'PLNKD1qB9ppttrZnL4h6h-WdAOXXCT1VTv',
+                why: 'Chapter playlist for Partial Fractions & Binomial Theorem',
+              }),
               r({
                 kind: 'deep',
                 title: 'Binomial theorem — general & middle term',
@@ -450,6 +506,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Complex Analysis (Differentiation &amp; Integration)",
+                channel: "Dr.Gajendra Purohit",
+                playlistId: 'PLU6SqdYcYsfI3sh-ho_iiTkCGsTbVh_Sw',
+                why: 'Chapter playlist for Complex Numbers',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Complex numbers — fundamentals class',
                 channel: 'Physics Wallah',
@@ -490,6 +553,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Complex Analysis (Differentiation &amp; Integration)",
+                channel: "Dr.Gajendra Purohit",
+                playlistId: 'PLU6SqdYcYsfI3sh-ho_iiTkCGsTbVh_Sw',
+                why: 'Chapter playlist for Complex Numbers',
+              }),
               r({
                 kind: 'deep',
                 title: "De Moivre's theorem — powers & roots",
@@ -597,6 +667,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Units and Dimensions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Units and systems of units explained',
                 channel: 'Physics Wallah',
@@ -638,6 +715,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Units and Dimensions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Dimensional analysis — uses & applications',
                 channel: 'Physics Wallah',
@@ -678,6 +762,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Units and Dimensions',
+              }),
               r({
                 kind: 'deep',
                 title: 'Errors & significant figures complete',
@@ -727,6 +818,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Force and Motion',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Vectors & Newton’s laws of motion',
                 channel: 'Physics Wallah',
@@ -766,6 +864,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 6,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Force and Motion',
+              }),
               r({
                 kind: 'deep',
                 title: 'Equations of motion solved problems',
@@ -807,6 +912,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Force and Motion',
+              }),
               r({
                 kind: 'deep',
                 title: 'Circular motion & banking of roads',
@@ -855,6 +967,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Work, Power and Energy',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Work and friction complete class',
                 channel: 'Physics Wallah',
@@ -896,6 +1015,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Work, Power and Energy',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Work–energy theorem & conservation of energy',
                 channel: 'Physics Wallah',
@@ -936,6 +1062,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Work, Power and Energy',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Power & its applications',
                 channel: 'Physics Wallah',
@@ -975,6 +1108,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Rotational Motion',
+              }),
               r({
                 kind: 'deep',
                 title: 'Torque and angular momentum explained',
@@ -1018,6 +1158,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Rotational Motion',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Moment of inertia — full derivation class',
                 channel: 'Physics Wallah',
@@ -1059,6 +1206,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Rotational Motion',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Rolling motion & rotational kinetic energy',
                 channel: 'Physics Wallah',
@@ -1097,6 +1251,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Physics By Ankur Sir",
+                channel: "Railway Job",
+                playlistId: 'PL3akonMLTLXDdiWzF6PQrNDb0x9hyrjoL',
+                why: 'Chapter playlist for Motion of Planets and Satellites',
+              }),
               r({
                 kind: 'deep',
                 title: 'Gravitation & variation of g',
@@ -1138,6 +1299,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Physics By Ankur Sir",
+                channel: "Railway Job",
+                playlistId: 'PL3akonMLTLXDdiWzF6PQrNDb0x9hyrjoL',
+                why: 'Chapter playlist for Motion of Planets and Satellites',
+              }),
               r({
                 kind: 'deep',
                 title: 'Satellites — orbital and escape velocity',
@@ -1186,6 +1354,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Properties of Matter',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Elasticity & Hooke’s law complete',
                 channel: 'Physics Wallah',
@@ -1228,6 +1403,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Properties of Matter',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Surface tension — capillary action class',
                 channel: 'Physics Wallah',
@@ -1269,6 +1451,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'advanced',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Properties of Matter',
+              }),
               r({
                 kind: 'deep',
                 title: 'Viscosity, Stoke’s law & Bernoulli’s theorem',
@@ -1317,6 +1506,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Heat and Thermodynamics',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Heat, temperature & thermal expansion',
                 channel: 'Physics Wallah',
@@ -1358,6 +1554,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'advanced',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Heat and Thermodynamics',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Thermodynamics laws & Carnot cycle',
                 channel: 'Physics Wallah',
@@ -1397,6 +1600,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 4,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Physics-I | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4rbFoCX4zaRBgEOIKcU34H',
+                why: 'Chapter playlist for Heat and Thermodynamics',
+              }),
               r({
                 kind: 'one-shot',
                 title: 'Heat transfer — conduction, convection, radiation',
@@ -1493,6 +1703,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Chemistry | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4677Ypls_cxsEC_aZaS2Ev',
+                why: 'Chapter playlist for Atomic Structure, Chemical Bonding & Solutions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Atomic structure — quantum numbers complete',
                 channel: 'Physics Wallah',
@@ -1533,6 +1750,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Chemistry | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4677Ypls_cxsEC_aZaS2Ev',
+                why: 'Chapter playlist for Atomic Structure, Chemical Bonding & Solutions',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Chemical bonding — ionic and covalent',
                 channel: 'Magnet Brains',
@@ -1565,6 +1789,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Chemistry | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4677Ypls_cxsEC_aZaS2Ev',
+                why: 'Chapter playlist for Atomic Structure, Chemical Bonding & Solutions',
+              }),
               r({
                 kind: 'deep',
                 title: 'Concentration terms — molarity molality normality',
@@ -1612,6 +1843,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Water Treatment/ Water Technology",
+                channel: "Chemistry by Dr. Anjali Ssaxena",
+                playlistId: 'PLLf6O8XdGj03gLo6znlqJbMzgIgt8tSU1',
+                why: 'Chapter playlist for Water',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Hardness of water — types & units',
                 channel: 'Physics Wallah',
@@ -1652,6 +1890,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Water Treatment/ Water Technology",
+                channel: "Chemistry by Dr. Anjali Ssaxena",
+                playlistId: 'PLLf6O8XdGj03gLo6znlqJbMzgIgt8tSU1',
+                why: 'Chapter playlist for Water',
+              }),
               r({
                 kind: 'deep',
                 title: 'Boiler troubles & water softening methods',
@@ -1699,6 +1944,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Engineering Chemistry| | Unit-3 | Electrochemistry, corrosion and Engineering materials",
+                channel: "Chemistry by Dr. Anjali Ssaxena",
+                playlistId: 'PLLf6O8XdGj02SJgvTg8kiwSL8atdHC5vb',
+                why: 'Chapter playlist for Engineering Materials',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Cement — composition and setting',
                 channel: 'Magnet Brains',
@@ -1732,6 +1984,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 10,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Engineering Chemistry| | Unit-3 | Electrochemistry, corrosion and Engineering materials",
+                channel: "Chemistry by Dr. Anjali Ssaxena",
+                playlistId: 'PLLf6O8XdGj02SJgvTg8kiwSL8atdHC5vb',
+                why: 'Chapter playlist for Engineering Materials',
+              }),
               r({
                 kind: 'deep',
                 title: 'Glass, polymers, refractories & abrasives',
@@ -1780,6 +2039,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Chemistry",
+                channel: "Polytechnic Studies",
+                playlistId: 'PLkZFXMjtq0D04SV-rkHVyHD7z_Y_NHunp',
+                why: 'Chapter playlist for Chemistry of Fuels & Lubricants',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Fuels — coal, petroleum and calorific value',
                 channel: 'Physics Wallah',
@@ -1819,6 +2085,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Chemistry",
+                channel: "Polytechnic Studies",
+                playlistId: 'PLkZFXMjtq0D04SV-rkHVyHD7z_Y_NHunp',
+                why: 'Chapter playlist for Chemistry of Fuels & Lubricants',
+              }),
               r({
                 kind: 'deep',
                 title: 'Lubricants — classification & viscosity',
@@ -1860,6 +2133,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Applied Chemistry | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4677Ypls_cxsEC_aZaS2Ev',
+                why: 'Chapter playlist for Electro Chemistry',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Electrolysis & Faraday’s laws',
                 channel: 'Physics Wallah',
@@ -1900,6 +2180,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Applied Chemistry | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn4677Ypls_cxsEC_aZaS2Ev',
+                why: 'Chapter playlist for Electro Chemistry',
+              }),
               r({
                 kind: 'deep',
                 title: 'Corrosion — mechanism & prevention',
@@ -2003,6 +2290,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Communication Skills in English | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn7u1Ixw8Wa-54g7eQHwOxNI',
+                why: 'Chapter playlist for Communication: Theory and Practice',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Communication process & types explained',
                 channel: 'Magnet Brains',
@@ -2042,6 +2336,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Communication Skills in English | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn7u1Ixw8Wa-54g7eQHwOxNI',
+                why: 'Chapter playlist for Communication: Theory and Practice',
+              }),
               r({
                 kind: 'deep',
                 title: 'Barriers to communication & the 7 Cs',
@@ -2088,6 +2389,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "BEGAE 182, ENGLISH COMMUNICATION SKILLS.",
+                channel: "understanding IGNOU studies",
+                playlistId: 'PLjF1oT5sngjtzZZ3mN09Ye2XLWuzy3ilA',
+                why: 'Chapter playlist for Listening Skills',
+              }),
               r({
                 kind: 'deep',
                 title: 'Listening skills — types & practice',
@@ -2138,6 +2446,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Communication Skills in English | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn7u1Ixw8Wa-54g7eQHwOxNI',
+                why: 'Chapter playlist for Speaking Skills',
+              }),
+              r({
                 kind: 'one-shot',
                 title: 'Self introduction in English — best tips',
                 channel: 'Learn English with Let’s Talk',
@@ -2187,6 +2502,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'intermediate',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Professional Communication Skills",
+                channel: "Engineers ki Pathshala by Umesh Dhande",
+                playlistId: 'PL9RcWoqXmzaKWxaNoDhW4O1kA0hK9AYys',
+                why: 'Chapter playlist for Professional Writing',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Formal letter writing — all formats',
                 channel: 'Dear Sir',
@@ -2229,6 +2551,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 12,
             difficulty: 'intermediate',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Professional Communication Skills",
+                channel: "Engineers ki Pathshala by Umesh Dhande",
+                playlistId: 'PL9RcWoqXmzaKWxaNoDhW4O1kA0hK9AYys',
+                why: 'Chapter playlist for Professional Writing',
+              }),
               r({
                 kind: 'one-shot',
                 title: 'CV / resume writing — complete guide',
@@ -2285,6 +2614,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             difficulty: 'beginner',
             resources: [
               r({
+                kind: 'playlist',
+                title: "Communication Skills in English | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn7u1Ixw8Wa-54g7eQHwOxNI',
+                why: 'Chapter playlist for Vocabulary and Grammar',
+              }),
+              r({
                 kind: 'deep',
                 title: 'Tenses — full class',
                 channel: 'Dear Sir',
@@ -2333,6 +2669,13 @@ export const FOUNDATION_SUBJECTS: Subject[] = [
             marks: 8,
             difficulty: 'beginner',
             resources: [
+              r({
+                kind: 'playlist',
+                title: "Communication Skills in English | Mission Batch By Gtech Poly",
+                channel: "Gtech poly",
+                playlistId: 'PLfq4fiRrJSn7u1Ixw8Wa-54g7eQHwOxNI',
+                why: 'Chapter playlist for Vocabulary and Grammar',
+              }),
               r({
                 kind: 'deep',
                 title: 'One-word substitution — most asked',
