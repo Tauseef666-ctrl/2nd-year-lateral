@@ -46,6 +46,12 @@ export const getSubject = (id?: string): Subject | undefined =>
 
 export const getTopic = (id: string): Topic | undefined => topicById.get(id);
 
+export const getSubjectTopics = (subjectId: string): FlatTopic[] =>
+  FLAT_TOPICS.filter((t) => t.subjectId === subjectId);
+
+export const getSemesterTopicIds = (semesterId: number): string[] =>
+  FLAT_TOPICS.filter((t) => t.semester === semesterId).map((t) => t.id);
+
 export interface FlatTopic extends Topic {
   subjectId: string;
   subjectName: string;
