@@ -12,6 +12,8 @@ import Roadmap from './pages/Roadmap';
 import ExamMode from './pages/ExamMode';
 import Practicals from './pages/Practicals';
 import DeepLearning from './pages/DeepLearning';
+import MinorProject from './pages/MinorProject';
+import Certification from './pages/Certification';
 import NotFound from './pages/NotFound';
 import { useLearningStore } from './store/useStore';
 
@@ -40,6 +42,8 @@ export default function App() {
           <Route path="exam" element={<ExamMode />} />
           <Route path="practicals" element={<Practicals />} />
           <Route path="deep-learning" element={<DeepLearning />} />
+          <Route path="minor-project" element={<MinorProject />} />
+          <Route path="certification" element={<Certification />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

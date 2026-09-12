@@ -1,5 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, BookOpen, Layers } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  BadgeCheck,
+  BookOpen,
+  Hammer,
+  Layers,
+  Users,
+} from 'lucide-react';
 import { SEMESTERS, getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject } from '../types';
 import { useLearningStore } from '../store/useStore';
@@ -110,6 +118,91 @@ export default function Semester() {
         {subjects.map((s) => (
           <SubjectCard key={s.id} subject={s} />
         ))}
+      </div>
+
+      <div>
+        <h2 className="mb-3 font-display text-xl font-bold text-ink-950 dark:text-white">
+          Beyond the classroom
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {semester.id === 3 ? (
+            <>
+              <Card className="flex flex-col gap-2 p-5">
+                <Users className="h-5 w-5 text-accent" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Student-Centred Activities
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Weekly activities across the semester — technical quizzes, seminars, soft-skill
+                  and community sessions.
+                </p>
+              </Card>
+              <Link to="/minor-project" className="group block">
+                <Card className="flex h-full flex-col gap-2 border-accent/30 p-5 transition hover:shadow-cardHover">
+                  <Hammer className="h-5 w-5 text-accent" />
+                  <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                    Minor Project
+                  </p>
+                  <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                    Official Semester 3 requirement with presentation. Plan it in the workspace.
+                  </p>
+                  <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-accent">
+                    Open workspace
+                    <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Card>
+              </Link>
+              <Card className="flex flex-col gap-2 p-5">
+                <BookOpen className="h-5 w-5 text-mint-500" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Summer Internship
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Scheduled after the fourth-semester examination — start preparing your portfolio
+                  during this semester.
+                </p>
+              </Card>
+            </>
+          ) : (
+            <>
+              <Card className="flex flex-col gap-2 p-5">
+                <Users className="h-5 w-5 text-accent" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Student-Centred Activities
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Continued weekly activities — Industry 4.0 exposure, hackathons and soft skills.
+                </p>
+              </Card>
+              <Link to="/certification" className="group block">
+                <Card className="flex h-full flex-col gap-2 p-5 transition hover:shadow-cardHover">
+                  <BadgeCheck className="h-5 w-5 text-mint-500" />
+                  <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                    Advanced Skill Development
+                  </p>
+                  <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                    Min. 20 hours of recognised certification (Open Elective-1). Track your
+                    certificates here.
+                  </p>
+                  <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-mint-600 dark:text-mint-400">
+                    Open tracker
+                    <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Card>
+              </Link>
+              <Card className="flex flex-col gap-2 p-5">
+                <Layers className="h-5 w-5 text-ink-400" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Electives choice
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Pick one Program Elective (CSO / FOSS) and one Open Elective (Project Management /
+                  Robotics) from the subject cards above.
+                </p>
+              </Card>
+            </>
+          )}
+        </div>
       </div>
     </section>
   );

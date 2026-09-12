@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import {
+  BadgeCheck,
   Bookmark,
   FlaskConical,
   GraduationCap,
+  Hammer,
   Home,
   LineChart,
   Map,
@@ -34,6 +36,8 @@ const navItems = [
   { to: '/roadmap', label: 'Roadmap', icon: Map },
   { to: '/practicals', label: 'Practicals', icon: FlaskConical },
   { to: '/exam', label: 'Exam Mode', icon: GraduationCap },
+  { to: '/minor-project', label: 'Minor Project', icon: Hammer },
+  { to: '/certification', label: 'Skill Dev', icon: BadgeCheck },
   { to: '/bookmarks', label: 'Bookmarks', icon: Bookmark },
   { to: '/progress', label: 'Progress', icon: LineChart },
 ];
