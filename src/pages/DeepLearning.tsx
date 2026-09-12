@@ -17,6 +17,8 @@ import { useLearningStore } from '../store/useStore';
 import { Badge, Card, EmptyState, PageHeader, cx } from '../components/ui';
 import VideoCard from '../components/VideoCard';
 import PracticeCard from '../components/PracticeCard';
+import QuizPlayer from '../components/QuizPlayer';
+import { getQuizzesForSubject } from '../data/quiz';
 
 function FocusTimer() {
   const TOTAL = 25 * 60;
@@ -242,6 +244,17 @@ function FocusSession({ topicId }: { topicId: string }) {
                   <PracticeCard key={qi} question={q.question} hint={q.hint} n={qi + 1} />
                 ))}
               </div>
+            </div>
+          ) : null}
+
+          {getQuizzesForSubject(flat.subjectId).length > 0 ? (
+            <div className="mt-6">
+              <QuizPlayer
+                quizId={`deep-${flat.subjectId}`}
+                questions={getQuizzesForSubject(flat.subjectId)}
+                compact
+                title="Short quiz"
+              />
             </div>
           ) : null}
         </div>

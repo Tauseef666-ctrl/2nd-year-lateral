@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Circle,
   Lightbulb,
+  NotebookPen,
   Play,
   Sparkles,
 } from 'lucide-react';
@@ -56,6 +57,14 @@ export default function Topic() {
   const toggleComplete = useLearningStore((s) => s.toggleComplete);
   const toggleBookmark = useLearningStore((s) => s.toggleBookmark);
   const setLast = useLearningStore((s) => s.setLast);
+  const savedNote = useLearningStore((s) => (flat ? s.notes[flat.id] ?? '' : ''));
+  const setNote = useLearningStore((s) => s.setNote);
+  const [noteDraft, setNoteDraft] = useState('');
+  const [noteSaved, setNoteSaved] = useState(false);
+
+  useEffect(() => {
+    setNoteDraft(savedNote);
+  }, [savedNote]);
 
   useEffect(() => {
     if (flat && subject) setLast({ subjectId: flat.subjectId, topicId: flat.id });
@@ -270,6 +279,39 @@ export default function Topic() {
           </div>
         </div>
       ) : null}
+
+      <Card className="p-5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 className="flex items-center gap-2 font-display text-lg font-bold text-ink-950 dark:text-white">
+            <NotebookPen className="h-5 w-5 text-accent" />
+            My notes
+          </h2>
+          {noteSaved ? (
+            <span className="text-xs font-semibold text-mint-500">Saved</span>
+          ) : (
+            <span className="text-xs text-ink-300">Autosaves after you press Save</span>
+          )}
+        </div>
+        <textarea
+          value={noteDraft}
+          onChange={(e) => setNoteDraft(e.target.value)}
+          onFocus={() => setNoteSaved(false)}
+          rows={5}
+          placeholder="Jot down formulas, definitions, doubts or exam pointers for this topic…"
+          className="mt-3 w-full resize-y rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm leading-relaxed text-ink-800 outline-none transition placeholder:text-ink-300 focus:border-accent dark:border-ink-700 dark:bg-ink-900 dark:text-ink-100 dark:placeholder:text-ink-600"
+        />
+        <button
+          type="button"
+          onClick={() => {
+            if (flat) setNote(flat.id, noteDraft);
+            setNoteSaved(true);
+          }}
+          className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent/90"
+        >
+          <NotebookPen className="h-4 w-4" />
+          Save note
+        </button>
+      </Card>
 
       {flat.related && flat.related.length > 0 ? (
         <div>

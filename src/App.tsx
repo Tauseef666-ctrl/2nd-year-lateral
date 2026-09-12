@@ -14,6 +14,7 @@ import Practicals from './pages/Practicals';
 import DeepLearning from './pages/DeepLearning';
 import MinorProject from './pages/MinorProject';
 import Certification from './pages/Certification';
+import QuizBank from './pages/QuizBank';
 import NotFound from './pages/NotFound';
 import { useLearningStore } from './store/useStore';
 
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="deep-learning" element={<DeepLearning />} />
           <Route path="minor-project" element={<MinorProject />} />
           <Route path="certification" element={<Certification />} />
+          <Route path="quiz" element={<QuizBank />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

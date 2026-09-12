@@ -14,6 +14,8 @@ interface LearningState {
   last: LastPosition | null;
   projectSteps: string[];
   certifications: string[];
+  quizzes: string[];
+  notes: Record<string, string>;
   setTheme: (theme: 'light' | 'dark') => void;
   toggleTheme: () => void;
   setLast: (position: LastPosition) => void;
@@ -22,6 +24,8 @@ interface LearningState {
   toggleWatched: (resourceId: string) => void;
   toggleProjectStep: (stepId: string) => void;
   toggleCertification: (certId: string) => void;
+  markQuizDone: (quizId: string) => void;
+  setNote: (topicId: string, text: string) => void;
   resetProgress: () => void;
 }
 
@@ -35,6 +39,8 @@ export const useLearningStore = create<LearningState>()(
       last: null,
       projectSteps: [],
       certifications: [],
+      quizzes: [],
+      notes: {},
       setTheme: (theme) => set({ theme }),
       toggleTheme: () =>
         set((s) => ({ theme: s.theme === 'dark' ? 'light' : 'dark' })),
@@ -69,8 +75,13 @@ export const useLearningStore = create<LearningState>()(
             ? s.certifications.filter((x) => x !== certId)
             : [...s.certifications, certId],
         })),
+      markQuizDone: (quizId) =>
+        set((s) => ({
+          quizzes: s.quizzes.includes(quizId) ? s.quizzes : [...s.quizzes, quizId],
+        })),
+      setNote: (topicId, text) => set((s) => ({ notes: { ...s.notes, [topicId]: text } })),
       resetProgress: () =>
-        set({ completed: [], bookmarks: [], watched: [], last: null, projectSteps: [], certifications: [] }),
+        set({ completed: [], bookmarks: [], watched: [], last: null, projectSteps: [], certifications: [], quizzes: [] }),
     }),
     { name: 'bteup-learn-storage' },
   ),
