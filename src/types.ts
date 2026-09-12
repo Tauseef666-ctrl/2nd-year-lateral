@@ -40,6 +40,19 @@ export interface StudyNote {
   href: string;
 }
 
+/** A single headed block of bullet points inside a chapter note. */
+export interface NoteSection {
+  h: string;
+  items: string[];
+}
+
+/** Full structured notes for one module (chapter) of a subject. */
+export interface ChapterNote {
+  moduleId: string;
+  title: string;
+  sections: NoteSection[];
+}
+
 export interface TopicLink {
   id: string;
   title: string;
