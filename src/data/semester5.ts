@@ -516,6 +516,7 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+      playlistId: 'PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q',
         title: 'Java Programming in Hindi (Complete Course)',
         channel: 'CodeWithHarry',
         query: 'java tutorial for beginners complete course in hindi',
@@ -2943,6 +2944,7 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+      playlistId: 'PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_',
         title: 'Computer Networks Full Course',
         channel: 'Gate Smashers',
         query: 'computer networks full course in hindi gate smashers',

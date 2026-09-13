@@ -526,6 +526,7 @@ export const SEMESTER_6_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+      playlistId: 'PLxCzCOWd7aiHGhOHV-nwb0HR5US5GFKFI',
         title: 'Artificial Intelligence (Gate Smashers)',
         channel: 'Gate Smashers',
         query: 'artificial intelligence playlist Gate Smashers hindi',
