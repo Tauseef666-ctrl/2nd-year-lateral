@@ -92,7 +92,7 @@ export default function Home() {
         <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 left-1/3 h-48 w-48 rounded-full bg-mint-400/10 blur-3xl" />
         <div className="relative animate-fade-up">
-          <Badge className="mb-4">NEP-2020 · Lateral Entry · Foundation + Sem 3 &amp; 4</Badge>
+          <Badge className="mb-4">NEP-2020 · Lateral Entry · Foundation + Sem 3–6</Badge>
           <h1 className="max-w-2xl font-display text-3xl font-bold leading-tight text-ink-950 dark:text-white sm:text-4xl">
             Your BTEUP CSE study{' '}
             <span className="bg-gradient-to-r from-accent to-mint-400 bg-clip-text text-transparent">

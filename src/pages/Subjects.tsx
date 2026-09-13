@@ -21,7 +21,7 @@ export default function Subjects() {
       <PageHeader
         eyebrow="Curriculum"
         title="All subjects"
-        subtitle="Foundation subjects plus the full Semester 3 and Semester 4 syllabus — each with curated video one-shots, playlists and chapter notes."
+        subtitle="The full lateral-entry curriculum — Foundation, Semester 3, 4, 5 and 6 — each subject with curated video one-shots, playlists and chapter notes."
       >
         <div className="inline-flex items-center gap-1.5 self-end rounded-xl bg-mint-500/10 px-3 py-1.5 text-xs font-bold text-mint-600 dark:text-mint-400">
           <BookMarked className="h-3.5 w-3.5" />

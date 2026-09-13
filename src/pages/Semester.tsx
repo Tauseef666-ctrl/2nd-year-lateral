@@ -66,7 +66,7 @@ export default function Semester() {
         <EmptyState
           icon={<Layers className="h-6 w-6" />}
           title="Unknown semester"
-          body="Only Semester 3 and Semester 4 exist in this syllabus."
+          body="Only the Foundation, Semester 3, 4, 5 and 6 sections exist in this syllabus."
           action={
             <Link
               to="/"
@@ -147,6 +147,72 @@ export default function Semester() {
                 <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
                   Scheduled after the fourth-semester examination — start preparing your portfolio
                   during this semester.
+                </p>
+              </Card>
+            </>
+          ) : semester.id === 5 ? (
+            <>
+              <Card className="flex flex-col gap-2 p-5">
+                <Users className="h-5 w-5 text-accent" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Student-Centred Activities
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Industry 4.0 exposure, hackathons and soft-skill sessions continue across the
+                  semester.
+                </p>
+              </Card>
+              <Card className="flex flex-col gap-2 p-5">
+                <BookOpen className="h-5 w-5 text-mint-500" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Summer Internship II
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Official Semester 5 requirement assessed by seminar presentation and viva — keep a
+                  logbook of your internship work.
+                </p>
+              </Card>
+              <Card className="flex flex-col gap-2 p-5">
+                <Layers className="h-5 w-5 text-ink-400" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Electives choice
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Pick one Program Elective (MAD / Multimedia) and one more (Information Security /
+                  Advanced Networks) from the subject cards above.
+                </p>
+              </Card>
+            </>
+          ) : semester.id === 6 ? (
+            <>
+              <Card className="flex flex-col gap-2 p-5">
+                <BadgeCheck className="h-5 w-5 text-mint-500" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  In-House Project
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Official Semester 6 project — pick it 2–3 months early, prefer an industry-aligned
+                  idea, and apply your Java, Python and web skills end-to-end.
+                </p>
+              </Card>
+              <Card className="flex flex-col gap-2 p-5">
+                <Users className="h-5 w-5 text-accent" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Student-Centred Activities
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Closing state/national level participation in sports, cultural and NSS activities —
+                  the final SCA marks of the diploma.
+                </p>
+              </Card>
+              <Card className="flex flex-col gap-2 p-5">
+                <Layers className="h-5 w-5 text-ink-400" />
+                <p className="font-display text-sm font-bold text-ink-950 dark:text-white">
+                  Electives choice
+                </p>
+                <p className="text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  Pick Program Elective-4 (AI / DS &amp; ML) and Open Elective-3 (Disaster Management
+                  / Renewable Energy) from the subject cards above.
                 </p>
               </Card>
             </>

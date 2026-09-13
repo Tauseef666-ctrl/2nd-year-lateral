@@ -2,6 +2,8 @@ import type { PracticalLab, Semester, Subject, Topic } from '../types';
 import { FOUNDATION_SUBJECTS } from './foundation';
 import { SEMESTER_3_SUBJECTS } from './semester3';
 import { SEMESTER_4_SUBJECTS } from './semester4';
+import { SEMESTER_5_SUBJECTS } from './semester5';
+import { SEMESTER_6_SUBJECTS } from './semester6';
 
 export const SEMESTERS: Semester[] = [
   {
@@ -25,12 +27,28 @@ export const SEMESTERS: Semester[] = [
       'Advanced core + electives — Data Structures, Software Engineering, E-Governance, Python and Program/Open Electives.',
     subjectIds: SEMESTER_4_SUBJECTS.map((s) => s.id),
   },
+  {
+    id: 5,
+    title: 'Semester 5',
+    tagline:
+      'Third-year core — OOP with Java, IoT, Program Elective-2 (MAD / Multimedia), Program Elective-3 (Information Security / Advanced Networks), Open Elective-2 and Indian Constitution.',
+    subjectIds: SEMESTER_5_SUBJECTS.map((s) => s.id),
+  },
+  {
+    id: 6,
+    title: 'Semester 6',
+    tagline:
+      'Final semester — AI / Data Science + ML electives, Entrepreneurship and Start-ups, In-House Project and Open Elective-3 (Disaster Management / Renewable Energy).',
+    subjectIds: SEMESTER_6_SUBJECTS.map((s) => s.id),
+  },
 ];
 
 export const ALL_SUBJECTS: Subject[] = [
   ...FOUNDATION_SUBJECTS,
   ...SEMESTER_3_SUBJECTS,
   ...SEMESTER_4_SUBJECTS,
+  ...SEMESTER_5_SUBJECTS,
+  ...SEMESTER_6_SUBJECTS,
 ];
 
 export const getSubjectsBySemester = (semester: number): Subject[] =>

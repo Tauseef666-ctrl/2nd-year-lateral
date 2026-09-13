@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useLearningStore } from '../store/useStore';
 import { cx } from './ui';
+import { Logo } from './Logo';
 
 function ThemeToggle() {
   const theme = useLearningStore((s) => s.theme);
@@ -46,6 +47,8 @@ const navGroups = [
       { to: '/subjects', label: 'All Subjects', icon: BookMarked },
       { to: '/semester/3', label: 'Semester 3', icon: Layers },
       { to: '/semester/4', label: 'Semester 4', icon: Layers },
+      { to: '/semester/5', label: 'Semester 5', icon: Layers },
+      { to: '/semester/6', label: 'Semester 6', icon: Layers },
     ],
   },
   {
@@ -68,14 +71,12 @@ const mobileItems = [
 function Brand() {
   return (
     <div className="flex items-center gap-3">
-      <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-accent to-mint-400 text-white shadow-glow">
-        <GraduationCap className="h-5 w-5" />
-      </div>
+      <Logo />
       <div className="leading-none">
         <p className="font-display text-sm font-semibold text-ink-950 dark:text-white">
           BTEUP CSE Hub
         </p>
-        <p className="mt-1 text-[11px] font-medium text-ink-400">Foundation · Sem 3 &amp; 4</p>
+        <p className="mt-1 text-[11px] font-medium text-ink-400">Foundation + Sem 3–6</p>
       </div>
     </div>
   );
