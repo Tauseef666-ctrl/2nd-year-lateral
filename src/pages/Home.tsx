@@ -101,9 +101,10 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            Built by a fellow 2nd-year student for the lateral-entry batch: every official topic
-            lands with a curated YouTube one-shot, full-course playlists and chapter notes — plus
-            practical labs and a college assignments hub. Study with intent, not fuss.
+            Built by a fellow 2nd-year student, Tauseef Khan (2026-2027), for the lateral-entry
+            batch: every official topic lands with a curated YouTube one-shot, full-course
+            playlists and chapter notes — plus practical labs and a college assignments hub. Study
+            with intent, not fuss.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
