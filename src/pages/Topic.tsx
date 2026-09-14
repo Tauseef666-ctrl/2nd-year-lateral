@@ -112,6 +112,9 @@ export default function Topic() {
           <p className="text-sm leading-relaxed text-ink-600 dark:text-ink-300">
             {flat.description}
           </p>
+          <p className="mt-3 text-xs font-medium text-ink-400 dark:text-ink-500">
+            Curated by a fellow 2nd-year student, Tauseef Khan (2026-2027).
+          </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {flat.subtopics.map((s) => (
               <span
