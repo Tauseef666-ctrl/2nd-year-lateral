@@ -15,6 +15,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'CodeWithHarry',
     query: 'java tutorial for beginners full course module 1 in hindi CodeWithHarry',
     language: 'hindi',
+  videoId: 'ntLJmHOJ0ME',
   }),
   'java-m2': r({
     kind: 'one-shot',
@@ -22,6 +23,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'CodeWithHarry',
     query: 'java variables data types operators loops in hindi one shot CodeWithHarry',
     language: 'hindi',
+  videoId: 'X0zdAG7gfgs',
   }),
   'java-m3': r({
     kind: 'one-shot',
@@ -29,6 +31,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'CodeWithHarry',
     query: 'java classes objects inheritance packages string handling in hindi one shot',
     language: 'hindi',
+  videoId: '5OrZpBbGKgc',
   }),
   'java-m4': r({
     kind: 'one-shot',
@@ -36,6 +39,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'CodeWithHarry',
     query: 'java abstract class interface polymorphism overloading overriding in hindi one shot',
     language: 'hindi',
+  videoId: 'vqV22AszAdw',
   }),
   'java-m5': r({
     kind: 'one-shot',
@@ -43,6 +47,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'CodeWithHarry',
     query: 'java exception handling multithreading in hindi one shot',
     language: 'hindi',
+  videoId: 'ZovnoASlIaE',
   }),
 
   // ──────────────────────────── IoT ────────────────────────────
@@ -52,6 +57,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'internet of things iot basics introduction in hindi Gate Smashers',
     language: 'hindi',
+  videoId: 'om-5QTbLCCs',
   }),
   'iot-m2': r({
     kind: 'one-shot',
@@ -59,6 +65,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Learn Electronics',
     query: 'iot sensors actuators electronics basics in hindi',
     language: 'hindi',
+  videoId: '8VOuA2LFRYA',
   }),
   'iot-m3': r({
     kind: 'one-shot',
@@ -66,6 +73,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'iot network protocols zigbee wifi mqtt in hindi Gate Smashers',
     language: 'hindi',
+  videoId: 'OD2pxBN-MyI',
   }),
   'iot-m4': r({
     kind: 'one-shot',
@@ -81,6 +89,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'm2m sdn nfv web of things iot in hindi',
     language: 'hindi',
+  videoId: 'CJ6FdlQqgPM',
   }),
 
   // ──────────────────────────── MAD ────────────────────────────
@@ -106,6 +115,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Programming Knowledge',
     query: 'android xml layout animation drawing in hindi one shot',
     language: 'hindi',
+  videoId: '2eRVOVylwSE',
   }),
   'mad-m4': r({
     kind: 'one-shot',
@@ -113,6 +123,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Programming Knowledge',
     query: 'android testing publishing play store shared preferences in hindi one shot',
     language: 'hindi',
+  videoId: '90b9IO_i_KQ',
   }),
   'mad-m5': r({
     kind: 'one-shot',
@@ -120,6 +131,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Programming Knowledge',
     query: 'android sqlite content provider networking in hindi one shot',
     language: 'hindi',
+  videoId: 'R7DGFckQ3Qs',
   }),
 
   // ──────────────────────────── Multimedia ─────────────────────
@@ -137,6 +149,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'lossy vs lossless compression huffman rle jpeg mpeg in hindi one shot',
     language: 'hindi',
+  videoId: 'M4lqL9_D2FM',
   }),
   'mtech-m3': r({
     kind: 'one-shot',
@@ -162,6 +175,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'information security basics pain model in hindi one shot Gate Smashers',
     language: 'hindi',
+  videoId: 'zBFB34YGK1U',
   }),
   'isec-m2': r({
     kind: 'one-shot',
@@ -169,6 +183,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'network security attacks ipsec https vpn in hindi one shot',
     language: 'hindi',
+  videoId: 'SNltfDv4ZiY',
   }),
   'isec-m3': r({
     kind: 'one-shot',
@@ -184,6 +199,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'firewall ids ips vpn concentrator in hindi one shot',
     language: 'hindi',
+  videoId: '0UXdEGAhPj4',
   }),
   'isec-m5': r({
     kind: 'one-shot',
@@ -191,6 +207,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'iso 27001 indian it act ipr security audit in hindi one shot',
     language: 'hindi',
+  videoId: 'zE9UEu41MRg',
   }),
 
   // ──────────────────────────── ACN ────────────────────────────
@@ -200,6 +217,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'ipv4 subnetting multicast advanced networking in hindi one shot Gate Smashers',
     language: 'hindi',
+  videoId: 'rdb2ki4iGuo',
   }),
   'acn-m2': r({
     kind: 'one-shot',
@@ -207,6 +225,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'frame relay atm mpls wireless network cellular in hindi one shot',
     language: 'hindi',
+  videoId: 'Cug52cpjM_g',
   }),
   'acn-m3': r({
     kind: 'one-shot',
@@ -214,6 +233,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'qos load balancing snmp rmon network monitoring in hindi one shot',
     language: 'hindi',
+  videoId: 'Lq7j-QipNrI',
   }),
   'acn-m4': r({
     kind: 'one-shot',
@@ -221,6 +241,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'vlan vpn firewall ips proxy server advanced networking in hindi one shot',
     language: 'hindi',
+  videoId: 'ez24W5oTU3U',
   }),
   'acn-m5': r({
     kind: 'one-shot',
@@ -228,6 +249,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Network Kings',
     query: 'wireshark cisco packet tracer ns2 tutorial in hindi',
     language: 'hindi',
+  videoId: 'hLE9tLt4IhQ',
   }),
 
   // ──────────────────────────── Indian Constitution ────────────
@@ -237,6 +259,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'indian constitution preamble fundamental rights duties one shot hindi Study IQ',
     language: 'hindi',
+  videoId: 'vSzRIMMe1xY',
   }),
   'icon-m2': r({
     kind: 'one-shot',
@@ -244,6 +267,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'president prime minister parliament indian polity one shot hindi',
     language: 'hindi',
+  videoId: 'MOl-mTD5RLA',
   }),
   'icon-m3': r({
     kind: 'one-shot',
@@ -251,6 +275,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'governor chief minister state secretariat indian polity one shot hindi',
     language: 'hindi',
+  videoId: 'bMHiIsl49ds',
   }),
   'icon-m4': r({
     kind: 'one-shot',
@@ -258,6 +283,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'district administration municipal corporation panchayat one shot hindi',
     language: 'hindi',
+  videoId: 'lE_cd1yRkms',
   }),
   'icon-m5': r({
     kind: 'one-shot',
@@ -265,6 +291,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'election commission india role functioning one shot hindi',
     language: 'hindi',
+  videoId: 'DhGrxwuojH8',
   }),
 
   // ──────────────────────────── AI ─────────────────────────────
@@ -282,6 +309,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'heuristic search hill climbing simulated annealing genetic algorithm ai in hindi one shot',
     language: 'hindi',
+  videoId: '3SiWtAnUROs',
   }),
   'ai-m3': r({
     kind: 'one-shot',
@@ -297,6 +325,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'ai planning constraint satisfaction problem in hindi one shot',
     language: 'hindi',
+  videoId: 'AgyCSmDVk5s',
   }),
   'ai-m5': r({
     kind: 'one-shot',
@@ -322,6 +351,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Krish Naik',
     query: 'data preprocessing scaling encoding visualization in hindi one shot',
     language: 'hindi',
+  videoId: 'jv1jMmGKb7A',
   }),
   'dsml-m3': r({
     kind: 'one-shot',
@@ -329,6 +359,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Krish Naik',
     query: 'statistics eda probability distributions parametric nonparametric in hindi one shot',
     language: 'hindi',
+  videoId: 'LZzq1zSL1bs',
   }),
   'dsml-m4': r({
     kind: 'one-shot',
@@ -344,6 +375,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'mining social networks graphs community detection ethics in hindi one shot',
     language: 'hindi',
+  videoId: 'U8U1I1l-cQI',
   }),
 
   // ──────────────────────────── Entrepreneurship ───────────────
@@ -353,6 +385,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'entrepreneurship introduction types traits business structures in hindi one shot',
     language: 'hindi',
+  videoId: 'Vgif_Oznniw',
   }),
   'ent-m2': r({
     kind: 'one-shot',
@@ -360,6 +393,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'business plan activity map how to start business in hindi one shot',
     language: 'hindi',
+  videoId: 'n6ecdYd8T6o',
   }),
   'ent-m3': r({
     kind: 'one-shot',
@@ -367,6 +401,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'stp segmentation targeting positioning swot analysis in hindi one shot',
     language: 'hindi',
+  videoId: 'Xh7KHJTKbWU',
   }),
   'ent-m4': r({
     kind: 'one-shot',
@@ -374,6 +409,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'management functions planning organising recruitment selection in hindi one shot',
     language: 'hindi',
+  videoId: 'n-TXR7SucFY',
   }),
   'ent-m5': r({
     kind: 'one-shot',
@@ -381,6 +417,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'startup funding options india ipr copyright patent in hindi one shot',
     language: 'hindi',
+  videoId: 'zkWJAvg6_ME',
   }),
   'ent-m6': r({
     kind: 'one-shot',
@@ -388,6 +425,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'succession planning types dissolution harvesting exit strategy in hindi one shot',
     language: 'hindi',
+  videoId: 'lMntdCiBGuU',
   }),
 
   // ──────────────────────────── Disaster Management ────────────
@@ -397,6 +435,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'disaster management basics hazard vulnerability risk in hindi one shot',
     language: 'hindi',
+  videoId: 'vDCfCXUFmL0',
   }),
   'dm-m2': r({
     kind: 'one-shot',
@@ -404,6 +443,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'natural disasters geological hydro meteorological biological technological in hindi one shot',
     language: 'hindi',
+  videoId: 'oiX7ODeazqE',
   }),
   'dm-m3': r({
     kind: 'one-shot',
@@ -419,6 +459,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'disaster management act 2005 india ndma ndrf policy in hindi one shot',
     language: 'hindi',
+  videoId: 'mGa5RArg1d0',
   }),
   'dm-m5': r({
     kind: 'one-shot',
@@ -426,6 +467,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Study IQ',
     query: 'remote sensing gis gps early warning system disaster communication in hindi one shot',
     language: 'hindi',
+  videoId: 'ElmbwIyOcXk',
   }),
 
   // ──────────────────────────── Renewable Energy ───────────────
@@ -435,6 +477,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Engineering Digest',
     query: 'renewable energy sources introduction world energy scenario in hindi one shot',
     language: 'hindi',
+  videoId: 'OU_-7Kgo6zQ',
   }),
   'ren-m2': r({
     kind: 'one-shot',
@@ -450,6 +493,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Engineering Digest',
     query: 'wind energy wind turbine types site selection in hindi one shot',
     language: 'hindi',
+  videoId: 'qSWm_nprfqE',
   }),
   'ren-m4': r({
     kind: 'one-shot',
@@ -457,6 +501,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Engineering Digest',
     query: 'biomass biogas bio energy ethanol biodiesel in hindi one shot',
     language: 'hindi',
+  videoId: 'pr2jDzkcD1Y',
   }),
   'ren-m5': r({
     kind: 'one-shot',
@@ -464,6 +509,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Engineering Digest',
     query: 'tidal wave geothermal fuel cell hydrogen hybrid renewable energy in hindi one shot',
     language: 'hindi',
+  videoId: 'imcJzRmxc6c',
   }),
 
   // ──────────────────────────── SE ─────────────────────────────
@@ -473,6 +519,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'software engineering introduction sdlc waterfall model in hindi one shot',
     language: 'hindi',
+  videoId: 'kcvEiMFOcoE',
   }),
   'se-m2': r({
     kind: 'one-shot',
@@ -480,6 +527,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'agile spiral model software testing unit integration in hindi one shot',
     language: 'hindi',
+  videoId: 'Xs6E-MAJbfE',
   }),
 
   // ──────────────────────────── e-Governance ───────────────────
@@ -489,6 +537,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gyan Mahima',
     query: 'e governance introduction digital india in hindi one shot',
     language: 'hindi',
+  videoId: '4la7lrxi6PQ',
   }),
 
   // ──────────────────────────── Robotics ───────────────────────
@@ -498,6 +547,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Mechanical Guru',
     query: 'industrial robot anatomy applications safety in hindi one shot',
     language: 'hindi',
+  videoId: 'MChb9jGTIhM',
   }),
 
   // ──────────────────────────── AI/ML (OE) ────────────────────
@@ -507,6 +557,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'ai machine learning introduction basics in hindi one shot',
     language: 'hindi',
+  videoId: 's-s9ilkMVj8',
   }),
   'aiml-m2': r({
     kind: 'one-shot',
@@ -514,6 +565,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Gate Smashers',
     query: 'machine learning models training evaluation in hindi one shot',
     language: 'hindi',
+  videoId: '4dwsSz_fNSQ',
   }),
 
   // ──────────────────────────── Product Design ─────────────────
@@ -523,6 +575,7 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Design Wale',
     query: 'product design thinking process prototyping ux ui in hindi one shot',
     language: 'hindi',
+  videoId: '_r0VX-aU_T8',
   }),
 
   // ──────────────────────────── Engineering Economics ──────────
@@ -532,5 +585,6 @@ export const MODULE_ONE_SHOTS: Record<string, Resource> = {
     channel: 'Unacademy',
     query: 'engineering economics costing break even financial statements ratios in hindi one shot',
     language: 'hindi',
+  videoId: '9yj6CtMUsYU',
   }),
 };
