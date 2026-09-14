@@ -13,6 +13,7 @@ import {
   Play,
   Search,
   Sparkles,
+  Zap,
 } from 'lucide-react';
 import {
   ALL_SUBJECTS,
@@ -100,10 +101,11 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            Every official topic with curated YouTube one-shots, playlists and chapter notes —
-            plus practical labs and a college assignments hub. Nothing to track, nothing to grind.
+            Built by a fellow 2nd-year student for the lateral-entry batch: every official topic
+            lands with a curated YouTube one-shot, full-course playlists and chapter notes — plus
+            practical labs and a college assignments hub. Study with intent, not fuss.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               to="/subjects"
               className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-glow transition hover:bg-accent-600"
@@ -118,6 +120,14 @@ export default function Home() {
               <Clapperboard className="h-4 w-4" />
               Watch one-shots
             </Link>
+            <a
+              href="https://github.com/Tauseef666-ctrl/2nd-year-lateral"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-ink-200 bg-white px-4 py-2.5 text-sm font-medium text-ink-700 transition hover:border-ink-300 hover:text-ink-900 dark:border-ink-700 dark:bg-ink-800 dark:text-ink-200 dark:hover:border-ink-600 dark:hover:text-white"
+            >
+              Star on GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -128,6 +138,48 @@ export default function Home() {
         <Stat label="Labs" value={String(TOTAL_LABS)} icon={<FlaskConical className="h-4 w-4" />} />
         <Stat label="Chapter notes" value={String(TOTAL_CHAPTER_NOTES)} icon={<NotebookPen className="h-4 w-4" />} />
         <Stat label="Topics with study notes" value={String(notesCount)} icon={<FileText className="h-4 w-4" />} />
+      </div>
+
+      <div className="rounded-2xl border border-ink-100/80 bg-white/50 px-6 py-5 backdrop-blur dark:border-ink-800/80 dark:bg-ink-900/40">
+        <p className="mb-4 text-xs font-bold uppercase tracking-widest text-ink-400 dark:text-ink-500">
+          How it works
+        </p>
+        <div className="grid gap-5 sm:grid-cols-3">
+          {[
+            {
+              step: '01',
+              title: 'Pick your semester',
+              body: 'Start from your current semester or jump straight into any subject.',
+            },
+            {
+              step: '02',
+              title: 'Study with one-shots & playlists',
+              body: 'Curated YouTube one-shots for rapid revision plus full playlists for deeper study.',
+            },
+            {
+              step: '03',
+              title: 'Practice labs & notes',
+              body: 'Follow step-by-step practicals, then reinforce with handwritten chapter notes.',
+            },
+          ].map((s) => (
+            <div key={s.step} className="flex items-start gap-3">
+              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent/10 text-[11px] font-bold text-accent dark:bg-accent/15 dark:text-accent-300">
+                <Zap className="h-3.5 w-3.5" />
+              </div>
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-ink-400 dark:text-ink-500">
+                  {s.step}
+                </p>
+                <h3 className="mt-0.5 font-display text-sm font-bold text-ink-950 dark:text-white">
+                  {s.title}
+                </h3>
+                <p className="mt-0.5 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                  {s.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <Card className="overflow-hidden border-accent/25">
