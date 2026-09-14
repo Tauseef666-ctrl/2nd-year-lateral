@@ -146,7 +146,7 @@ export const DM_NOTES: ChapterNote[] = [
           '**NDMA** — apex body chaired by PM; lays down policies, plans and guidelines; **SDMA** (Chief Minister-led, state acts & plans); **DDMA** (district-level, headed by DM/Collector).',
           '**NDRF** — National Disaster Response Force: 12+ disciplined battalions under NDRF DG for response & relief; **SDRF** at states; **NIDM** — training & capacity building (education); **NDM** responsibilities.',
           '**NCCR/NDMA guidelines** for earthquakes, cyclones, chemical disasters etc.; national, state and district **DM Plans** preparation cycle.',
-          '**Finance**: NDRF (relief) vs Disaster Risk Management Fund; disaster spending criteria (NDMA knots check); 2013/15 enlarged support list.',
+          '**Finance**: **NDRF** for relief and response, **SDRF** at state level, **Disaster Risk Management Fund** for mitigation; item lists and norms revised (e.g., 2015 enhancement) for expenditure eligibility.',
         ],
       },
       {
