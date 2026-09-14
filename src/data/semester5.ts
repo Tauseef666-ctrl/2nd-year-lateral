@@ -1198,8 +1198,9 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLuAADu3OvBt4SUxlYPu_xJogSmVfSLZF0',
         title: 'IoT Course for Beginners',
-        channel: 'WsCube Tech',
+        channel: 'Er Sahil ka Gyan',
         query: 'internet of things iot full course for beginners hindi',
         why: 'Whole-course playlist for the IoT syllabus.',
       }),
@@ -1843,8 +1844,9 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLTV_nsuD2lf7JQvOmG9C-Nc4E0EL8DBoT',
         title: 'Android Development Course in Hindi',
-        channel: 'CodeWithHarry',
+        channel: 'Saumya Singh',
         query: 'android app development course complete hindi',
         why: 'Whole-course playlist for Mobile App Development.',
       }),
@@ -2112,8 +2114,9 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLZ2mrb7eLYP42QXJ4Qcs_qW9oyUQnOluH',
         title: 'Multimedia Systems Tutorial',
-        channel: '5 Minutes Engineering',
+        channel: 'Easy Bankers',
         query: 'multimedia technologies full course in hindi',
         why: 'Whole-course playlist for Multimedia Technologies.',
       }),
@@ -2541,8 +2544,9 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLIwjtbLyaFQ6q4NtpZ3UTLYURR2BSn7IL',
         title: 'Information Security Complete Course',
-        channel: 'Gate Smashers',
+        channel: 'A Z Computing',
         query: 'information security complete course in hindi',
         why: 'Whole-course playlist for Information Security.',
       }),
@@ -3211,8 +3215,9 @@ export const SEMESTER_5_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLwb-Yjg3IPkT0CWkJ_Ufkr58vO6JiFx7V',
         title: 'Indian Constitution Complete Chapter',
-        channel: 'Knowledge Gate',
+        channel: 'StudyIQ Judiciary',
         query: 'indian polity constitution complete course in hindi',
         why: 'Whole-chapter playlist for Indian Constitution.',
       }),

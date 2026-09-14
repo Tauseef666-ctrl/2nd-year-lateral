@@ -1055,8 +1055,9 @@ export const SEMESTER_6_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
-        title: 'Machine Learning Full Course',
-        channel: 'Krish Naik',
+        playlistId: 'PLKnIA16_Rmvbr7zKYQuBfsVkjoLcJgxHH',
+        title: 'Machine Learning Full Course (CampusX)',
+        channel: 'CampusX',
         query: 'machine learning full course playlist in hindi',
         language: 'hindi',
         rec: 1,
@@ -1569,6 +1570,7 @@ export const SEMESTER_6_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLsh2FvSr3n7fQlIDbfKutmSL26TsWitGQ',
         title: 'Entrepreneurship Development Full Course',
         query: 'entrepreneurship development full course in hindi playlist',
         language: 'hindi',
@@ -2065,6 +2067,7 @@ export const SEMESTER_6_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLROvODCYkEM8MtwEVIMMZrCan5rHsLQVn',
         title: 'Disaster Management (OpenLearn / NPTEL style)',
         query: 'disaster management lectures in hindi playlist full course',
         language: 'hindi',
@@ -2600,6 +2603,7 @@ export const SEMESTER_6_SUBJECTS: Subject[] = [
     playlists: [
       r({
         kind: 'playlist',
+        playlistId: 'PLLy_2iUCG87A7TdFpl6_xdgo-aYskxjXb',
         title: 'Renewable Energy Sources Lectures',
         query: 'renewable energy sources lectures in hindi playlist',
         language: 'hindi',
