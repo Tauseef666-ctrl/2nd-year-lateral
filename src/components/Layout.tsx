@@ -76,7 +76,7 @@ function Brand() {
         <p className="font-display text-sm font-semibold text-ink-950 dark:text-white">
           BTEUP CSE Hub
         </p>
-        <p className="mt-1 text-[11px] font-medium text-ink-400">Foundation + Sem 3–6</p>
+        <p className="mt-1 text-[11px] font-medium text-ink-400">by Tauseef Khan</p>
       </div>
     </div>
   );

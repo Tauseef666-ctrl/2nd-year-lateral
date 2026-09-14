@@ -13,29 +13,15 @@ export function Logo({ className }: LogoProps) {
       )}
     >
       <svg viewBox="0 0 40 40" aria-hidden="true" className="h-[26px] w-[26px]">
-        <path
-          fill="currentColor"
-          d="M20 8.4 31.4 13.2 20 18 8.6 13.2 20 8.4Z"
-        />
-        <path
-          fill="currentColor"
-          d="M10.6 13.8v4.7c0 2 4.2 3.1 9.4 3.1 5.2 0 9.4-1.1 9.4-3.1v-4.7L20 17Z"
-          opacity="0.92"
-        />
-        <g stroke="#dfb164" strokeWidth="1.5" strokeLinecap="round" opacity="0.9">
-          <path d="M29.8 14.2 32 16.6" />
-          <circle cx="32.7" cy="17.4" r="1.3" fill="#dfb164" stroke="none" />
+        <circle cx="20" cy="13" r="5" fill="#f3d9a4" />
+        <circle cx="18.4" cy="11.4" r="1.6" fill="#dfb164" />
+        <g stroke="#fff" strokeWidth="2.4" strokeLinecap="round" fill="none">
+          <path d="M9 22 Q 12.5 19.5 16 22 T 24 22 T 32 22" />
+          <path d="M7.5 28 Q 11 25.5 14.5 28 T 22.5 28 T 30.5 28" />
+          <path d="M11 33.5 Q 14.5 31 18 33.5 T 26 33.5 T 31 33.5" />
         </g>
-        <path
-          fill="currentColor"
-          opacity="0.85"
-          d="M20 30.2c-1.9-1.5-4.4-2.1-6.6-1.8v-8.7c2.2-.3 4.7.3 6.6 1.8 1.9-1.5 4.4-2.1 6.6-1.8v8.7c-2.2-.3-4.7.3-6.6 1.8Z"
-        />
-        <path
-          fill="#dfb164"
-          d="M32.6 9.2a.9.9 0 0 1 .9.9 2.9 2.9 0 0 1 2.9 2.9.9.9 0 0 1 0 1.1c-.5.8-1 1.9-1.3 3a.9.9 0 0 1-1.6 0c-.3-1.1-.8-2.2-1.3-3a.9.9 0 0 1 0-1.1 2.9 2.9 0 0 1 2.9-2.9.9.9 0 0 1 .9-.9 1 1 0 0 1 .5 1c-.8-.3-1.4-.7-2.1-1.4a1 1 0 0 1 1.2-.5Z"
-          opacity="0.9"
-        />
+        <circle cx="24" cy="22" r="1.5" fill="#dfb164" />
+        <circle cx="10" cy="28" r="1.5" fill="#dfb164" />
       </svg>
     </div>
   );
@@ -44,32 +30,22 @@ export function Logo({ className }: LogoProps) {
 export function LogoMark({ className }: LogoProps) {
   return (
     <svg viewBox="0 0 40 40" aria-hidden="true" className={className}>
-      <rect width="40" height="40" rx="12" fill="#0d9488" />
-      <path
-        fill="#fff"
-        d="M20 12.4 31.4 17.2 20 22 8.6 17.2 20 12.4Z"
-      />
-      <path
-        fill="#fff"
-        d="M10.6 17.8v4.7c0 2 4.2 3.1 9.4 3.1 5.2 0 9.4-1.1 9.4-3.1v-4.7L20 21Z"
-        opacity="0.92"
-      />
-      <path
-        fill="#dfb164"
-        stroke="#fff"
-        strokeWidth="0.8"
-        d="M29.8 18.2 32 20.6l.7-.8a1.3 1.3 0 0 1 1.3 2.1l-1.4 1.5-2.8-2.6a1 1 0 0 1 0-2.6Z"
-      />
-      <path
-        fill="#fff"
-        opacity="0.85"
-        d="M20 34.2c-1.9-1.5-4.4-2.1-6.6-1.8v-8.7c2.2-.3 4.7.3 6.6 1.8 1.9-1.5 4.4-2.1 6.6-1.8v8.7c-2.2-.3-4.7.3-6.6 1.8Z"
-      />
-      <path
-        fill="#dfb164"
-        d="M32.6 5.2a.9.9 0 0 1 .9.9 2.9 2.9 0 0 1 2.9 2.9.9.9 0 0 1 0 1.1c-.5.8-1 1.9-1.3 3a.9.9 0 0 1-1.6 0c-.3-1.1-.8-2.2-1.3-3a.9.9 0 0 1 0-1.1 2.9 2.9 0 0 1 2.9-2.9.9.9 0 0 1 .9-.9 1 1 0 0 1 .5 1c-.8-.3-1.4-.7-2.1-1.4a1 1 0 0 1 1.2-.5Z"
-        opacity="0.9"
-      />
+      <defs>
+        <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#14b8a6" />
+          <stop offset="1" stopColor="#0f766e" />
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill="url(#logo-g)" />
+      <circle cx="20" cy="13" r="5" fill="#f3d9a4" />
+      <circle cx="18.4" cy="11.4" r="1.6" fill="#dfb164" />
+      <g stroke="#fff" strokeWidth="2.4" strokeLinecap="round" fill="none">
+        <path d="M9 22 Q 12.5 19.5 16 22 T 24 22 T 32 22" />
+        <path d="M7.5 28 Q 11 25.5 14.5 28 T 22.5 28 T 30.5 28" />
+        <path d="M11 33.5 Q 14.5 31 18 33.5 T 26 33.5 T 31 33.5" />
+      </g>
+      <circle cx="24" cy="22" r="1.5" fill="#dfb164" />
+      <circle cx="10" cy="28" r="1.5" fill="#dfb164" />
     </svg>
   );
 }
