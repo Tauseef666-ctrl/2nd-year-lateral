@@ -19,6 +19,7 @@ import { Badge, Card, EmptyState, PageHeader, SourceNote, cx } from '../componen
 import VideoCard from '../components/VideoCard';
 import PracticeCard from '../components/PracticeCard';
 import { ChapterNotes } from '../components/ChapterNotes';
+import { ThankYouCard } from '../components/ThankYouCard';
 
 const DIFF_LABELS: Record<string, string> = {
   beginner: 'Foundation',
@@ -340,6 +341,8 @@ export default function Topic() {
           ) : null}
         </div>
       ) : null}
+
+      <ThankYouCard />
     </section>
   );
 }

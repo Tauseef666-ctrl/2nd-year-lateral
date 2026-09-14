@@ -14,6 +14,7 @@ import { getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject as SubjectT } from '../types';
 import { Badge, Card, EmptyState, PageHeader, SourceNote } from '../components/ui';
 import { ChapterNotes } from '../components/ChapterNotes';
+import { ThankYouCard } from '../components/ThankYouCard';
 import { CHAPTER_NOTES } from '../data/chapterNotes';
 
 const categoryLabels: Record<SubjectT['category'], string> = {
@@ -273,6 +274,7 @@ export default function Subject() {
           </ul>
         </Card>
       </div>
+      <ThankYouCard />
     </section>
   );
 }
