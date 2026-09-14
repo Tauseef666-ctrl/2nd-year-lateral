@@ -90,8 +90,8 @@ export default function Home() {
   return (
     <section className="space-y-8">
       <div className="relative overflow-hidden rounded-3xl border border-ink-100/80 bg-white/60 px-6 py-8 backdrop-blur-2xl dark:border-ink-800/80 dark:bg-ink-900/50 sm:px-8">
-        <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 left-1/3 h-48 w-48 rounded-full bg-mint-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 animate-float-slow rounded-full bg-accent/15 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 left-1/3 h-48 w-48 animate-float rounded-full bg-mint-400/10 blur-3xl" />
         <div className="relative animate-fade-up">
           <Badge className="mb-4">NEP-2020 · Lateral Entry · Foundation + Sem 3–6</Badge>
           <h1 className="max-w-2xl font-display text-3xl font-bold leading-tight text-ink-950 dark:text-white sm:text-4xl">
@@ -108,8 +108,9 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               to="/subjects"
-              className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-glow transition hover:bg-accent-600"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-glow transition hover:bg-accent-600"
             >
+              <span className="pointer-events-none absolute inset-y-0 left-0 w-1/2 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-[300%]" />
               <Play className="h-4 w-4" />
               Browse subjects
             </Link>
@@ -133,11 +134,21 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        <Stat label="Subjects" value={String(ALL_SUBJECTS.length)} icon={<BookOpen className="h-4 w-4" />} />
-        <Stat label="Topics" value={String(TOTAL_TOPICS)} icon={<ListChecks className="h-4 w-4" />} />
-        <Stat label="Labs" value={String(TOTAL_LABS)} icon={<FlaskConical className="h-4 w-4" />} />
-        <Stat label="Chapter notes" value={String(TOTAL_CHAPTER_NOTES)} icon={<NotebookPen className="h-4 w-4" />} />
-        <Stat label="Topics with study notes" value={String(notesCount)} icon={<FileText className="h-4 w-4" />} />
+        <div className="animate-fade-up" style={{ animationDelay: '40ms' }}>
+          <Stat label="Subjects" value={String(ALL_SUBJECTS.length)} icon={<BookOpen className="h-4 w-4" />} />
+        </div>
+        <div className="animate-fade-up" style={{ animationDelay: '90ms' }}>
+          <Stat label="Topics" value={String(TOTAL_TOPICS)} icon={<ListChecks className="h-4 w-4" />} />
+        </div>
+        <div className="animate-fade-up" style={{ animationDelay: '140ms' }}>
+          <Stat label="Labs" value={String(TOTAL_LABS)} icon={<FlaskConical className="h-4 w-4" />} />
+        </div>
+        <div className="animate-fade-up" style={{ animationDelay: '190ms' }}>
+          <Stat label="Chapter notes" value={String(TOTAL_CHAPTER_NOTES)} icon={<NotebookPen className="h-4 w-4" />} />
+        </div>
+        <div className="animate-fade-up" style={{ animationDelay: '240ms' }}>
+          <Stat label="Topics with study notes" value={String(notesCount)} icon={<FileText className="h-4 w-4" />} />
+        </div>
       </div>
 
       <div className="rounded-2xl border border-ink-100/80 bg-white/50 px-6 py-5 backdrop-blur dark:border-ink-800/80 dark:bg-ink-900/40">
@@ -222,11 +233,12 @@ export default function Home() {
             { to: '/practicals', label: 'Practicals', icon: <FlaskConical className="h-4 w-4" /> },
             { to: '/subjects', label: 'Subjects', icon: <BookOpen className="h-4 w-4" /> },
             { to: '/college-assignments', label: 'Assignments', icon: <GraduationCap className="h-4 w-4" /> },
-          ].map((item) => (
+          ].map((item, i) => (
             <Link
               key={item.to}
               to={item.to}
-              className="group flex items-center gap-2.5 rounded-xl border border-ink-100 bg-white px-3.5 py-3 text-sm font-semibold text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-900 dark:text-ink-200"
+              style={{ animationDelay: `${i * 45}ms` }}
+              className="group animate-fade-up flex items-center gap-2.5 rounded-xl border border-ink-100 bg-white px-3.5 py-3 text-sm font-semibold text-ink-700 transition hover:border-accent hover:text-accent dark:border-ink-800 dark:bg-ink-900 dark:text-ink-200"
             >
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white dark:bg-accent/15">
                 {item.icon}
@@ -249,8 +261,10 @@ export default function Home() {
           </Link>
         </div>
         <div className={cx('grid gap-4 lg:grid-cols-2')}>
-          {SEMESTERS.map((sem) => (
-            <SemesterCard key={sem.id} semester={sem} />
+          {SEMESTERS.map((sem, i) => (
+            <div key={sem.id} className="animate-fade-up" style={{ animationDelay: `${i * 60}ms` }}>
+              <SemesterCard semester={sem} />
+            </div>
           ))}
         </div>
       </div>

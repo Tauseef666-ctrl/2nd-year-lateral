@@ -215,8 +215,10 @@ export default function OneShots() {
                 </span>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {semRows.map(({ topic, shorts }) => (
-                  <OneShotCard key={topic.id} topic={topic} shorts={shorts} />
+                {semRows.map(({ topic, shorts }, i) => (
+                  <div key={topic.id} className="animate-fade-up" style={{ animationDelay: `${(i % 6) * 50}ms` }}>
+                    <OneShotCard topic={topic} shorts={shorts} />
+                  </div>
                 ))}
               </div>
             </div>
