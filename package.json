@@ -1,8 +1,34 @@
 {
-  "name": "2nd-year-lateral",
+  "name": "bteup-cse-hub",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "description": "BTEUP CSE Learning Hub — the complete lateral-entry diploma syllabus for Computer Science (Foundation + Semesters 3–6) with curated one-shots, playlists, chapter notes and practical labs.",
+  "author": "Tauseef Khan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tauseef666-ctrl/2nd-year-lateral.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tauseef666-ctrl/2nd-year-lateral/issues"
+  },
+  "homepage": "https://github.com/Tauseef666-ctrl/2nd-year-lateral",
+  "keywords": [
+    "bteup",
+    "diploma",
+    "cse",
+    "computer-science",
+    "lateral-entry",
+    "study",
+    "syllabus",
+    "youtube",
+    "react",
+    "vite"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
