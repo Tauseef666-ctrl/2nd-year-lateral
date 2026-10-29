@@ -12,8 +12,16 @@ import {
 } from 'lucide-react';
 import { getSubject, getSubjectTopics } from '../data/curriculum';
 import type { Subject as SubjectT } from '../types';
-import { Badge, Card, EmptyState, PageHeader, SourceNote } from '../components/ui';
-import { ChapterNotes } from '../components/ChapterNotes';
+import {
+  Badge,
+  Card,
+  EmptyState,
+  PageHeader,
+  PlaylistThumb,
+  SourceNote,
+} from '../components/ui';
+import { ytPlaylistUrl } from '../data/yt';
+import { ChapterNotes, SubjectNotesPrintButton } from '../components/ChapterNotes';
 import { ThankYouCard } from '../components/ThankYouCard';
 import { CHAPTER_NOTES } from '../data/chapterNotes';
 
@@ -62,13 +70,20 @@ export default function Subject() {
   return (
     <section className="space-y-8">
       <PageHeader eyebrow={`Semester ${subject.semester}`} title={subject.name}>
-        <Link
-          to={`/semester/${subject.semester}`}
-          className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-3 py-2 text-sm font-medium text-ink-600 transition hover:border-accent hover:text-accent dark:border-ink-700 dark:bg-ink-800 dark:text-ink-300"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {`Semester ${subject.semester}`}
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <SubjectNotesPrintButton
+            subjectId={subject.id}
+            subjectName={subject.name}
+            semester={`Semester ${subject.semester}`}
+          />
+          <Link
+            to={`/semester/${subject.semester}`}
+            className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-3 py-2 text-sm font-medium text-ink-600 transition hover:border-accent hover:text-accent dark:border-ink-700 dark:bg-ink-800 dark:text-ink-300"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {`Semester ${subject.semester}`}
+          </Link>
+        </div>
       </PageHeader>
       <SourceNote />
 
@@ -85,7 +100,7 @@ export default function Subject() {
           {subject.description}
         </p>
         <p className="mt-3 text-xs font-medium text-ink-400 dark:text-ink-500">
-          Curated by a fellow 2nd-year student, Tauseef Khan (2026-2027).
+          Official BTEUP scheme · session 2026-27 · branch code 389.
         </p>
         <div className="mt-4 flex flex-wrap gap-1.5">
           {topics.map((t) => (
@@ -108,38 +123,56 @@ export default function Subject() {
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {subject.playlists.map((pl) => (
-              <div
+              <Card
                 key={pl.id}
-                className="group flex h-full flex-col rounded-2xl border border-ink-100 bg-white p-4 transition hover:border-accent hover:shadow-cardHover dark:border-ink-800 dark:bg-ink-900"
+                className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-cardHover"
               >
-                <Badge tone="ink" className="self-start">{pl.kind === 'playlist' ? 'Playlist' : 'Video'}</Badge>
-                <p className="mt-2.5 font-display text-sm font-bold leading-snug text-ink-900 dark:text-ink-100">
-                  {pl.title}
-                </p>
-                {pl.channel ? (
-                  <p className="mt-1 text-xs font-medium text-ink-400">{pl.channel}</p>
-                ) : null}
-                {pl.why ? (
-                  <p className="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
-                    {pl.why}
-                  </p>
-                ) : null}
-                {pl.playlistId || pl.videoId ? (
+                {(pl.playlistId || pl.videoId) ? (
                   <a
                     href={
                       pl.playlistId
-                        ? `https://www.youtube.com/playlist?list=${pl.playlistId}`
+                        ? ytPlaylistUrl(pl.playlistId)
                         : `https://www.youtube.com/watch?v=${pl.videoId}`
                     }
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent transition group-hover:gap-2 dark:text-accent-300"
+                    aria-label={`Open ${pl.title} on YouTube`}
                   >
-                    Watch on YouTube
-                    <ExternalLink className="h-3 w-3" />
+                    <PlaylistThumb playlistId={pl.playlistId} title={pl.title} />
                   </a>
                 ) : null}
-              </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <Badge tone="ink" className="self-start">
+                    {pl.kind === 'playlist' ? 'Playlist' : 'Video'}
+                  </Badge>
+                  <p className="mt-2.5 font-display text-sm font-bold leading-snug text-ink-900 dark:text-ink-100">
+                    {pl.title}
+                  </p>
+                  {pl.channel ? (
+                    <p className="mt-1 text-xs font-medium text-ink-400">{pl.channel}</p>
+                  ) : null}
+                  {pl.why ? (
+                    <p className="mt-1.5 line-clamp-2 flex-1 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+                      {pl.why}
+                    </p>
+                  ) : null}
+                  {pl.playlistId || pl.videoId ? (
+                    <a
+                      href={
+                        pl.playlistId
+                          ? ytPlaylistUrl(pl.playlistId)
+                          : `https://www.youtube.com/watch?v=${pl.videoId}`
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent transition group-hover:gap-2 dark:text-accent-300"
+                    >
+                      Watch on YouTube
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : null}
+                </div>
+              </Card>
             ))}
           </div>
         </div>
