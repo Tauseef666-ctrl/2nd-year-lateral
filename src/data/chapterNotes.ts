@@ -4,14 +4,20 @@ import { SEMESTER_4_NOTES } from './notes/sem4';
 import { SEMESTER_5_NOTES } from './notes/sem5';
 import { SEMESTER_6_NOTES } from './notes/sem6';
 import { FOUNDATION_NOTES } from './notes/foundation';
+import { ALL_SUBJECT_IDS } from './mains';
 
-export const CHAPTER_NOTES: Record<string, ChapterNote[]> = {
+const RAW: Record<string, ChapterNote[]> = {
   ...FOUNDATION_NOTES,
   ...SEMESTER_3_NOTES,
   ...SEMESTER_4_NOTES,
   ...SEMESTER_5_NOTES,
   ...SEMESTER_6_NOTES,
 };
+
+/** Notes are exposed only for the curated subject set (see data/mains.ts). */
+export const CHAPTER_NOTES: Record<string, ChapterNote[]> = Object.fromEntries(
+  Object.entries(RAW).filter(([sid]) => ALL_SUBJECT_IDS[sid]),
+);
 
 export const TOTAL_CHAPTER_NOTES = Object.values(CHAPTER_NOTES).reduce(
   (n, arr) => n + arr.length,

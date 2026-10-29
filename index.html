@@ -6,18 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="BTEUP CSE Learning Hub — the full lateral-entry diploma syllabus for Computer Science (Foundation, Semesters 3–6), with curated video one-shots, playlists, practicals and chapter notes."
+      content="BTEUP CSE Learning Hub — the full lateral-entry diploma syllabus for Computer Science (Foundation + Semesters 3–6). Curated YouTube videos with click-to-play thumbnails, one-shots, playlists, chapter notes with PDF download, practicals and MCQ quizzes."
     />
     <meta name="theme-color" content="#0d9488" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BTEUP CSE Hub" />
+    <meta property="og:title" content="BTEUP CSE Hub · Foundation + Sem 3–6" />
+    <meta
+      property="og:description"
+      content="The official BTEUP lateral-entry CSE syllabus, mapped to verified click-to-play videos, one-shots, playlists and chapter notes with PDF export — built for the 2026–27 batch."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="BTEUP CSE Hub · Foundation + Sem 3–6" />
+    <meta
+      name="twitter:description"
+      content="Official BTEUP lateral CSE syllabus → verified videos, one-shots, playlists, chapter notes (PDF), labs & quizzes."
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script>
+      // Pre-React theme boot. The key below MUST match the zustand persist
+      // `name` in src/store/useStore.ts (bteup-library-storage).
       try {
-        var s = JSON.parse(localStorage.getItem('bteup-learn-storage') || '{}');
+        var s = JSON.parse(localStorage.getItem('bteup-library-storage') || '{}');
         var t = (s.state && s.state.theme) || 'dark';
         document.documentElement.classList.toggle('dark', t === 'dark');
       } catch (e) {}
