@@ -51,6 +51,8 @@ export const ALL_SUBJECTS: Subject[] = [
   ...SEMESTER_6_SUBJECTS,
 ];
 
+export const getAllSubjects = (): Subject[] => ALL_SUBJECTS;
+
 export const getSubjectsBySemester = (semester: number): Subject[] =>
   ALL_SUBJECTS.filter((s) => s.semester === semester);
 
