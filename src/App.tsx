@@ -12,6 +12,7 @@ import OneShots from './pages/OneShots';
 import Playlists from './pages/Playlists';
 import Notes from './pages/Notes';
 import CollegeAssignments from './pages/CollegeAssignments';
+import Quiz from './pages/Quiz';
 import NotFound from './pages/NotFound';
 import { useLearningStore } from './store/useStore';
 
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="one-shots" element={<OneShots />} />
           <Route path="playlists" element={<Playlists />} />
           <Route path="notes" element={<Notes />} />
+          <Route path="quiz" element={<Quiz />} />
           <Route path="college-assignments" element={<CollegeAssignments />} />
           <Route path="*" element={<NotFound />} />
         </Route>
