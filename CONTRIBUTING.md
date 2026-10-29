@@ -4,6 +4,8 @@ Thanks for taking the time to contribute! This project is a community-built stud
 the BTEUP Diploma CSE lateral-entry batch. Any help — fixing a typo in the syllabus, verifying a
 video link, translating a note, or improving the UI — is very welcome.
 
+Maintainer contact: **tauseefbrh11** — [tauseefbrh11@gmail.com](mailto:tauseefbrh11@gmail.com)
+
 ## Getting started
 
 1. Fork the repository and clone your fork.
@@ -20,17 +22,23 @@ video link, translating a note, or improving the UI — is very welcome.
 
 - **Syllabus data** lives in `src/data/foundation.ts` and `src/data/semester3.ts` …
   `semester6.ts`. Each subject contains modules, topics, objectives, outcomes, labs,
-  references and playlists.
-- **One-shot video links** are registered in `src/data/one-shots.ts` per module.
+  references and playlists. Each semester file exports both `SEMESTER_<n>_RAW` (full official
+  list) and a curated `SEMESTER_<n>_SUBJECTS` array (see `src/data/mains.ts` for the curation
+  policy — swapping an elective pick is a one-line change).
+- **One-shot video links** are registered in `src/data/one-shots.ts` per module (keyed by the
+  exact `moduleId`).
 - **Chapter notes** live in `src/data/notes/` and are wired through `src/data/chapterNotes.ts`.
-- **Shared UI** is in `src/components/`; page-level routing is in `src/pages/` and `src/App.tsx`.
+- **Thumbnail plumbing**: `src/data/yt.ts` exposes `PLAYLIST_PREVIEWS` (playlistId → first
+  video id) used by `PlaylistThumb`; video thumbnails come straight from `i.ytimg.com`.
+- **Shared UI** is in `src/components/` — `ui.tsx` holds the primitives (`Reveal`, `CountUp`,
+  `PrintPortal`, thumbs); page-level routing is in `src/pages/` and `src/App.tsx`.
 
 ### Commit style
 
 Keep commits small and descriptive, for example:
 
 ```
-feat: add one-shot video link for acn-m3
+feat: add one-shot video link for java-m3
 fix: correct marks distribution for java-m1
 docs: expand chapter notes for isec-m4
 ```
@@ -49,9 +57,12 @@ Do not guess or fabricate IDs — the project explicitly never links to broken v
 
 ## Adding chapter notes
 
-- Title the file after the subject id, e.g. `src/data/notes/acn.ts`.
-- Export an entry that matches the `StudyNote` shape used by `chapterNotes.ts`.
-- Keep notes focused, accurate and consistent with the official syllabus.
+- Title the file after the subject id, e.g. `src/data/notes/java.ts`.
+- Export an entry that matches the `ChapterNote` shape used by `chapterNotes.ts`
+  (`{ moduleId, title, sections: [{ h, items: [...] }] }`) — the PDF export and the
+  chapter-notes accordion render directly from it.
+- Keep notes focused, accurate and consistent with the official syllabus. Note files are
+  only exposed for the curated subject set in `src/data/mains.ts`.
 
 ## Pull requests
 

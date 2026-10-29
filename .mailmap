@@ -1,0 +1,8 @@
+# Mailmap — maps every author/committer alias in the history to one identity.
+# Used by `git shortlog`, `git log --use-mailmap`, and by the history rewrite
+# documented in scripts/rewrite-history.sh.
+#
+# Proper name                 <proper@email>            <old-name>    <old-email>
+tauseefbrh11                  <tauseefbrh11@gmail.com>  Tauseef Khan  <tauseef.khan@users.noreply.github.com>
+tauseefbrh11                  <tauseefbrh11@gmail.com>  Tauseef666    <tauseef666@users.noreply.github.com>
+tauseefbrh11                  <tauseefbrh11@gmail.com>  tauseefkhan   <>
