@@ -56,3 +56,236 @@ html.dark body {
     display: none !important;
   }
 }
+
+/* ─────────────────────────── Scroll-reveal system ─────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 18px)) scale(0.99);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Page mount transition (Layout keys <main> on pathname) */
+.page-in {
+  animation: pageIn 0.42s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Routes progress bar */
+.route-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #14b8a6, #dfb164, transparent);
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  animation: routeSlide 0.7s ease-in-out forwards;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.route-progress.on {
+  opacity: 1;
+}
+
+@keyframes routeSlide {
+  0% {
+    background-position: -60% 0;
+    width: 18%;
+  }
+  70% {
+    width: 55%;
+  }
+  100% {
+    background-position: 130% 0;
+    width: 82%;
+  }
+}
+
+/* Hero gradient blob drift */
+.blob {
+  animation: blobDrift 16s ease-in-out infinite alternate;
+  filter: blur(46px);
+}
+
+.blob-b {
+  animation-delay: -8s;
+  animation-duration: 19s;
+}
+
+@keyframes blobDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-26px, 22px) scale(1.08);
+  }
+  100% {
+    transform: translate(18px, -14px) scale(0.94);
+  }
+}
+
+/* Keyboard focus */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .page-in,
+  .route-progress,
+  .blob,
+  .blob-b {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ─────────────────────────── Print-to-PDF document ─────────────────────────── */
+
+/* Portal documents stay hidden on screen. When the user hits “PDF”,
+   PrintPortal adds `.printing` to <html> and calls window.print(); the rules
+   below then make ONLY the portal content visible.
+   The `visibility` technique is required here — do NOT switch to display:none,
+   because hiding an ancestor (#root) with display would also hide the nested
+   portal document. */
+
+[data-print-root] {
+  display: none;
+}
+
+@media print {
+  /* Manual browser print (no portal mounted): keep the normal styling. */
+  html:not(.printing) [data-print-root] {
+    display: none !important;
+  }
+
+  /* Portal active: hide the surrounding app via visibility (not display). */
+  html.printing body > #root > * {
+    visibility: hidden !important;
+  }
+
+  html.printing [data-print-root] {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 auto auto 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+    color: #111;
+  }
+
+  html.printing [data-print-root],
+  html.printing [data-print-root] * {
+    visibility: visible !important;
+  }
+
+  .reveal,
+  .page-in {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.print-doc {
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+.print-doc-header {
+  margin-bottom: 6mm;
+  page-break-after: avoid;
+}
+
+.print-doc-brand {
+  font-size: 9pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.print-doc-header h2 {
+  font-size: 20pt;
+  font-weight: 800;
+  margin: 2mm 0 1mm;
+}
+
+.print-doc-header p {
+  font-size: 10pt;
+  color: #555;
+}
+
+.print-doc-header hr {
+  margin-top: 4mm;
+  border: 0;
+  border-top: 1pt solid #0f766e;
+}
+
+.print-block {
+  margin-bottom: 6mm;
+  page-break-inside: avoid;
+}
+
+.print-block h3 {
+  font-size: 13.5pt;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 1.5mm;
+  page-break-after: avoid;
+}
+
+.print-block li {
+  list-style: disc inside;
+  font-size: 10.5pt;
+  margin-left: 4mm;
+  margin-bottom: 1.2mm;
+}
+
+.print-doc-footer {
+  margin-top: 8mm;
+  font-size: 8.5pt;
+  color: #888;
+  border-top: 0.5pt solid #ddd;
+  padding-top: 2mm;
+}
+
+.print-sheet {
+  page-break-after: always;
+}
+
+.print-doc section:last-of-type {
+  page-break-after: auto;
+}
+
+@page {
+  margin: 14mm;
+}

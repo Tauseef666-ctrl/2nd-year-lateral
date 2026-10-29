@@ -1,8 +1,12 @@
+import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { Play, ExternalLink, ListVideo } from 'lucide-react';
+import { PLAYLIST_PREVIEWS, ytThumbFor } from '../data/yt';
 
 export const cx = (...parts: Array<string | false | null | undefined>) =>
   parts.filter(Boolean).join(' ');
+
+export const REPO_URL = 'https://github.com/Tauseef666-ctrl/2nd-year-lateral';
 
 export interface CardProps {
   children: ReactNode;
@@ -13,7 +17,7 @@ export function Card({ children, className }: CardProps) {
   return (
     <div
       className={cx(
-        'rounded-2xl border border-ink-100/80 bg-white/70 shadow-card backdrop-blur-xl dark:border-ink-800/80 dark:bg-ink-900/50',
+        'rounded-2xl border border-ink-100/80 bg-white/70 shadow-card backdrop-blur-xl transition-shadow duration-300 dark:border-ink-800/80 dark:bg-ink-900/50',
         className,
       )}
     >
@@ -21,6 +25,140 @@ export function Card({ children, className }: CardProps) {
     </div>
   );
 }
+
+/* ─────────────────────────── Scroll reveal ─────────────────────────── */
+
+interface RevealProps {
+  children: ReactNode;
+  className?: string;
+  /** stagger delay in ms */
+  delay?: number;
+  y?: number;
+}
+
+/** Fades content up when it first scrolls into view (respects reduced motion). */
+export function Reveal({ children, className, delay = 0, y = 18 }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShown(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -36px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={cx('reveal', shown && 'reveal-in', className)}
+      style={{ transitionDelay: `${delay}ms`, ['--reveal-y' as string]: `${y}px` }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ─────────────────────────── Animated number ─────────────────────────── */
+
+export function CountUp({ value, className }: { value: number; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        io.disconnect();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          setN(value);
+          return;
+        }
+        const t0 = performance.now();
+        const dur = 950;
+        const tick = (t: number) => {
+          const p = Math.min(1, (t - t0) / dur);
+          setN(Math.round((1 - Math.pow(1 - p, 3)) * value));
+          if (p < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [value]);
+
+  return (
+    <span ref={ref} className={cx('tabular-nums', className)}>
+      {n}
+    </span>
+  );
+}
+
+/* ─────────────────────────── Print portal ─────────────────────────── */
+
+interface PrintPortalProps {
+  /** Content of the printable document. Rendered only while printing. */
+  children: ReactNode;
+  onDone: () => void;
+  /** Unique mount key so repeated opens retrigger cleanly. */
+  askedAt: number;
+}
+
+/**
+ * Mounts a print-only document and opens the browser print dialog.
+ * Users "Save as PDF" from there — real PDF for every chapter, zero
+ * dependencies, works offline.
+ */
+export function PrintPortal({ children, onDone, askedAt }: PrintPortalProps) {
+  useEffect(() => {
+    if (!askedAt) return;
+    const root = document.documentElement;
+    root.classList.add('printing');
+    const timer = window.setTimeout(() => window.print(), 120);
+    const cleanup = () => {
+      root.classList.remove('printing');
+      onDone();
+    };
+    window.addEventListener('afterprint', cleanup, { once: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener('afterprint', cleanup);
+      root.classList.remove('printing');
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [askedAt]);
+
+  if (!askedAt) return null;
+
+  return (
+    <div data-print-root className="print-doc">
+      {children}
+    </div>
+  );
+}
+
+/* ─────────────────────────── Link that animates ─────────────────────────── */
 
 export type BadgeTone = 'accent' | 'mint' | 'ink';
 
@@ -132,27 +270,133 @@ export function SourceNote() {
   return (
     <div className="flex flex-wrap items-center gap-2 rounded-xl border border-ink-100/80 bg-white/60 px-4 py-3 text-xs leading-relaxed text-ink-500 backdrop-blur-xl dark:border-ink-800/80 dark:bg-ink-900/50 dark:text-ink-400">
       <Badge tone="accent">Official BTEUP syllabus</Badge>
-      <Badge tone="mint">Curated YouTube picks</Badge>
-      <span>Every video opens on YouTube. Resources are curated for the official topics — they are not official BTEUP study material.</span>
+      <Badge tone="mint">oEmbed-verified links</Badge>
+      <span>Every video opens (and plays) on YouTube. Resources are curated for the official topics — they are not official BTEUP study material.</span>
     </div>
   );
 }
 
-/** 16:9 video frame with thumbnail — clicking opens & plays the video on YouTube (new tab). */
+/* ──────────────── Media thumbnails (videos + playlists) ──────────────── */
+
+export function ThumbImg({ src, title, className }: { src: string; title: string; className?: string }) {
+  const [ready, setReady] = useState(false);
+  return (
+    <>
+      {!ready ? (
+        <span className="absolute inset-0 animate-pulse bg-ink-200 dark:bg-ink-800" aria-hidden="true" />
+      ) : null}
+      <img
+        src={src}
+        alt={title}
+        loading="lazy"
+        onLoad={() => setReady(true)}
+        onError={(e) => {
+          // graceful fallback: swap to a neutral 16:9 placeholder image
+          e.currentTarget.style.display = 'none';
+          setReady(true);
+        }}
+        className={cx(
+          'h-full w-full object-cover transition-transform duration-500 group-hover/frame:scale-[1.06]',
+          !ready && 'opacity-0',
+          className,
+        )}
+      />
+    </>
+  );
+}
+
+/** Small playlist cover tile (uses first-video frame captured per playlist). */
+export function PlaylistThumb({ playlistId, title }: { playlistId?: string; title: string }) {
+  const preview = playlistId ? PLAYLIST_PREVIEWS[playlistId] : undefined;
+  return (
+    <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-ink-800 via-ink-900 to-accent-950">
+      {preview ? (
+        <ThumbImg src={ytThumbFor(undefined, playlistId)} title={title} />
+      ) : (
+        <span className="absolute inset-0 grid place-items-center text-ink-400">
+          <ListVideo className="h-8 w-8" />
+        </span>
+      )}
+      <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+      <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white">
+        <ListVideo className="h-3 w-3" />
+        Playlist
+      </span>
+    </div>
+  );
+}
+
+export interface VideoThumbProps {
+  videoId?: string;
+  playlistId?: string;
+  title: string;
+  className?: string;
+  onClick?: () => void;
+  /** render as inline-embed trigger instead of an <a> */
+  interactive?: boolean;
+}
+
+/** 16:9 video frame with real thumbnail. Click plays inline or opens YouTube. */
 export function YouTubeThumb({
   videoId,
   playlistId,
   title,
   className,
-}: {
-  videoId?: string;
-  playlistId?: string;
-  title: string;
-  className?: string;
-}) {
+  onClick,
+  interactive = false,
+}: VideoThumbProps) {
+  const preview = videoId ?? (playlistId ? PLAYLIST_PREVIEWS[playlistId] : undefined);
+
+  const frame = (
+    <div
+      className={cx(
+        'group/frame relative block aspect-video w-full overflow-hidden bg-ink-100 dark:bg-ink-800',
+        className,
+      )}
+      role={interactive ? 'button' : undefined}
+      tabIndex={interactive ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (!interactive) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      onClick={() => (interactive ? onClick?.() : undefined)}
+    >
+      {preview ? (
+        <>
+          <ThumbImg src={`https://i.ytimg.com/vi/${preview}/hqdefault.jpg`} title={title} />
+          <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <span className="pointer-events-none absolute inset-0 grid place-items-center">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover/frame:scale-110 group-hover/frame:bg-accent">
+              {playlistId ? (
+                <ListVideo className="h-5 w-5 text-accent" />
+              ) : (
+                <Play className="h-6 w-6 translate-x-0.5 text-red-600" />
+              )}
+            </span>
+          </span>
+          <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white">
+            {playlistId ? 'Playlist' : 'Play'}
+            <ExternalLink className="h-3 w-3" />
+          </span>
+        </>
+      ) : (
+        <span className="grid h-full place-items-center gap-1 text-xs text-ink-400">
+          <Play className="h-5 w-5" />
+          Watch on YouTube
+        </span>
+      )}
+    </div>
+  );
+
+  if (interactive) return frame;
+
   const watchUrl = playlistId
     ? `https://www.youtube.com/playlist?list=${playlistId}`
     : `https://www.youtube.com/watch?v=${videoId}`;
+
   return (
     <a
       href={watchUrl}
@@ -164,35 +408,23 @@ export function YouTubeThumb({
         className,
       )}
     >
-      {videoId ? (
-        <>
-          <img
-            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
-            alt={title}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover/frame:scale-105"
-          />
-          <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-          <span className="absolute inset-0 grid place-items-center">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-lg transition-transform group-hover/frame:scale-110">
-              {playlistId ? (
-                <ListVideo className="h-5 w-5 text-accent" />
-              ) : (
-                <Play className="h-6 w-6 translate-x-0.5 text-red-600" />
-              )}
-            </span>
-          </span>
-          <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white">
-            {playlistId ? 'Playlist' : 'Watch'}
-            <ExternalLink className="h-3 w-3" />
-          </span>
-        </>
-      ) : (
-        <span className="grid h-full place-items-center gap-1 text-xs text-ink-400">
-          <Play className="h-5 w-5" />
-          Watch on YouTube
+      {preview ? (
+        <ThumbImg src={`https://i.ytimg.com/vi/${preview}/hqdefault.jpg`} title={title} />
+      ) : null}
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+      <span className="pointer-events-none absolute inset-0 grid place-items-center">
+        <span className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover/frame:scale-110 group-hover/frame:bg-accent">
+          {playlistId ? (
+            <ListVideo className="h-5 w-5 text-accent" />
+          ) : (
+            <Play className="h-6 w-6 translate-x-0.5 text-red-600" />
+          )}
         </span>
-      )}
+      </span>
+      <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white">
+        {playlistId ? 'Playlist' : 'Play'}
+        <ExternalLink className="h-3 w-3" />
+      </span>
     </a>
   );
 }
