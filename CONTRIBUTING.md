@@ -64,6 +64,23 @@ Do not guess or fabricate IDs — the project explicitly never links to broken v
 - Keep notes focused, accurate and consistent with the official syllabus. Note files are
   only exposed for the curated subject set in `src/data/mains.ts`.
 
+## Adding previous-year papers
+
+Papers arrive through the **`paper-submission.yml`** issue template (photo/PDF attachments).
+Moderation ritual — keep it to ~30 minutes per batch:
+
+1. **Verify** against the official scheme: correct year/session, correct subject, questions
+   match the subject's module list (scheme PDFs are on the BTEUP site).
+2. **Prepare the file**: crop/merge photos into one PDF, compress to ≤ ~8 MB
+   (ADR-3 — oversized scans go to a GitHub Release asset instead, store only the URL).
+3. **Place it**: `public/papers/<year>/<year>-<session>-s<sem>-<subject>.pdf`, e.g.
+   `public/papers/2024/2024-odd-s3-os.pdf`.
+4. **Index it**: add an entry to `src/data/papers/<year>.ts` with `source`, `sizeKb`,
+   `pages`, and `verified: true` **only after step 1**.
+5. **Credit the contributor** via `contributedBy` (their GitHub handle, or "anonymous").
+6. **OCR pass** (optional per batch): `scripts/extract-paper-text.mjs` (Phase 1.5) once the
+   pipeline lands — enables paper text search and "most asked" question ranking.
+
 ## Pull requests
 
 - Base PRs against the `main` branch.

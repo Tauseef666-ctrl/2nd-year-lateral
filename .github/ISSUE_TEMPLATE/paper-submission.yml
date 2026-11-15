@@ -1,0 +1,73 @@
+name: 📄 Share a previous-year paper
+description: Submit a BTEUP question paper (photo or PDF) so classmates can find it here
+title: "[paper] <year> <session> Sem <n> <subject>"
+labels: ["paper-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Two-minute guide:** photograph the paper page-by-page in good light (or use a
+        scanner app), then attach the photos/PDF below. A maintainer will verify it against
+        the official scheme, name it, run OCR and ship it in the next batch. Thank you —
+        you're directly helping your juniors.
+
+  - type: dropdown
+    id: year
+    attributes:
+      label: Exam year
+      options: ["2025", "2024", "2023", "2022", "2021", "older"]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: session
+    attributes:
+      label: Session
+      options: ["odd (Dec–Jan exam)", "even (May–Jun exam)"]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: semester
+    attributes:
+      label: Semester
+      options: ["3", "4", "5", "6", "1 (foundation)"]
+    validations:
+      required: true
+
+  - type: input
+    id: subject
+    attributes:
+      label: Subject code (from the site URL)
+      description: Open [2nd-year-lateral.vercel.app/subjects](https://2nd-year-lateral.vercel.app/subjects), pick the subject, copy the code from the URL — e.g. `os`, `dbms`, `java`, `mad`.
+      placeholder: e.g. os
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Paper kind
+      options: ["regular", "back (carry-over)", "special"]
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachment-notes
+    attributes:
+      label: Attach the paper
+      description: Drag the photos or PDF into this box. Please attach **every page**, in order, readable (not skewed, no fingers over text). If the photos are large, a single merged PDF is even better.
+      placeholder: Attach files here…
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: All pages are attached and readable
+        - label: Photos are of the actual question paper (not the admit card or answer sheet)
+        - label: I have no problem with this being published with credit (or asked to stay anonymous)
+    validations:
+      required: true
