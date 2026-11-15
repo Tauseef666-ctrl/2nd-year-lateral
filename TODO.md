@@ -196,17 +196,35 @@ Telegram channel has ≥ 20 members from the Phase-1 WhatsApp share.
 Current state: `src/data/quiz.ts` has a small MCQ bank; `src/pages/Quiz.tsx` supports
 subject-select → shuffle → reveal → score. Nothing persists.
 
-- [ ] **3.1 (S)** Extend `QuizQuestion` with `moduleId?` and `difficulty?`; backfill existing bank.
-- [ ] **3.2 (M)** Persist in `useStore`: `QuizAttemptRecord { id, date, subjectIds, total, score, wrongIds }` + per-question wrong-answer log.
-- [ ] **3.3 (M)** Three modes on `/quiz`: **Unit quiz** (pick subject → module), **Timed mock**
+- [x] **3.1 (S)** Extend `QuizQuestion` with `moduleId?` and `difficulty?`; backfill existing bank.
+      *(All 18 existing questions tagged to real curriculum modules (`os-m2`, `dbms-m5`, `c-m5`…)
+      + difficulty; bank subject `py` fixed to `python` so module links resolve.)*
+- [x] **3.2 (M)** Persist in `useStore`: `QuizAttemptRecord { id, date, subjectIds, total, score, wrongIds }` + per-question wrong-answer log.
+      *(Store fields shipped in Phase 0; the UI now writes attempts on every completion —
+      wrongIds logged per session (mock: wrong + unanswered), capped at 200.)*
+- [x] **3.3 (M)** Three modes on `/quiz`: **Unit quiz** (pick subject → module), **Timed mock**
       (BTEUP-style 25 MCQ / 20 min, uses tagged questions), **Retest wrong answers** (from stored wrongIds).
-- [ ] **3.4 (M)** Result screen v2: score %, per-unit breakdown bar, "weakest module" callout
+      *(Unit: subject → module chips with per-module counts. Mock: no mid-paper reveals, lock-&-next,
+      20:00 countdown with progress bar, auto-submit at zero, answer review at the end. Retest:
+      all-wrong-answers or latest-attempt pools; disabled with "nothing to retest yet" until the
+      first attempt has wrong answers.)*
+- [x] **3.4 (M)** Result screen v2: score %, per-unit breakdown bar, "weakest module" callout
       linking to that module's notes + its PYQ questions.
+      *(Per-module bars + weakest-module callout → `/subject/<id>` (notes) and
+      `/papers?subject=<id>` (PYQs). PYQ links light up fully once Phase 1.5 text lands.)*
 - [ ] **3.5 (M)** Bank growth: derive MCQs from extracted paper questions (Phase 1.5 output) +
       chapter notes. Target ≥ 25/core subject. Quality bar: every question keeps an `explanation`.
-- [ ] **3.6 (S)** Streaks: days-practiced counter in store; show flame on Home. (Cheap dopamine,
+      *(Engine ready — bank is 18 questions tagged by module+difficulty; growth is the content
+      pass that needs the 1.5 extraction pipeline (blocked on real PDFs) + notes-derived writing.)*
+- [x] **3.6 (S)** Streaks: days-practiced counter in store; show flame on Home. (Cheap dopamine,
       real retention.)
-- [ ] **3.7 (S)** Progress export/import JSON button (device switch without accounts).
+      *(`practiceDays` in the persisted store + `recordPracticeDay()` on completion; flame badge
+      on the Home hero (and Quiz header/result) via `computeStreak()` with a today-or-yesterday
+      grace rule.)*
+- [x] **3.7 (S)** Progress export/import JSON button (device switch without accounts).
+      *("Your progress" card on `/quiz`: exports `{ version: 1, state: { readModules,
+      quizAttempts, papersOpened, practiceDays } }` as a dated JSON download; import validates
+      shape and restores the four slices.)*
 
 **Gate 3:** ≥ 150 questions · mock mode timed & persisted · retest loop works · one friend has a
 7-day streak (proof of retention).
