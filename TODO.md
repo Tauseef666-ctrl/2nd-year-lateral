@@ -124,30 +124,36 @@ export interface PaperQuestion {
 
 ### Tasks
 
-- [ ] **1.1 (S)** Create `src/data/papers/index.ts` + one file per year (`2023.ts`, `2024.ts`…)
+- [x] **1.1 (S)** Create `src/data/papers/index.ts` + one file per year (`2023.ts`, `2024.ts`…)
       exporting `PAPERS: Paper[]`; helper `getPapersBySubject(subjectId)`.
 - [ ] **1.2 (M)** Collect & seed **first 10 papers by hand**: BTEUP official site old-paper
       section + seniors' WhatsApp archives. Save PDFs to `public/papers/<year>/`. Verify each
       (`verified: true`) before commit.
-- [ ] **1.3 (M)** Build `src/pages/Papers.tsx` + route `/papers` in `src/App.tsx`:
+- [x] **1.3 (M)** Build `src/pages/Papers.tsx` + route `/papers` in `src/App.tsx`:
       filter by semester → subject → year/session/kind; mobile-first list; each paper card:
       [View] [Download] [size] [verified ✓ badge].
-- [ ] **1.4 (S)** Viewer: `<iframe src="<fileUrl>#view=FitH">` inline (works on Android WebView &
+- [x] **1.4 (S)** Viewer: `<iframe src="<fileUrl>#view=FitH">` inline (works on Android WebView &
       Chrome). Fallback button "Open in new tab". No pdf.js dependency for v1.
 - [ ] **1.5 (L)** Text extraction pipeline: `scripts/extract-paper-text.mjs` using `pdf-parse`
       (BTEUP papers are mostly typed PDFs; scanned ones skipped, flagged in data). Output →
       `src/data/papers/text/<paperId>.json` (array of PaperQuestion, raw). Run manually per batch.
-- [ ] **1.6 (M)** **Paper search**: extend `searchResourceText` (in `src/data/curriculum.ts`) or
+      *(Deferred until the first real PDFs exist — build and test against actual scans.)*
+- [x] **1.6 (M)** **Paper search**: extend `searchResourceText` (in `src/data/curriculum.ts`) or
       add `searchPapers(q)` — search question text; result card links straight to the paper +
       page anchor. Also surface papers on the existing `/search` page.
+      *(Plumbing live: `src/data/papers/search.ts` fetches per-paper text JSON chunks at
+      runtime (never bundled) with caching; `/search` shows a "Previous year papers" group
+      linking to `/papers?subject=<id>&paper=<id>`. Activates the moment 1.5 output exists.)*
 - [ ] **1.7 (M)** Unit tagging pass: for each extracted question set `moduleId` by hand
       (30 min/subject max). This is the seed of Phase 4 — don't skip.
-- [ ] **1.8 (M)** Contribution flow: new GitHub **issue template `paper-submission.yml`** (year,
+- [x] **1.8 (M)** Contribution flow: new GitHub **issue template `paper-submission.yml`** (year,
       semester, subject dropdowns + photo attach instructions). Moderation checklist lives in
       `CONTRIBUTING.md`: verify vs official scheme → rename file → run OCR script → PR.
-- [ ] **1.9 (S)** Cross-link: on every `Subject` page add a "Previous papers" chip →
+- [x] **1.9 (S)** Cross-link: on every `Subject` page add a "Previous papers" chip →
       `/papers?subject=<id>`; on Topic pages link questions tagged to that topic.
-- [ ] **1.10 (S)** Copyright hygiene: add a short "Papers & takedown" note to README — BTEUP
+      *(Chip live on Subject pages + sidebar nav + Home quick access. Topic-page question
+      links follow once 1.7 tagging data exists.)*
+- [x] **1.10 (S)** Copyright hygiene: add a short "Papers & takedown" note to README — BTEUP
       question papers are public exam documents; we index + credit; takedown honored via issue.
 
 **Gate 1:** ≥ 10 verified papers live for Sem 3/5 · `/papers` usable on a mid-range Android phone
