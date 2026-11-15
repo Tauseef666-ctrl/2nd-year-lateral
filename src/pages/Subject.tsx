@@ -5,6 +5,7 @@ import {
   BookOpen,
   CheckCircle2,
   ExternalLink,
+  FileText,
   FlaskConical,
   ListChecks,
   ListVideo,
@@ -71,6 +72,13 @@ export default function Subject() {
     <section className="space-y-8">
       <PageHeader eyebrow={`Semester ${subject.semester}`} title={subject.name}>
         <div className="flex flex-wrap gap-2">
+          <Link
+            to={`/papers?subject=${subject.id}`}
+            className="inline-flex items-center gap-1.5 rounded-xl bg-accent px-3 py-2 text-sm font-semibold text-white shadow-glow transition hover:bg-accent-600 dark:bg-accent-300 dark:text-ink-950 dark:hover:bg-accent-200"
+          >
+            <FileText className="h-4 w-4" />
+            Previous papers
+          </Link>
           <SubjectNotesPrintButton
             subjectId={subject.id}
             subjectName={subject.name}

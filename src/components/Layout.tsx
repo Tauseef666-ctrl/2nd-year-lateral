@@ -5,6 +5,7 @@ import {
   BookMarked,
   Brain,
   Clapperboard,
+  FileText,
   FlaskConical,
   GraduationCap,
   Home,
@@ -38,6 +39,7 @@ const navGroups = [
   {
     label: 'Library',
     items: [
+      { to: '/papers', label: 'Papers', icon: FileText },
       { to: '/one-shots', label: 'One-Shots', icon: Clapperboard },
       { to: '/playlists', label: 'Playlists', icon: ListVideo },
       { to: '/notes', label: 'Notes', icon: NotebookPen },

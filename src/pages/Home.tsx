@@ -337,8 +337,9 @@ export default function Home() {
         <h2 className="mb-4 font-display text-xl font-bold text-ink-950 dark:text-white">
           Quick access
         </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
           {[
+            { to: '/papers', label: 'Papers', icon: <FileText className="h-4 w-4" /> },
             { to: '/one-shots', label: 'One-Shots', icon: <Clapperboard className="h-4 w-4" /> },
             { to: '/playlists', label: 'Playlists', icon: <ListVideo className="h-4 w-4" /> },
             { to: '/notes', label: 'Notes', icon: <NotebookPen className="h-4 w-4" /> },
