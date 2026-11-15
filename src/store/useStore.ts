@@ -13,11 +13,14 @@ interface LearningState {
   quizAttempts: QuizAttemptRecord[];
   /** paperId → open count (papers page lands in Phase 1). */
   papersOpened: Record<string, number>;
+  /** ISO days (YYYY-MM-DD) on which a quiz was completed — powers the streak (TODO 3.6). */
+  practiceDays: string[];
   setTheme: (theme: 'light' | 'dark') => void;
   toggleTheme: () => void;
   setModuleRead: (moduleId: string, read: boolean) => void;
   recordQuizAttempt: (attempt: QuizAttemptRecord) => void;
   recordPaperOpen: (paperId: string) => void;
+  recordPracticeDay: () => void;
 }
 
 export const useLearningStore = create<LearningState>()(
@@ -27,6 +30,7 @@ export const useLearningStore = create<LearningState>()(
       readModules: {},
       quizAttempts: [],
       papersOpened: {},
+      practiceDays: [],
       setTheme: (theme) => set({ theme }),
       toggleTheme: () =>
         set((s) => ({ theme: s.theme === 'dark' ? 'light' : 'dark' })),
@@ -45,6 +49,14 @@ export const useLearningStore = create<LearningState>()(
         set((s) => ({
           papersOpened: { ...s.papersOpened, [paperId]: (s.papersOpened[paperId] ?? 0) + 1 },
         })),
+      recordPracticeDay: () =>
+        set((s) => {
+          const today = new Date();
+          const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+          if (s.practiceDays.includes(iso)) return s;
+          // Keep the tail only — streaks never look further back than ~a year.
+          return { practiceDays: [...s.practiceDays, iso].slice(-400) };
+        }),
     }),
     // Persist key contract: the pre-React theme boot in index.html reads
     // `bteup-library-storage` → `state.theme`. Do NOT rename.

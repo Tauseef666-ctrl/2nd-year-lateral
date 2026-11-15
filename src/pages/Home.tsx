@@ -8,6 +8,7 @@ import {
   Clapperboard,
   Download,
   FileText,
+  Flame,
   FlaskConical,
   GraduationCap,
   ListChecks,
@@ -27,6 +28,8 @@ import {
   getSubject,
 } from '../data/curriculum';
 import { getExamCountdown } from '../data/examEvents';
+import { useLearningStore } from '../store/useStore';
+import { computeStreak } from '../store/streak';
 import type { Semester } from '../types';
 import { Badge, CountUp, Reveal, REPO_URL, Card, cx } from '../components/ui';
 
@@ -121,6 +124,8 @@ const fmtShort = (iso?: string) =>
 export default function Home() {
   const notesCount = FLAT_TOPICS.filter((t) => t.notes && t.notes.length > 0).length;
   const examCountdown = getExamCountdown();
+  const practiceDays = useLearningStore((s) => s.practiceDays);
+  const streak = computeStreak(practiceDays);
 
   // Chapter-notes total is lazy-hydrated (TODO 0.4): the notes data lives in an
   // on-demand chunk shared with the notes pages, so only the count is needed here.
@@ -155,6 +160,12 @@ export default function Home() {
                 <BadgeCheck className="h-3 w-3" />
                 Link-audited {new Date().getFullYear()}
               </Badge>
+              {streak > 0 ? (
+                <Badge tone="mint" className="border-accent/40 bg-accent/10 text-accent dark:border-accent-300/40 dark:bg-accent-300/10 dark:text-accent-300">
+                  <Flame className="h-3 w-3" />
+                  {streak}-day streak
+                </Badge>
+              ) : null}
             </div>
             <h1 className="max-w-3xl font-display text-3xl font-bold leading-tight text-ink-950 dark:text-white sm:text-4xl lg:text-5xl">
               Your BTEUP CSE study{' '}
