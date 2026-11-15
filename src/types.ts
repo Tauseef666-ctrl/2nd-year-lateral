@@ -164,3 +164,15 @@ export interface PaperQuestion {
   marks?: number;
   type: 'theory' | 'numerical' | 'code' | 'mcq';
 }
+
+/** An exam-cycle milestone on the exam desk (Phase 2). Dates are ISO `YYYY-MM-DD`. */
+export interface ExamEvent {
+  id: string;
+  title: string;
+  kind: 'exam' | 'admit' | 'result' | 'reval' | 'form';
+  dateStart?: string; // undefined = to be announced
+  dateEnd?: string;
+  link?: string; // official BTEUP portal page only — never hosted here (ADR-4)
+  notes?: string;
+  attachments?: { label: string; url: string }[]; // official date-sheet PDFs etc.
+}
