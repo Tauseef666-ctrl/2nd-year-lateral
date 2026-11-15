@@ -4,6 +4,7 @@ import {
   ArrowUp,
   BookMarked,
   Brain,
+  CalendarClock,
   Clapperboard,
   FileText,
   FlaskConical,
@@ -58,6 +59,7 @@ const navGroups = [
   {
     label: 'Extras',
     items: [
+      { to: '/exam-desk', label: 'Exam Desk', icon: CalendarClock },
       { to: '/practicals', label: 'Practicals', icon: FlaskConical },
       { to: '/quiz', label: 'Quiz', icon: Brain },
       { to: '/college-assignments', label: 'College Assignments', icon: GraduationCap },

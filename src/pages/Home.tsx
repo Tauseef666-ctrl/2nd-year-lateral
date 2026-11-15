@@ -26,6 +26,7 @@ import {
   TOTAL_TOPICS,
   getSubject,
 } from '../data/curriculum';
+import { getExamCountdown } from '../data/examEvents';
 import type { Semester } from '../types';
 import { Badge, CountUp, Reveal, REPO_URL, Card, cx } from '../components/ui';
 
@@ -111,8 +112,15 @@ function SemesterCard({ semester }: { semester: Semester }) {
   );
 }
 
+/** Compact date for the exam banner: "17 Nov". */
+const fmtShort = (iso?: string) =>
+  iso
+    ? new Date(`${iso}T00:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
+    : 'TBA';
+
 export default function Home() {
   const notesCount = FLAT_TOPICS.filter((t) => t.notes && t.notes.length > 0).length;
+  const examCountdown = getExamCountdown();
 
   // Chapter-notes total is lazy-hydrated (TODO 0.4): the notes data lives in an
   // on-demand chunk shared with the notes pages, so only the count is needed here.
@@ -232,6 +240,49 @@ export default function Home() {
           delay={240}
         />
       </div>
+
+      {/* Exam season banner (TODO 2.5) — hidden when no dated events remain */}
+      {examCountdown ? (
+        <Link to="/exam-desk" className="group block">
+          <Card className="border-accent/30 bg-gradient-to-r from-accent/10 to-mint-400/10 p-5 transition hover:shadow-cardHover dark:border-accent-300/30">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="min-w-0">
+                <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-accent dark:text-accent-300">
+                  <BadgeCheck className="h-3.5 w-3.5" />
+                  {examCountdown.ongoing ? 'Happening now' : 'Exam season'}
+                </p>
+                <p className="mt-1 font-display text-base font-bold text-ink-950 dark:text-white">
+                  {examCountdown.event.title}
+                </p>
+                <p className="mt-0.5 text-xs text-ink-500 dark:text-ink-400">
+                  {examCountdown.event.dateEnd
+                    ? `${fmtShort(examCountdown.event.dateStart)} → ${fmtShort(examCountdown.event.dateEnd)}`
+                    : fmtShort(examCountdown.event.dateStart)}
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="text-right">
+                  <p className="font-display text-3xl font-bold text-accent dark:text-accent-300">
+                    {examCountdown.ongoing
+                      ? examCountdown.days === 0
+                        ? 'Final day'
+                        : `${examCountdown.days}d`
+                      : examCountdown.days === 0
+                        ? 'Today'
+                        : examCountdown.days === 1
+                          ? '1 day'
+                          : `${examCountdown.days}d`}
+                  </p>
+                  <p className="text-[11px] font-medium text-ink-400 dark:text-ink-500">
+                    {examCountdown.ongoing ? 'left in the window' : 'to go'}
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 shrink-0 text-ink-300 transition-all group-hover:translate-x-0.5 group-hover:text-accent dark:text-ink-500" />
+              </div>
+            </div>
+          </Card>
+        </Link>
+      ) : null}
 
       {/* How it works */}
       <Reveal>
