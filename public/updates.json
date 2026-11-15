@@ -1,0 +1,55 @@
+{
+  "generator": "bteup-cse-hub exam desk",
+  "site": "https://2nd-year-lateral.vercel.app",
+  "updated": "2026-11-15T09:18:41.116Z",
+  "events": [
+    {
+      "id": "odd-2026-form",
+      "title": "Odd-sem & special-back exam form",
+      "kind": "form",
+      "dateStart": "2026-10-24",
+      "dateEnd": "2026-10-31",
+      "notes": "Closed on Oct 31, 2026. Missed it? Contact your college exam cell immediately — late submission goes through the college, not this site."
+    },
+    {
+      "id": "odd-2026-admit",
+      "title": "Odd-sem & special-back admit cards",
+      "kind": "admit",
+      "dateStart": "2026-11-12",
+      "link": "https://bteup.ac.in/Eseva/Outerpages/StudentLogin.aspx",
+      "notes": "Released Nov 12, 2026. Log in with your enrollment number and password, download the PDF and print 2 copies. Check your name, roll number and exam centre the same day — errors take days to fix."
+    },
+    {
+      "id": "odd-2026-exam",
+      "title": "Odd-semester & special-back exams",
+      "kind": "exam",
+      "dateStart": "2026-11-17",
+      "dateEnd": "2026-12-05",
+      "link": "https://bteup.ac.in/PDFFILES/NEWS_639300327915482491.pdf",
+      "notes": "Nov 17 – Dec 5, 2026 for diploma odd semesters and special back papers. Reach the centre 30 minutes early; carry the printed admit card and college ID.",
+      "attachments": [
+        {
+          "label": "Odd-sem date sheet (PDF)",
+          "url": "https://bteup.ac.in/PDFFILES/NEWS_639300327915482491.pdf"
+        },
+        {
+          "label": "Special back date sheet (PDF)",
+          "url": "https://bteup.ac.in/PDFFILES/NEWS_639300329462542668.pdf"
+        }
+      ]
+    },
+    {
+      "id": "odd-2026-result",
+      "title": "Odd-semester & special-back results",
+      "kind": "result",
+      "link": "https://bteup.ac.in/webapp/AllNews.aspx",
+      "notes": "To be announced — BTEUP usually declares odd-sem results 4–6 weeks after exams end (expect Jan–Feb 2027). We add the direct portal link here the day it goes live; this news page is where it will surface first."
+    },
+    {
+      "id": "odd-2026-reval",
+      "title": "Revaluation / scrutiny window",
+      "kind": "reval",
+      "notes": "Opens shortly after results, via your college with a per-subject fee. Decide within days of the marksheet — the window is short. Link will be added when the notice is out."
+    }
+  ]
+}

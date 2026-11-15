@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>BTEUP CSE Hub — exam desk updates</title>
+    <link>https://2nd-year-lateral.vercel.app/exam-desk</link>
+    <description>Exam calendar, admit cards, results and revaluation windows for BTEUP diploma CSE (lateral entry). Links go to the official portal only.</description>
+    <language>en-in</language>
+    <lastBuildDate>Sun, 15 Nov 2026 09:18:41 GMT</lastBuildDate>
+    <item>
+      <title>Odd-semester &amp; special-back exams</title>
+      <link>https://bteup.ac.in/PDFFILES/NEWS_639300327915482491.pdf</link>
+      <guid isPermaLink="false">odd-2026-exam</guid>
+<pubDate>Tue, 17 Nov 2026 03:30:00 GMT</pubDate>
+      <description>Nov 17 – Dec 5, 2026 for diploma odd semesters and special back papers. Reach the centre 30 minutes early; carry the printed admit card and college ID. — Window: 2026-11-17 → 2026-12-05 — Official link: https://bteup.ac.in/PDFFILES/NEWS_639300327915482491.pdf</description>
+    </item>
+    <item>
+      <title>Odd-sem &amp; special-back admit cards</title>
+      <link>https://bteup.ac.in/Eseva/Outerpages/StudentLogin.aspx</link>
+      <guid isPermaLink="false">odd-2026-admit</guid>
+<pubDate>Thu, 12 Nov 2026 03:30:00 GMT</pubDate>
+      <description>Released Nov 12, 2026. Log in with your enrollment number and password, download the PDF and print 2 copies. Check your name, roll number and exam centre the same day — errors take days to fix. — Window: 2026-11-12 — Official link: https://bteup.ac.in/Eseva/Outerpages/StudentLogin.aspx</description>
+    </item>
+    <item>
+      <title>Odd-sem &amp; special-back exam form</title>
+      <link>https://2nd-year-lateral.vercel.app/exam-desk</link>
+      <guid isPermaLink="false">odd-2026-form</guid>
+<pubDate>Sat, 24 Oct 2026 03:30:00 GMT</pubDate>
+      <description>Closed on Oct 31, 2026. Missed it? Contact your college exam cell immediately — late submission goes through the college, not this site. — Window: 2026-10-24 → 2026-10-31</description>
+    </item>
+    <item>
+      <title>Revaluation / scrutiny window</title>
+      <link>https://2nd-year-lateral.vercel.app/exam-desk</link>
+      <guid isPermaLink="false">odd-2026-reval</guid>
+      <description>Opens shortly after results, via your college with a per-subject fee. Decide within days of the marksheet — the window is short. Link will be added when the notice is out. — Window: to be announced</description>
+    </item>
+    <item>
+      <title>Odd-semester &amp; special-back results</title>
+      <link>https://bteup.ac.in/webapp/AllNews.aspx</link>
+      <guid isPermaLink="false">odd-2026-result</guid>
+      <description>To be announced — BTEUP usually declares odd-sem results 4–6 weeks after exams end (expect Jan–Feb 2027). We add the direct portal link here the day it goes live; this news page is where it will surface first. — Window: to be announced — Official link: https://bteup.ac.in/webapp/AllNews.aspx</description>
+    </item>
+  </channel>
+</rss>
