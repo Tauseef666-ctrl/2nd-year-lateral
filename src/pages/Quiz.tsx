@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Brain, CheckCircle2, RotateCcw, Trophy, XCircle } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import { QUIZ_BANK, type QuizQuestion } from '../data/quiz';
 import { getAllSubjects } from '../data/curriculum';
 import { Badge, Card, cx } from '../components/ui';
@@ -65,6 +66,7 @@ export default function Quiz() {
 
   const nextQuestion = () => {
     if (currentIndex + 1 >= questions.length) {
+      track('quiz_complete', { score, total: questions.length });
       setPhase('result');
       return;
     }

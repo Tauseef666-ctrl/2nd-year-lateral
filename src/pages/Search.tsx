@@ -1,6 +1,7 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Search as SearchIcon, Sparkles } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import { ALL_SUBJECTS, FLAT_TOPICS, searchResourceText } from '../data/curriculum';
 import { Badge, Card, EmptyState, PageHeader, cx } from '../components/ui';
 
@@ -20,6 +21,17 @@ export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const results = useMemo(() => (q.trim() ? searchResourceText(q) : []), [q]);
+
+  // Track search intent (TODO 0.6): one event after the user pauses typing —
+  // never per keystroke, and only from 3+ characters.
+  useEffect(() => {
+    const query = q.trim();
+    if (query.length < 3) return;
+    const timer = setTimeout(() => {
+      track('search_query', { query, results: results.length });
+    }, 900);
+    return () => clearTimeout(timer);
+  }, [q, results.length]);
 
   const grouped = useMemo(() => {
     const map = new Map<string, typeof FLAT_TOPICS>();

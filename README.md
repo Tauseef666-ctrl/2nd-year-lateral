@@ -84,6 +84,7 @@ pick back in, edit one line in `src/data/mains.ts` or the semester file — no d
 | react-router-dom | 6 |
 | zustand (persist) | 5 |
 | lucide-react | icons |
+| @vercel/analytics | web analytics |
 
 ## Pages
 
