@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { ChevronDown, Download, NotebookPen } from 'lucide-react';
 import { CHAPTER_NOTES } from '../data/chapterNotes';
 import type { ChapterNote, NoteSection } from '../types';
+import { useLearningStore } from '../store/useStore';
 import { PrintPortal, cx } from './ui';
 
 export function renderInline(text: string): ReactNode {
@@ -85,25 +86,6 @@ function SectionCard({ section }: { section: NoteSection }) {
   );
 }
 
-const PROGRESS_KEY = (sid: string, moduleId: string) => `bteup-note-progress:${sid}:${moduleId}`;
-
-function readProgress(sid: string, moduleId: string): boolean {
-  try {
-    return localStorage.getItem(PROGRESS_KEY(sid, moduleId)) === 'done';
-  } catch {
-    return false;
-  }
-}
-
-function writeProgress(sid: string, moduleId: string, done: boolean) {
-  try {
-    if (done) localStorage.setItem(PROGRESS_KEY(sid, moduleId), 'done');
-    else localStorage.removeItem(PROGRESS_KEY(sid, moduleId));
-  } catch {
-    /* storage unavailable — ticks stay session-only */
-  }
-}
-
 export function ChapterNotes({
   subjectId,
   moduleId,
@@ -119,8 +101,10 @@ export function ChapterNotes({
     () => CHAPTER_NOTES[subjectId]?.find((n) => n.moduleId === moduleId),
     [subjectId, moduleId],
   );
+  const setModuleRead = useLearningStore((s) => s.setModuleRead);
+  // Read state lives in the persisted store (TODO 0.1/0.2) — one source of truth.
+  const done = useLearningStore((s) => Boolean(s.readModules[moduleId]));
   const [open, setOpen] = useState(defaultOpen);
-  const [done, setDone] = useState(() => readProgress(subjectId, moduleId));
   const [printAt, setPrintAt] = useState(0);
 
   if (!note) return null;
@@ -158,11 +142,7 @@ export function ChapterNotes({
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => {
-              const next = !done;
-              setDone(next);
-              writeProgress(subjectId, moduleId, next);
-            }}
+            onClick={() => setModuleRead(moduleId, !done)}
             className={cx(
               'rounded-lg border px-2.5 py-1.5 text-[11px] font-semibold transition',
               done

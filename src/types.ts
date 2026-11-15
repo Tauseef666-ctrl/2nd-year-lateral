@@ -128,3 +128,13 @@ export interface Semester {
   tagline: string;
   subjectIds: string[];
 }
+
+/** One completed quiz session — persisted for history, streaks and retest (Phase 3). */
+export interface QuizAttemptRecord {
+  id: string;
+  date: string; // ISO timestamp of completion
+  subjectIds: string[];
+  total: number;
+  score: number;
+  wrongIds: string[]; // question ids answered wrong — powers "retest wrong answers"
+}

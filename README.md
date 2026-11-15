@@ -128,7 +128,7 @@ src/
 │  ├─ chapterNotes.ts + notes/         # chapter notes for every subject
 │  ├─ quiz.ts                          # topic-wise MCQ bank
 │  └─ yt.ts                            # YouTube helpers, playlist preview registry
-└─ store/useStore.ts   # zustand persisted store (theme, …)
+└─ store/useStore.ts   # zustand persisted store (theme, read progress, quiz attempts, paper opens)
 ```
 
 ## Data integrity
