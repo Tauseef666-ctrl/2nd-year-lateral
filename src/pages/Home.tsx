@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import {
@@ -25,7 +26,6 @@ import {
   TOTAL_TOPICS,
   getSubject,
 } from '../data/curriculum';
-import { TOTAL_CHAPTER_NOTES } from '../data/chapterNotes';
 import type { Semester } from '../types';
 import { Badge, CountUp, Reveal, REPO_URL, Card, cx } from '../components/ui';
 
@@ -113,6 +113,23 @@ function SemesterCard({ semester }: { semester: Semester }) {
 
 export default function Home() {
   const notesCount = FLAT_TOPICS.filter((t) => t.notes && t.notes.length > 0).length;
+
+  // Chapter-notes total is lazy-hydrated (TODO 0.4): the notes data lives in an
+  // on-demand chunk shared with the notes pages, so only the count is needed here.
+  const [chapterNotesTotal, setChapterNotesTotal] = useState(0);
+  useEffect(() => {
+    let alive = true;
+    import('../data/chapterNotes')
+      .then((m) => {
+        if (alive) setChapterNotesTotal(m.TOTAL_CHAPTER_NOTES);
+      })
+      .catch(() => {
+        /* count stays 0 when the chunk fails — non-critical stat */
+      });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   return (
     <section className="space-y-10">
@@ -204,7 +221,7 @@ export default function Home() {
         <Stat label="Labs" value={TOTAL_LABS} icon={<FlaskConical className="h-4 w-4" />} delay={140} />
         <Stat
           label="Chapter notes"
-          value={TOTAL_CHAPTER_NOTES}
+          value={chapterNotesTotal}
           icon={<NotebookPen className="h-4 w-4" />}
           delay={190}
         />
