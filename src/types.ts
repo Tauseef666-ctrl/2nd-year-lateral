@@ -138,3 +138,29 @@ export interface QuizAttemptRecord {
   score: number;
   wrongIds: string[]; // question ids answered wrong — powers "retest wrong answers"
 }
+
+/** A BTEUP previous-year question paper (Phase 1 — the launch wedge). */
+export interface Paper {
+  id: string; // '2024-odd-s3-os'
+  year: number; // exam year
+  session: 'odd' | 'even';
+  semester: number; // 1, 3, 4, 5, 6 (lateral scheme)
+  subjectId: string; // must match Subject.id (e.g. 'os', 'dbms')
+  kind: 'regular' | 'back' | 'special';
+  fileUrl: string; // local /papers/... or a GitHub Release asset URL (ADR-3)
+  pages?: number;
+  sizeKb?: number; // shown on the paper card
+  extractedTextUrl?: string; // /data/papers/text/<id>.json — powers paper search
+  source: 'official' | 'contributed';
+  contributedBy?: string;
+  verified: boolean; // checked against the official scheme before commit
+}
+
+/** One extracted question from a paper (build-time pipeline output, Phase 1.5). */
+export interface PaperQuestion {
+  paperId: string;
+  moduleId?: string; // tag → powers "important questions" (Phase 4)
+  text: string;
+  marks?: number;
+  type: 'theory' | 'numerical' | 'code' | 'mcq';
+}
