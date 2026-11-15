@@ -46,6 +46,9 @@ topic to curated learning material so you can stop hunting for resources and foc
   offline). Subjects also offer **"Save all chapters as PDF"**.
 - **Practicals** — step-by-step lab exercises with concept, algorithm, expected output and
   common errors; plus an aggregate practicals page.
+- **Previous-year papers** — a student-built index of BTEUP question papers: filter by
+  semester → subject → year/session/kind, preview inline on the page, download for offline
+  revision. Contribution happens through a two-minute issue template.
 - **Animated, responsive UI** — scroll-reveal animations, route-transition progress bar,
   reading-progress on topic pages, count-up stats, back-to-top, `/` (or `Ctrl/Cmd + K`) to
   search, light & dark themes with no theme flash on load.
@@ -73,6 +76,15 @@ Every semester file keeps two exports: `SEMESTER_<n>_RAW` (the complete official
 `SEMESTER_<n>_SUBJECTS` (the curated set produced by an `EXCLUDED_<n>` filter). To swap a
 pick back in, edit one line in `src/data/mains.ts` or the semester file — no data is deleted.
 
+## Papers & takedown
+
+BTEUP question papers are **public examination documents**; the Board publishes them to
+students and they circulate freely among batches. This site indexes and hosts them for
+non-commercial study use, **credits every contributor**, and never sells or ads-wraps them.
+If you hold rights to a paper and object to its inclusion, open an issue (takedown) — it
+will be removed promptly, no questions asked. Storage follows ADR-3: small PDFs in
+`public/papers/<year>/`, oversized scans as GitHub Release assets.
+
 ## Stack
 
 | Tool | Version |
@@ -99,6 +111,7 @@ pick back in, edit one line in `src/data/mains.ts` or the semester file — no d
 | `/playlists` | Playlist library (real thumbnails, direct links) |
 | `/notes` | Chapter notes index |
 | `/practicals` | Practical labs index |
+| `/papers` | Previous-year papers — filters, inline viewer, downloads |
 | `/college-assignments` | Assignments reference |
 | `/search` | Global search (`/` or `Ctrl/Cmd + K` from anywhere) |
 
