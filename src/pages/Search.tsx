@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Search as SearchIcon, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, FileText, Search as SearchIcon, Sparkles } from 'lucide-react';
 import { track } from '@vercel/analytics';
 import { ALL_SUBJECTS, FLAT_TOPICS, searchResourceText } from '../data/curriculum';
+import { searchPapers, type PaperHit } from '../data/papers/search';
 import { Badge, Card, EmptyState, PageHeader, cx } from '../components/ui';
 
 const SUGGESTIONS = [
@@ -21,6 +22,27 @@ export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const results = useMemo(() => (q.trim() ? searchResourceText(q) : []), [q]);
+
+  /* Paper-question hits (TODO 1.6) — fetched from text chunks at runtime. */
+  const [paperHits, setPaperHits] = useState<PaperHit[]>([]);
+  useEffect(() => {
+    const query = q.trim();
+    let alive = true;
+    if (query.length < 3) {
+      setPaperHits([]);
+      return;
+    }
+    searchPapers(query)
+      .then((hits) => {
+        if (alive) setPaperHits(hits);
+      })
+      .catch(() => {
+        /* paper text chunks unavailable — topic results still render */
+      });
+    return () => {
+      alive = false;
+    };
+  }, [q]);
 
   // Track search intent (TODO 0.6): one event after the user pauses typing —
   // never per keystroke, and only from 3+ characters.
@@ -109,7 +131,7 @@ export default function Search() {
             </div>
           </div>
         </>
-      ) : results.length === 0 ? (
+      ) : results.length === 0 && paperHits.length === 0 ? (
         <EmptyState
           icon={<SearchIcon className="h-6 w-6" />}
           title={`Nothing found for “${q}”`}
@@ -117,7 +139,7 @@ export default function Search() {
         />
       ) : (
         <p className="text-xs font-medium text-ink-400">
-          {results.length} result{results.length === 1 ? '' : 's'} for “{q}”
+          {results.length + paperHits.length} result{results.length + paperHits.length === 1 ? '' : 's'} for “{q}”
         </p>
       )}
 
@@ -163,6 +185,44 @@ export default function Search() {
               </div>
             );
           })}
+        </div>
+      ) : null}
+
+      {paperHits.length > 0 ? (
+        <div>
+          <h2 className="mb-3 flex items-center gap-2 font-display text-lg font-bold text-ink-950 dark:text-white">
+            <FileText className="h-4 w-4 text-accent" />
+            Previous year papers
+            <span className="text-xs font-medium text-ink-400">{paperHits.length}</span>
+          </h2>
+          <div className="space-y-2.5">
+            {paperHits.map(({ paper, question }, i) => {
+              const s = ALL_SUBJECTS.find((x) => x.id === paper.subjectId);
+              return (
+                <Link
+                  key={`${paper.id}-${i}`}
+                  to={`/papers?subject=${paper.subjectId}&paper=${paper.id}`}
+                  onClick={focusInput}
+                  className="group block"
+                >
+                  <Card className="flex items-start gap-3 p-4 transition hover:shadow-cardHover">
+                    <div className="min-w-0 flex-1">
+                      <p className="line-clamp-2 text-sm font-semibold text-ink-900 transition group-hover:text-accent dark:text-ink-100">
+                        {question.text}
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        <Badge tone="accent">{s?.shortName ?? paper.subjectId}</Badge>
+                        <Badge tone="ink">{paper.year}</Badge>
+                        <Badge tone="ink">Sem {paper.semester}</Badge>
+                        {question.marks ? <Badge tone="ink">{question.marks} marks</Badge> : null}
+                      </div>
+                    </div>
+                    <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-ink-300 transition group-hover:text-accent" />
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       ) : null}
     </section>
