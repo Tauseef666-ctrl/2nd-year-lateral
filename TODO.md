@@ -68,15 +68,22 @@ Why first: everything later (papers search, quiz progress, SEO) sits on these ra
       ```
       Keep persist key `bteup-library-storage` (pre-React theme boot in `index.html` reads it — don't break that contract).
 - [x] **0.3 (S) Add `vercel.json`** with SPA rewrite (`"rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]`).
-- [ ] **0.4 (M) Route-level code splitting.** `React.lazy()` the heavy pages (`Notes`, `Papers`,
+- [x] **0.4 (M) Route-level code splitting.** `React.lazy()` the heavy pages (`Notes`, `Papers`,
       `Practicals`, `Quiz`). `src/data/chapterNotes.ts` wires *all* subject notes statically —
       verify the bundle cost; if large, lazy-import notes per subject.
-- [ ] **0.5 (S) Error boundary** component wrapping `<Routes>` in `src/App.tsx` + friendly
+      *(Done: Subject/Topic/Notes/Practicals/Quiz/OneShots/Playlists/Search/CollegeAssignments
+      lazy + vendor chunk. Notes measured at 115 kB gzip in one shared async chunk — per-subject
+      splitting NOT justified (notes are small; curriculum ~141 kB gzip in the eager chunk is the
+      real weight, Home needs it). Home's notes stat now lazy-hydrates via dynamic import so
+      notes leave the initial graph. Initial load ≈ 205 kB gzip.)*
+- [x] **0.5 (S) Error boundary** component wrapping `<Routes>` in `src/App.tsx` + friendly
       recovery screen (dark/light aware).
-- [ ] **0.6 (S) Analytics:** Vercel Web Analytics (one script tag) + track 3 events only:
+- [x] **0.6 (S) Analytics:** Vercel Web Analytics (one script tag) + track 3 events only:
       `paper_open`, `quiz_complete`, `search_query`. Nothing else. (Decision: Vercel Analytics
       over self-hosted umami for v1 — zero-ops wins.)
-- [ ] **0.7 (S) `robots.txt` + placeholder `sitemap.xml`** in `public/` (generator comes in Phase 5).
+      *(Wired: `quiz_complete` on result, debounced `search_query`. `paper_open` wires in
+      Phase 1 when the Papers page exists.)*
+- [x] **0.7 (S) `robots.txt` + placeholder `sitemap.xml`** in `public/` (generator comes in Phase 5).
 
 **Gate 0:** `npm run lint` + `npx tsc -b` + `npm run build` pass · deep link `/quiz` works on
 production URL · analytics sees events · bundle < 450 kB gzipped (check with `vite build --mode production` report).
