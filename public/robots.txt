@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://2nd-year-lateral.vercel.app/sitemap.xml
