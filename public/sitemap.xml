@@ -37,6 +37,16 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://2nd-year-lateral.vercel.app/papers</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://2nd-year-lateral.vercel.app/exam-desk</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
     <loc>https://2nd-year-lateral.vercel.app/college-assignments</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>

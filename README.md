@@ -112,6 +112,7 @@ will be removed promptly, no questions asked. Storage follows ADR-3: small PDFs 
 | `/notes` | Chapter notes index |
 | `/practicals` | Practical labs index |
 | `/papers` | Previous-year papers — filters, inline viewer, downloads |
+| `/exam-desk` | Exam calendar, admit-card walkthrough, results & reval links |
 | `/college-assignments` | Assignments reference |
 | `/search` | Global search (`/` or `Ctrl/Cmd + K` from anywhere) |
 
