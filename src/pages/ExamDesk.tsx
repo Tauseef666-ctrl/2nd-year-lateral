@@ -18,9 +18,10 @@ import {
 import { Badge, Card, PageHeader, cx } from '../components/ui';
 import type { ExamEvent } from '../types';
 
-/* Set the Telegram invite URL once the channel is live (TODO 2.4).
- * Empty string = the CTA renders as a "setting up" note instead of a dead link. */
-const TELEGRAM_URL = '';
+/* Live channel (TODO 2.4, connected 2026-11-15). Posts come from the bot
+ * (`scripts/telegram-digest.mjs` + `telegram.yml`): instant on data pushes,
+ * 07:00 IST digest while an exam countdown is active. */
+const TELEGRAM_URL = 'https://t.me/bteup_cse_hub';
 
 const KIND_META: Record<ExamEvent['kind'], { label: string; icon: typeof CalendarClock }> = {
   exam: { label: 'Exam', icon: CalendarClock },
@@ -311,8 +312,9 @@ export default function ExamDesk() {
         </h2>
         {TELEGRAM_URL ? (
           <p className="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            Every admit-card release, date-sheet change and result declaration gets pinned in
-            the Telegram channel — usually within the hour. No spam, exam season only.
+            Every admit-card release, date-sheet change and result declaration is posted to
+            the channel by the hub bot — instantly when the data changes here, plus a 7 AM
+            digest during exam season. No spam.
           </p>
         ) : (
           <p className="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">

@@ -1,0 +1,46 @@
+name: Telegram digest
+
+# TODO 2.4 — automated channel posts. Zero-install (the script has no deps;
+# Node strips the TS data types natively).
+#
+# One-time setup (maintainer):
+#   1. Create the public channel (e.g. @bteup_cse_hub)
+#   2. @BotFather → /newbot → copy the token
+#   3. Add the bot to the channel → Promote to admin (only "Post messages")
+#   4. Repo Settings → Secrets and variables → Actions → add:
+#        TELEGRAM_BOT_TOKEN = <token from BotFather>
+#        TELEGRAM_CHAT_ID   = @bteup_cse_hub
+#   5. Actions → "Telegram digest" → Run workflow (manual test)
+
+on:
+  schedule:
+    - cron: '30 1 * * *' # 07:00 IST daily — only posts while a countdown is live
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/papers/**'
+      - 'src/data/examEvents.ts'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    name: Post digest to channel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Post
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: node scripts/telegram-digest.mjs

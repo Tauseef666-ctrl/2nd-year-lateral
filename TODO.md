@@ -177,7 +177,10 @@ groups with a one-line pitch. This is where first users come from.
       Per ADR-4: link out only.
       *(Admit-card walkthrough: 5 steps + portal button + what's-on-the-card card. Results walkthrough + reval explainer. No results hosted — links out only.)*
 - [x] **2.4 (S)** "Get notified" = Telegram channel invite CTA + join buttons (no backend).
-      Pin latest events in channel; update `examEvents.ts` as BTEUP publishes.
+      **Automated (2026-11-15):** `scripts/telegram-digest.mjs` + `.github/workflows/telegram.yml`
+      post the countdown/papers status daily (07:00 IST) and on every papers/examEvents push —
+      zero maintainer time after one-time setup (secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`).
+      Still manual: creating the channel + bot once, and updating `examEvents.ts` as BTEUP publishes.
       *(CTA rendered with a "channel being set up" note until the invite URL exists — `TELEGRAM_URL` placeholder in ExamDesk.tsx; RSS/JSON feed links live meanwhile. Gate 2 needs the channel + ≥20 members.)*
 - [x] **2.5 (S)** Home page card: "Exam desk" entry point with next upcoming event ("Sem-3 exam
       starts in N days" — computed client-side).
