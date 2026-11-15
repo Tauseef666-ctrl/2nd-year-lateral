@@ -22,6 +22,7 @@ const Notes = lazy(() => import('./pages/Notes'));
 const Quiz = lazy(() => import('./pages/Quiz'));
 const CollegeAssignments = lazy(() => import('./pages/CollegeAssignments'));
 const Papers = lazy(() => import('./pages/Papers'));
+const ExamDesk = lazy(() => import('./pages/ExamDesk'));
 
 function ThemeSync() {
   const theme = useLearningStore((s) => s.theme);
@@ -63,6 +64,7 @@ export default function App() {
               <Route path="notes" element={<Notes />} />
               <Route path="quiz" element={<Quiz />} />
               <Route path="papers" element={<Papers />} />
+              <Route path="exam-desk" element={<ExamDesk />} />
               <Route path="college-assignments" element={<CollegeAssignments />} />
               <Route path="*" element={<NotFound />} />
             </Route>
