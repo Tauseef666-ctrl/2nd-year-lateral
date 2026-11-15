@@ -167,18 +167,24 @@ groups with a one-line pitch. This is where first users come from.
 
 ## 4 · Phase 2 — Exam desk: results, admit cards, notifications · ~3 days
 
-- [ ] **2.1 (S)** New page `src/pages/ExamDesk.tsx` + route `/exam-desk`. Sections:
+- [x] **2.1 (S)** New page `src/pages/ExamDesk.tsx` + route `/exam-desk`. Sections:
       **Exam calendar · Admit card · Results · Revaluation**.
-- [ ] **2.2 (M)** Data: `src/data/examEvents.ts` → `ExamEvent { id, title, kind: 'exam'|'admit'|'result'|'reval', dateStart, dateEnd, link, notes }`. Seed with current odd-sem cycle dates.
-- [ ] **2.3 (S)** Results & admit card: curated deep links to official BTEUP portal pages
+      *(Also: countdown hero, "Get notified" card, RSS/JSON feed links, sidebar nav entry.)*
+- [x] **2.2 (M)** Data: `src/data/examEvents.ts` → `ExamEvent { id, title, kind: 'exam'|'admit'|'result'|'reval', dateStart, dateEnd, link, notes }`. Seed with current odd-sem cycle dates.
+      *(5 events seeded from verified research 2026-11-15: form closed Oct 24–31, admit cards out Nov 12, exams Nov 17 – Dec 5 2026, result TBA (portal link lands the day it goes live), reval TBA. All 4 official URLs verified HTTP 200.)*
+- [x] **2.3 (S)** Results & admit card: curated deep links to official BTEUP portal pages
       (research exact URLs once, store here) + step-by-step "how to check" per event.
       Per ADR-4: link out only.
-- [ ] **2.4 (S)** "Get notified" = Telegram channel invite CTA + join buttons (no backend).
+      *(Admit-card walkthrough: 5 steps + portal button + what's-on-the-card card. Results walkthrough + reval explainer. No results hosted — links out only.)*
+- [x] **2.4 (S)** "Get notified" = Telegram channel invite CTA + join buttons (no backend).
       Pin latest events in channel; update `examEvents.ts` as BTEUP publishes.
-- [ ] **2.5 (S)** Home page card: "Exam desk" entry point with next upcoming event ("Sem-3 exam
+      *(CTA rendered with a "channel being set up" note until the invite URL exists — `TELEGRAM_URL` placeholder in ExamDesk.tsx; RSS/JSON feed links live meanwhile. Gate 2 needs the channel + ≥20 members.)*
+- [x] **2.5 (S)** Home page card: "Exam desk" entry point with next upcoming event ("Sem-3 exam
       starts in N days" — computed client-side).
-- [ ] **2.6 (M)** RSS-lite: expose `/updates` as a simple JSON/`feed.xml` generated from
+      *(Banner computes `getExamCountdown()` client-side: "Next up/Happening now", N days, links to `/exam-desk`; hides itself when no dated events remain.)*
+- [x] **2.6 (M)** RSS-lite: expose `/updates` as a simple JSON/`feed.xml` generated from
       `examEvents.ts` so power users can subscribe (also good GitHub Discussions hygiene).
+      *(`scripts/build-updates.mjs` runs on the `prebuild` hook — reads the TS data via Node type-stripping, writes `public/feed.xml` (RSS 2.0) + `public/updates.json`.)*
 
 **Gate 2:** exam calendar live with current cycle · admit-card walkthrough tested end-to-end ·
 Telegram channel has ≥ 20 members from the Phase-1 WhatsApp share.
