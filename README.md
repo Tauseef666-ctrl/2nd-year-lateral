@@ -17,7 +17,7 @@ _Made for the 2026–2027 lateral batch. Built and maintained by
 [![Links](https://img.shields.io/badge/video_links-oEmbed_verified-14b8a6)](#data-integrity)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[Features](#features) · [Curation policy](#curation-policy) · [Getting started](#getting-started) · [Project structure](#project-structure) · [Data integrity](#data-integrity) · [Contributing](#contributing) · [License](#license)
+[Features](#features) · [Screenshots](#screenshots) · [Curation policy](#curation-policy) · [Getting started](#getting-started) · [Project structure](#project-structure) · [Data integrity](#data-integrity) · [Contributing](#contributing) · [License](#license)
 
 </div>
 
@@ -27,6 +27,17 @@ This is a study companion built on the official BTEUP (Board of Technical Educat
 Pradesh) diploma syllabus for Computer Science — branch code **389**, session **2026–27**. It
 covers the **Foundation year** plus **Semesters 3 to 6**, mapping every official module and
 topic to curated learning material so you can stop hunting for resources and focus on studying.
+
+## Screenshots
+
+| Previous year papers | Exam desk |
+| --- | --- |
+| ![Previous year papers page](docs/screenshots/papers.png) | ![Exam desk page](docs/screenshots/exam-desk.png) |
+
+_Left: the papers bank — filter by semester → subject → year, preview inline, download; the
+bank grows from classmates' submissions via the [issue template](https://github.com/Tauseef666-ctrl/2nd-year-lateral/issues/new?template=paper-submission.yml).
+Right: the exam desk — live exam calendar, admit-card walkthrough and result links for the
+current BTEUP cycle._
 
 ## Features
 
