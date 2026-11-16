@@ -160,9 +160,10 @@ export interface PaperQuestion {
       30 min, validates against a textually-extracted subject index, saves
       `public/papers/<year>/<id>.pdf` and appends a `verified: false`,
       `source: 'contributed'` entry (auto-creates the year file + index spread when needed).
-      Maintainer flips `verified: true` after checking (6.3 ritual). Photos are politely
-      refused for now (scan-to-PDF guidance sent instead); offset state lives in the
-      Actions cache, never in the repo.
+      Maintainer flips `verified: true` after checking (6.3 ritual). Photos are
+      auto-converted to PDF via img2pdf (PDF files still preferred — Telegram
+      compresses photos); offset state lives in the Actions cache, never in
+      the repo. `/start` greets new users with the upload format.
 
 **Gate 1:** ≥ 10 verified papers live for Sem 3/5 · `/papers` usable on a mid-range Android phone
 on 3G (lazy-load PDFs, no giant bundle) · paper text searchable from global search · one classmate

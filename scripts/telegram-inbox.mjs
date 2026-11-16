@@ -4,7 +4,8 @@
  * on the site:
  *
  *   1. poll getUpdates (offset persisted via the workflow's Actions cache)
- *   2. accept private-chat PDF documents only (photos/other docs get a reply)
+ *   2. accept private-chat PDF documents; photos are auto-converted to PDF
+ *      (img2pdf lossless JPEG wrap, installed by the workflow)
  *   3. parse the caption: `sem3 os 2023` / `s4 dbms 2024 back`
  *      → semester, year, subjectId (validated against subject-index.json),
  *        kind (regular/back/special), session inferred from the semester parity
@@ -21,7 +22,9 @@
  * so importing them here is Node-safe. The semester data files are NOT
  * importable (extensionless `./yt` import) — hence the textual subject index.
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -85,8 +88,14 @@ function parseCaption(raw) {
   return { year, semester, subjectId: subject.id, shortName: subject.shortName, kind };
 }
 
+const FORMAT =
+  `Send the paper as a <b>PDF file</b> (attach → File) with a caption like:\n<code>sem3 os 2023</code>\n<code>s4 dbms 2024 back</code>\n\n• <b>semester</b> — sem3 … sem6 (or s3)\n• <b>subject</b> — short code (os, dbms, cn, web…)\n• <b>year</b> — exam year (2023/2024…)\n• optional: <code>back</code> for back papers\n\n📷 Photos work too (auto-converted to PDF) — but Telegram compresses photos, so PDF files stay the crispest.`;
+
 const helpText = (ctx = '') =>
-  `📄 <b>Paper upload format</b>\n\nSend the PDF with a caption like:\n<code>sem3 os 2023</code>\n<code>s4 dbms 2024 back</code>\n\n• <b>semester</b> — sem3 … sem6 (or s3)\n• <b>subject</b> — short code (os, dbms, cn, web…)\n• <b>year</b> — exam year (2023/2024…)\n• optional: <code>back</code> for back papers\n\nPDF only for now 🙏 — photos are not accepted yet; scan with CamScanner or Microsoft Lens.${ctx ? `\n\n⚠️ ${ctx}` : ''}`;
+  `📄 <b>Paper upload format</b>\n\n${FORMAT}${ctx ? `\n\n⚠️ ${ctx}` : ''}`;
+
+const welcomeText = () =>
+  `👋 <b>Welcome to the BTEUP CSE Hub paper bot!</b>\n\nOdd-sem exams: <b>Nov 17 → Dec 5</b>. Help your batch — every paper you share reaches everyone:\n\n${FORMAT}\n\n🔗 Papers live at: https://2nd-year-lateral.vercel.app/papers`;
 
 /* ── year-file plumbing ──────────────────────────────────────────────────── */
 
@@ -157,37 +166,17 @@ const yearHasId = (year, id) => {
   return existsSync(yearFile) && readFileSync(yearFile, 'utf8').includes(`id: '${id}'`);
 };
 
-/* ── process one document ────────────────────────────────────────────────── */
+/* ── landing: shared by document and photo flows ─────────────────────────── */
 
-async function handleDocument(msg, doc) {
+async function landPaper(msg, bytes, parsed, note = '') {
   const chatId = msg.chat.id;
-  const isPdf = doc.mime_type === 'application/pdf' || String(doc.file_name ?? '').toLowerCase().endsWith('.pdf');
-  if (!isPdf) return reply(chatId, helpText('Only PDF documents are accepted for now.'));
-  if ((doc.file_size ?? 0) > MAX_BYTES)
-    return reply(chatId, helpText('That PDF is over the 8 MB limit. Re-scan at a lower DPI — question papers compress well.'));
-
-  const parsed = parseCaption(msg.caption);
-  if (parsed.error) {
-    const hint = parsed.error === 'unknown subject'
-      ? `No subject matching your caption in semester ${parsed.semester}. Use the short code, e.g. <code>sem3 os 2023</code>.`
-      : '';
-    return reply(chatId, helpText(hint));
-  }
-
   const session = parsed.semester % 2 === 1 ? 'odd' : 'even';
   const id = `${parsed.year}-${session}-s${parsed.semester}-${parsed.subjectId}${parsed.kind === 'regular' ? '' : `-${parsed.kind}`}`;
   if (yearHasId(parsed.year, id)) return reply(chatId, `✅ Already on the hub: <code>${id}</code> — thanks anyway! 🙏`);
 
-  const file = await api('getFile', { file_id: doc.file_id });
-  const res = await fetch(`https://api.telegram.org/file/bot${token}/${file.file_path}`);
-  if (!res.ok) throw new Error(`file download failed: ${res.status}`);
-  const bytes = Buffer.from(await res.arrayBuffer());
-  if (bytes.length > MAX_BYTES) return reply(chatId, helpText('That PDF is over the 8 MB limit.'));
-
   const dir = join(root, 'public', 'papers', String(parsed.year));
   mkdirSync(dir, { recursive: true });
-  const pdfPath = join(dir, `${id}.pdf`);
-  writeFileSync(pdfPath, bytes);
+  writeFileSync(join(dir, `${id}.pdf`), bytes);
 
   const entry = {
     id,
@@ -205,8 +194,69 @@ async function handleDocument(msg, doc) {
 
   return reply(
     chatId,
-    `🎉 <b>Received!</b>\n<code>${id}</code> (${entry.sizeKb} kB) is queued for the hub — it goes live once reviewed. Thank you! 🙏\n\n🔗 https://2nd-year-lateral.vercel.app/papers`,
+    `🎉 <b>Received!</b>\n<code>${id}</code> (${entry.sizeKb} kB) is queued for the hub — it goes live once reviewed.${note} Thank you! 🙏\n\n🔗 https://2nd-year-lateral.vercel.app/papers`,
   );
+}
+
+const captionReject = (parsed, chatId) => {
+  const hint = parsed.error === 'unknown subject'
+    ? `No subject matching your caption in semester ${parsed.semester}. Use the short code, e.g. <code>sem3 os 2023</code>.`
+    : '';
+  return reply(chatId, helpText(hint));
+};
+
+async function handleDocument(msg, doc) {
+  const chatId = msg.chat.id;
+  const isPdf = doc.mime_type === 'application/pdf' || String(doc.file_name ?? '').toLowerCase().endsWith('.pdf');
+  if (!isPdf) return reply(chatId, helpText('Only PDF documents are accepted.'));
+  if ((doc.file_size ?? 0) > MAX_BYTES)
+    return reply(chatId, helpText('That PDF is over the 8 MB limit. Re-scan at a lower DPI — question papers compress well.'));
+
+  const parsed = parseCaption(msg.caption);
+  if (parsed.error) return captionReject(parsed, chatId);
+
+  const file = await api('getFile', { file_id: doc.file_id });
+  const res = await fetch(`https://api.telegram.org/file/bot${token}/${file.file_path}`);
+  if (!res.ok) throw new Error(`file download failed: ${res.status}`);
+  const bytes = Buffer.from(await res.arrayBuffer());
+  if (bytes.length > MAX_BYTES) return reply(chatId, helpText('That PDF is over the 8 MB limit.'));
+
+  return landPaper(msg, bytes, parsed);
+}
+
+/** Photos: Telegram compresses to ≤1280px JPEG — losslessly wrapped into a PDF
+ *  via img2pdf (installed by the workflow). A caption is required to route it. */
+async function handlePhoto(msg, photos) {
+  const chatId = msg.chat.id;
+  const parsed = parseCaption(msg.caption);
+  if (parsed.error) {
+    const hint = parsed.error === 'unknown subject'
+      ? `No subject matching your caption in semester ${parsed.semester}. Use the short code, e.g. <code>sem3 os 2023</code>.`
+      : 'Please send the photo again with a caption so I know which paper it is.';
+    return reply(chatId, `📷 Got your photo, but I need to know what it is.\n\n${helpText(hint)}`);
+  }
+
+  const file = await api('getFile', { file_id: photos[photos.length - 1].file_id });
+  const res = await fetch(`https://api.telegram.org/file/bot${token}/${file.file_path}`);
+  if (!res.ok) throw new Error(`photo download failed: ${res.status}`);
+  const jpg = Buffer.from(await res.arrayBuffer());
+
+  const tmp = mkdtempSync(join(tmpdir(), 'tg-inbox-'));
+  try {
+    const jpgPath = join(tmp, 'photo.jpg');
+    const pdfPath = join(tmp, 'photo.pdf');
+    writeFileSync(jpgPath, jpg);
+    const conv = spawnSync('img2pdf', [jpgPath, '-o', pdfPath], { encoding: 'utf8' });
+    if (conv.status !== 0 || !existsSync(pdfPath)) {
+      throw new Error(`img2pdf failed: ${conv.stderr || conv.error?.message || 'no output'}`);
+    }
+    const bytes = readFileSync(pdfPath);
+    if (bytes.length > MAX_BYTES)
+      return reply(chatId, 'That image converts to a PDF over the 8 MB limit — try a smaller photo.');
+    return landPaper(msg, bytes, parsed, '\n(📷 auto-converted from photo — PDF files stay crisper than photos)');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
 }
 
 /* ── poll loop ───────────────────────────────────────────────────────────── */
@@ -237,11 +287,14 @@ for (const update of updates.slice(0, MAX_UPDATES_PER_RUN)) {
     if (msg.document) {
       await handleDocument(msg, msg.document);
       landed += 1;
-    } else if (msg.photo || (msg.text && !msg.text.startsWith('/'))) {
+    } else if (msg.photo) {
+      await handlePhoto(msg, msg.photo);
+      landed += 1;
+    } else if (msg.text && ['/start', '/help', '/upload'].includes(msg.text)) {
+      await reply(msg.chat.id, welcomeText());
+    } else if (msg.text) {
       await reply(msg.chat.id, helpText());
     }
-    // /start, /help and other bot commands: silent ignore (BotFather handles
-    // the /start greeting; anything else gets the format reply above).
   } catch (err) {
     console.error(`[telegram-inbox] update ${update.update_id} failed: ${err.message}`);
     await reply(msg.chat.id, '😔 Something went wrong processing that file — please try again.').catch(() => {});

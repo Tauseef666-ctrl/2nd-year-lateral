@@ -48,6 +48,9 @@ jobs:
       - name: Build subject index
         run: node scripts/build-subject-index.mjs
 
+      - name: Install img2pdf (photo → PDF conversion)
+        run: pip install --quiet img2pdf
+
       - name: Poll inbox
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
