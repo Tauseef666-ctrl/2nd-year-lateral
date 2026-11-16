@@ -1,0 +1,76 @@
+name: Telegram inbox
+
+# TODO 1.11 — students DM paper PDFs to @Cse_hub_bot; this workflow polls the
+# bot every 30 min, validates captions against the subject index, downloads
+# the PDF (≤ 8 MB, ADR-3), appends a `verified: false` entry to the papers
+# data, and pushes. The digest workflow is then dispatched so the channel
+# announces the new content automatically.
+#
+# Uses the same TELEGRAM_BOT_TOKEN secret as telegram.yml.
+# Offset state persists via the Actions cache (rolling key — see below).
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: telegram-inbox
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    name: Poll DMs & land papers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore inbox offset
+        uses: actions/cache@v4
+        with:
+          path: scripts/.tg-inbox-offset.json
+          key: tg-inbox-${{ github.run_id }}
+          restore-keys: |
+            tg-inbox-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build subject index
+        run: node scripts/build-subject-index.mjs
+
+      - name: Poll inbox
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: node scripts/telegram-inbox.mjs
+
+      - name: Commit & push landed papers
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes — nothing to commit"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "bteup-inbox-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main
+          git add -A
+          git commit -m "chore(papers): bot inbox update"
+          git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Announce in channel
+        if: steps.commit.outputs.pushed == 'true'
+        run: gh workflow run telegram.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

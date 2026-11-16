@@ -155,6 +155,14 @@ export interface PaperQuestion {
       links follow once 1.7 tagging data exists.)*
 - [x] **1.10 (S)** Copyright hygiene: add a short "Papers & takedown" note to README — BTEUP
       question papers are public exam documents; we index + credit; takedown honored via issue.
+- [x] **1.11 (M) Telegram paper inbox (built 2026-11-16)** — students DM PDFs to `@Cse_hub_bot`
+      with a caption (`sem3 os 2023` / `s4 dbms 2024 back`); `telegram-inbox.yml` polls every
+      30 min, validates against a textually-extracted subject index, saves
+      `public/papers/<year>/<id>.pdf` and appends a `verified: false`,
+      `source: 'contributed'` entry (auto-creates the year file + index spread when needed).
+      Maintainer flips `verified: true` after checking (6.3 ritual). Photos are politely
+      refused for now (scan-to-PDF guidance sent instead); offset state lives in the
+      Actions cache, never in the repo.
 
 **Gate 1:** ≥ 10 verified papers live for Sem 3/5 · `/papers` usable on a mid-range Android phone
 on 3G (lazy-load PDFs, no giant bundle) · paper text searchable from global search · one classmate
@@ -312,6 +320,7 @@ admit cards ourselves · new frameworks (Next/Astro migration) · Android app be
 | Risk | Mitigation |
 | --- | --- |
 | Paper copyright complaints | Public exam docs + credit + instant takedown via issue (1.10) |
+| Junk uploads via the Telegram inbox | Caption must parse to a real subject · ≤ 8 MB · PDF-only · lands `verified: false` until reviewed (1.11 + 6.3) |
 | Official URLs change (results/admit) | Links centralized in `examEvents.ts`; weekly check ritual |
 | Bundle bloat (notes + paper text) | Lazy per-subject data (0.4); keep text as separate JSON chunks |
 | Single-maintainer burnout | Small phases, ship weekly, contributors pipeline (6.2) |
